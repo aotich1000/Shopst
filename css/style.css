@@ -18,6 +18,26 @@ body{
     width: 100%;
     height: fit-content;
 }
+.cart{
+  display: flex;
+  justify-content: center;
+  width: 12%;
+  height: auto;
+}
+.cart img{
+  width: 39%;
+  height: auto;
+}
+.user-ico{
+  display: flex;
+  justify-content: center;
+  width: 12%;
+  height: auto;
+}
+.user-ico img{
+  width: 39%;
+  height: auto;
+}
 .flex-container{
     display: flex;
     
@@ -29,6 +49,7 @@ body{
 .flex-wrap{
   flex-wrap: wrap;
 }
+
 .banner{
     width: 100%;
     height: auto;
@@ -141,16 +162,21 @@ body{
     margin-top: 2px;
 }
 .search-bar{
-  width: 25%;
+  width: 70%;
 }
 .search-bar input{
-    width: 100%;
+    width: 80%;
 }
 
 .logo{
+    width: 32%;
     flex-wrap: wrap;
     display: flex;
     align-content: center;
+}
+.logo h1{
+  margin-top: auto;
+  margin-bottom: auto;
 }
 /* Slideshow container */
 .slideshow-container {
@@ -263,3 +289,88 @@ body{
   width: 33.3%;
   text-align: center;
 }
+
+.width-100{
+  width: 100%;
+  height: auto;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.menu-ico{
+  display: none;
+}
+
+.menu-ico img{
+  width: 100%;
+  height: auto;
+}
+
+
+@media only screen and (max-width:400px) { 
+  .topbar{
+    display: none;
+  }
+  #menu{
+    display: none;
+  }
+  .logo{
+    width: 70%;
+  }
+  .card{
+    width: 47%;
+  }
+  .card:hover img{
+    transform: none;
+  }
+  .menu-ico{
+    display: block;
+    width: 20%;
+  }
+  .menu-ico img{
+    width: 65%;
+  }
+}
+
+
