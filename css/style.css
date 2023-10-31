@@ -162,10 +162,27 @@ body{
     margin-top: 2px;
 }
 .search-bar{
-  width: 70%;
+  width: 50%;
+  position: relative;
+  border-radius: 20px;
+  border: 2px solid rgb(118, 118, 118);
+  border-style: inset;
 }
 .search-bar input{
-    width: 80%;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 14px;
+  width: 90%;
+  height: 38px;
+  margin-left: 44px;
+  border: none;
+}
+.search-bar img{
+  width: 7%;
+  height: auto;
+  position: absolute;
+  top: 2px;
+  left: 11px;
 }
 
 .logo{
@@ -174,7 +191,7 @@ body{
     display: flex;
     align-content: center;
 }
-.logo h1{
+.logo h2{
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -299,7 +316,7 @@ body{
 .dropbtn {
   background-color: #04AA6D;
   color: white;
-  padding: 10px;
+  padding: 15px;
   font-size: 16px;
   border: none;
 
@@ -346,9 +363,25 @@ body{
   width: 100%;
   height: auto;
 }
+.menu{
+  margin-top: 5px;
+}
 
+.justify-content-center{
+  justify-self: center;
+  align-content: center;
+}
 
-@media only screen and (max-width:400px) { 
+.menu-item{
+  width: 10%;
+  padding: 15px;
+  background-color: #04AA6D;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 400px) { 
   .topbar{
     display: none;
   }
