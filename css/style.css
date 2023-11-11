@@ -330,7 +330,7 @@ body {
 
 .title-content {
   display: flex;
-  justify-content: center;
+
 }
 
 .title-content h2 {
@@ -339,7 +339,7 @@ body {
 
 .footer {
   border-top: 1px solid rgb(159, 159, 159);
-
+  margin-top: 15px;
 }
 
 .copyright {
@@ -436,6 +436,27 @@ body {
   background-color: #3e8e41;
 }
 
+.pagination{
+  display: flex;
+  justify-content: center;
+}
+
+.pagi-item{
+    padding: 5px 10px 5px 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: #64ba2a;
+    margin-right: 5px;
+    border: 1px solid #a2a1a1;
+}
+.pagi-item:hover{
+  background: #809970;  
+}
+.pagi-item.active{
+  background-color: rgb(213, 89, 89);
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
 @media only screen and (max-width: 400px) {
   .topbar {
     display: none;
