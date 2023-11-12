@@ -20,7 +20,7 @@ function createProduct() {
     localStorage.setItem('product', JSON.stringify(ProductArray));
 }
 var current_page = 1;
-var limit = 10;
+var limit = 5;
 var count_page;
 var productArray = JSON.parse(localStorage.getItem('product'));
 count_page = Math.ceil(productArray.length/limit);
@@ -45,7 +45,7 @@ function showProduct(title){
   var s ='';
   s += '<div class="title-content middle-content">'+
       '<h2>' + title +'</h2>'+
-      '<button>Xem thêm</button>'+
+      '<a src="#" id="xemthem">Xem thêm >></a>'+
       '</div>';
 
   var a =''
@@ -136,4 +136,12 @@ function loadPage(num_page){
 
   // document.getElementById('pagi').innerHTML=s;
   return s;
+}
+xemThem();
+
+function xemThem(){
+  var xt = document.getElementById('xemthem').addEventListener('click', function(event){
+    event.preventDefault();
+    console.log('check');
+  });
 }

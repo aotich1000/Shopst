@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Roboto;
+  src: url(../font/Roboto-Medium.ttf);
+}
+
 body {
   margin: 0;
 }
@@ -333,8 +338,18 @@ body {
 
 }
 
+.title-content a{
+  font-family: cursive;
+  border: none;
+  background-color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
 .title-content h2 {
   border-bottom: 5px solid red;
+  font-weight: normal;
+  font-family: roboto;
 }
 
 .footer {
@@ -439,23 +454,60 @@ body {
 .pagination{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .pagi-item{
     padding: 5px 10px 5px 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-    background: #64ba2a;
-    margin-right: 5px;
-    border: 1px solid #a2a1a1;
+    font-size: 20px;
+    /* font-weight: 500; */
+    color: rgb(53, 53, 53);
+    background: #ffffff;
+    margin-right: 3px;
+    border: 1px solid #dedede;
+    border-radius: 3px;
 }
 .pagi-item:hover{
-  background: #809970;  
+  background: #6951ee; 
+  color: white; 
 }
 .pagi-item.active{
-  background-color: rgb(213, 89, 89);
+  background-color: #6951ee;
+  color: #ffffff;
 }
+
+/* Style the list */
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
 .pagination a:hover:not(.active) {background-color: #ddd;}
 @media only screen and (max-width: 400px) {
   .topbar {
