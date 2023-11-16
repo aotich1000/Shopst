@@ -146,15 +146,226 @@ body {
   color: black;
 }
 
-.card-overlay {
-  transition: .5s ease;
+.card-overlay{
+  width: 80%;
+  height:20%;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+  transition:0.5s ease;
   opacity: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.card:hover .card-overlay{
+  display: block;
+  opacity: 1;
+}
 
+.card-overlay .overlay-item{
+  background-color: #fff;
+  height: 50%;
+}
+
+.card-overlay .overlay-item a{
+  cursor: pointer;
+}
+.card-overlay .overlay-item a:hover{
+  color: #04AA6D;
+}
+
+/* ProductInfo */
+.modal{
+  display:flex;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.6);
+	position: fixed;
+	top:0;
+	left: 0;
+	display: none;
+	z-index: 10;
+	overflow-y: auto;
+}
+
+#productInfo #info{
+	height: 600px;
+	width: 1000px;
+	background-color: #fff;
+	margin: 50px auto;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 50px 20px 20px;
+	position: relative;
+	animation: topdown 0.5s;
+	z-index: 20;
+  border-radius: 20px;
+  gap:50px;
+}
+
+#productInfo #info .close{
+	position: absolute;
+	right: 15px;
+	top: 0px;
+	font-size: 35pt;
+	transform: rotate(45deg);
+	background-color: transparent;
+	cursor: pointer;
+	outline: none;
+  border: none;
+}
+#productInfo #info .close:hover{
+	color: #c9cbce;
+}
+#productInfo #info .left{
+	width: 450px;
+  height: 100%;
+	align-self: center;
+}
+#productInfo #info .left #imgbig{
+	width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#productInfo #info .right{
+	height: 100%;
+	width: 450px;
+}
+
+.right .right-flex{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom:20px ;
+}
+
+#productInfo #info .right #productname{
+	font-size: 25px;
+  margin:10px 0 ;
+}
+
+#productInfo #info .right #share-buttons{
+  display: flex;
+  align-items: center;
+}
+
+#productInfo #info .right #share-buttons i {
+  width: 100%;
+  font-size: 30px;
+}
+.facebook {
+    color: #3b5998;
+    width: 30px;
+    margin-right:10px;
+}
+.twitter {
+    color: #55acee;
+    width: 30px;
+    margin-right:10px;
+}
+
+.reddit {
+    color: #cb2027;
+    width: 30px;
+    margin-right:10px;
+}
+
+.telegram {
+    color: #229ED9;
+    width: 30px;
+    margin-right:10px;
+}
+
+.facebook:hover, .twitter:hover, .reddit:hover, .telegram:hover {
+  opacity: 0.6;
+}
+
+#productInfo #info .right .callphone a{
+   color:#ffb200;
+}
+
+#productInfo #info .right #productprice{
+	font-size: 25px;
+	margin: 20px 0;
+}
+#productInfo #info .right #size{
+	font-size: 16pt;
+	padding: 5px 30px;
+	border: 2px solid #ced4da;
+	margin: 10px 0 20px;
+  border-radius: 30px;
+}
+#productInfo #info .right #quantity{
+  border: 0;
+	font-size: 16pt;
+	width: 80px;
+	height: 40px;
+	padding: 5px;
+  border-top: 1px solid #ced4da;
+  border-bottom: 1px solid #ced4da;
+	margin: 10px 0 20px;
+	text-align: center;
+}
+#productInfo #info .right .quantitydown{
+  border: 1px solid #ced4da;
+	display: inline-block;
+	font-size: 16pt;
+	color: #000;
+	width: 50px;
+	height: 40px;
+	border-right: none;
+  border-radius: 999px 0 0 999px;
+	background-color: #fff;
+	outline: none;
+	cursor: pointer;
+}
+#productInfo #info .right .quantityup{
+  border: 1px solid #ced4da;
+	display: inline-block;
+	font-size: 16pt;
+	color: #000;
+	width: 50px;
+	height: 40px;
+	border-radius: 0 999px 999px 0;
+	border-left: none;
+	background-color: #fff;
+	outline: none;
+	cursor: pointer;
+}
+#productInfo #info .right .quantityup:active , #productInfo #info .right .quantitydown:active{
+	background-color: #ff4700;
+	color: #fff;
+}
+#productInfo #info .right .addtocart{
+	display: block;
+	cursor: pointer;
+	font-size: 16pt;
+	padding: 10px 30px;
+	background-color: #088178;
+	color: #fff;
+	border: 2px solid #fff;
+  border-radius: 30px;
+  margin-bottom: 30px;
+}
+#productInfo #info .right .addtocart:hover{
+	background-color: #fff;
+	color: #088178;
+	border: 2px solid #fff;
+}
+
+#productInfo #info .right .r-note{
+  display: flex;
+  align-items: center;
+  gap:15px;
+}
+
+#productInfo #info .right .r-note i{
+  color: #cb2027;
+}
+
+
+
+/* Login */
 .login-place {
   display: flex;
   justify-content: right;
@@ -510,6 +721,11 @@ ul.breadcrumb li a {
 ul.breadcrumb li a:hover {
   color: #01447e;
   text-decoration: underline;
+}
+
+@keyframes topdown{
+  0% {transform: translateY(-800px)}
+  100% {transform: translateY(0)}
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
