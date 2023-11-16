@@ -79,16 +79,93 @@ function showProduct(id){
                   '<a href="#">Thêm vào giỏ hàng</a>'+
               '</div>'+
               '<div class="overlay-item">'+
-                  '<a href="#"> Chi tiết </a>'+
+                  '<a onclick="showProductInfo('+productArray[i].productId+')"> Chi tiết </a>'+
               '</div>'+
           '</div> </div>';
   }
   // console.log(current_page);
-  s +=  '<div class="container"><div class="flex-container middle-content flex-wrap">' + a +'</div>' + loadPage() + '</div>';
+  s +=  '<div class="container"><div class="flex-container middle-content flex-wrap">' + a +'</div>' + loadPage() + blockProductInfo() + '</div>';
 
   document.getElementById(id).innerHTML=s;
   }
 }
+
+
+function blockProductInfo()
+{
+  var s='';
+  var a= '<div id="info">'+
+     '<button type="button" class="close" onClick="closeProductInfo()">+</button>'+
+      '<div class="left">'+
+          '<img id="imgbig" src="">'+
+      '</div>'+
+      '<div class="right">'+
+          '<h2 id="productname"></h2>'+
+          '<h4 id="productprice"></h4>'+
+          '<div class="right-flex">'+
+          '<h4>Số lượng</h4>'+
+          '<div>'+
+          '<button class="quantitydown" onClick="quantitydown()">-</button><input type="text" id="quantity" value="1"><button class="quantityup" onClick="quantityup()">+</button>'+
+         '</div>'+
+          '</div>'+
+          '<button class="addtocart">Thêm vào giỏ</button>'+
+          '<div id="share-buttons">'+
+              '<a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>'+
+              '<a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>'+                          
+              '<a class="reddit" target="blank"><i class="fab fa-reddit"></i></a>'+                         
+              '<a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>'+          
+          '</div>'+
+
+            '<div class="callphone">'+
+              '<p>Gọi mua hàng:'+
+                '<a>1111.1111.111</a>'+
+                '<span>(9h-16h)</span>'+
+              '</p>'+
+            '</div>'+
+                '<div class="r-note"><i class="fa-solid fa-truck-fast fa-lg"></i><p>Giao hàng tận nơi</p></div>'+
+                '<div class="r-note"><i class="fa-solid fa-hand-holding-dollar fa-lg"></i><p>Ưu đãi mỗi ngày</p></div>'+
+                '<div class="r-note"><i class="fa-regular fa-credit-card fa-lg"></i></i><p>Thanh toán COD,BANK,MOMO</p></div>'+
+      '</div>'+
+  '</div>';
+s='<div id="productInfo" class="modal">'+a+'</div>';
+return s;
+}
+
+
+function showProductInfo(productid)
+{
+  document.getElementById('productInfo').style.display = 'block';
+  var productArray=JSON.parse(localStorage.getItem('product'));
+  for(var i=0;i<productArray.length;i++){
+		if(productArray[i].productId==productid){
+			document.getElementById('productname').innerHTML = productArray[i].nameP;
+			document.getElementById('productprice').innerHTML = 'Giá: '+ currency(productArray[i].price);
+			document.getElementById('imgbig').src='./img/'+productArray[i].img;
+			document.getElementById('quantity').value = 1;
+			//document.querySelector('#info .right button.addtocart').setAttribute();
+		}
+	}
+const link = encodeURI(window.location.href);
+const msg = encodeURIComponent('Product here');
+const title = encodeURIComponent('Welcome');
+
+const fb = document.querySelector('.facebook');
+fb.href = `https://www.facebook.com/share.php?u=${link}`;
+
+const twitter = document.querySelector('.twitter');
+twitter.href = `http://twitter.com/share?&url=${link}&text=${msg}&hashtags=javascript,programming`;
+
+const reddit = document.querySelector('.reddit');
+reddit.href = `http://www.reddit.com/submit?url=${link}&title=${title}`;
+
+const telegram = document.querySelector('.telegram');
+telegram.href = `https://telegram.me/share/url?url=${link}&text=${msg}`;
+}
+function closeProductInfo(){
+
+	document.getElementById('productInfo').style.display = 'none';
+}
+
 
 
 function showArray(){
