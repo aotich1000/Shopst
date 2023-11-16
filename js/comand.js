@@ -56,11 +56,6 @@ count_page = Math.ceil(productArray.length/limit);
                         </div> */}
 function showProduct(id){
   var s ='';
-  // s += '<div class="title-content middle-content">'+
-  //     '<h2>' + title +'</h2>'+
-  //     '<a href="#" id="xemthem">Xem thêm >></a>'+
-  //     '</div>';
-
   var a =''
   var productArray = JSON.parse(localStorage.getItem('productpagi'));
   if (productArray && productArray.length > 0) {
@@ -273,5 +268,26 @@ function showBanner(){
     s+= '</div></div>';
     document.getElementById('banner').innerHTML=s;
     showSlides();
+    
 }
 
+function showTitle(title){
+  var s = '';
+  s += '<div class="title-content middle-content">'+
+      '<h2>' + title +'</h2>'+
+      '<a href="#" id="xemthem">Xem thêm >></a>'+
+      '</div>';
+  return s;
+}
+
+loadWebsite();
+
+function loadWebsite(){
+  window.addEventListener('load', function(){
+    var Banner = this.document.createElement('div');
+    Banner.id = 'banner';
+    this.document.getElementById('main').appendChild(Banner);
+    showBanner();
+    
+  })
+}
