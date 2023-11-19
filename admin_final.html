@@ -1,0 +1,132 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="test.css">
+        <script src="https://kit.fontawesome.com/3f8e28fbcf.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        
+        <!-- <div id="superBody"> -->
+            <div class="sidebar">
+                <ul class="menu">
+                    <li class="active">
+                        <a href="#">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Trang Chủ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Thêm Sản Phẩm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span>Quản Lí Sản Phẩm </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-receipt"></i>
+                            <span>Quản Lí Đơn Hàng </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span>Thống kê</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            
+            <div id="content" style="position: relative;">
+              
+                <div class="top">
+                    <div class="top1">
+                        <h3>_Admin</h3>
+                        <h1>Chào mừng bạn trở lại !</h1>
+                    </div>
+                    <div class="top2">
+                        <a href="#">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span onclick="exitWebsite()">Logout</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="addProduct">
+                    <div>
+                        <div id="h2-add">
+                            <h2>Thêm Sản Phẩm</h2>
+                        </div>
+                        <div id="h2-cha">
+                            <h2>Sửa Sản Phẩm</h2>
+                        </div>
+                    </div>
+                    <form action="" id="addProductForm">
+                        <div class="add-table">
+                            <div>
+                                <label for="productId">ID :</label>
+                                <input type="text" name="id" id="productId" required>
+                            </div>
+                            <div>
+                                <label for="productImg">Ảnh : </label>
+                                <input type="file" name="img" id="productImg" required>
+                            </div>
+                            <div>
+                                <label for="productCost">Giá cả : </label>
+                                <input type="text" name="cost" id="productCost" required>
+                            </div>
+                            <div>
+                                <label for="productName">Tên Sản Phẩm : </label>
+                                <input type="text" name="name" id="productName" required>
+                            </div>
+                            
+                        </div>
+                        <div>
+                            <input id="index" type="hidden">
+                        </div>
+                        <div style="display: flex; justify-content: space-evenly;">
+                            <input style="border-radius: 5px; font-weight: bolder; font-family: monospace; font-size: 16px;" type="submit" id="add-submit" value="Sumit">
+                            <input style="border-radius: 5px; font-weight: bolder; font-family: monospace; font-size: 16px; display: none;" type="submit" id="add-update" value="Update"  onclick="changeProduct()">
+                        </div>
+                    </form>
+                </div>
+
+                <div id="listproduct">
+                    <h2 class="text">Danh Sách Sản Phẩm</h2>
+                    <div id = "productList">
+                        <table id="itemTable">
+                            <thead>
+                            <tr>
+                                <th>#ID</th>
+                                <th>#Image</th>
+                                <th>#Name</th>
+                                <th>#Cost</th>
+                                <th>#Thao tác</th>
+                            </tr>
+                            </thead>
+                            <tbody id="itemTableBody"></tbody>
+                        </table>
+                    </div>
+                    <div id="numberPage">
+                          <ul id="pagination">
+
+                          </ul>
+                    </div>
+                </div>
+                
+                <div id="overlay"></div>
+            </div>    
+        <!-- </div> -->
+        <script src="./test.js"></script>
+    </body>
+    </html>
