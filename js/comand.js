@@ -54,7 +54,7 @@ count_page = Math.ceil(productArray.length/limit);
                                 <a href="#"> Chi tiết
                             </div>
                         </div> */}
-function showProduct(id){
+function showProduct(){
   var s ='';
   var a =''
   var productArray = JSON.parse(localStorage.getItem('productpagi'));
@@ -71,17 +71,17 @@ function showProduct(id){
           '</div>'+
           '<div class="card-overlay hidden">'+
               '<div class="overlay-item">'+
-                  '<a href="#">Thêm vào giỏ hàng</a>'+
+                  '<a onclick="showProductInfo('+productArray[i].productId+')"> Xem chi tiết </a>'+
               '</div>'+
               '<div class="overlay-item">'+
-                  '<a onclick="showProductInfo('+productArray[i].productId+')"> Chi tiết </a>'+
+                  '<a href="#"> + Thêm vào giỏ hàng</a>'+
               '</div>'+
           '</div> </div>';
   }
   // console.log(current_page);
   s +=  '<div class="container"><div class="flex-container middle-content flex-wrap">' + a +'</div>' + loadPage() + blockProductInfo() + '</div>';
 
-  document.getElementById(id).innerHTML=s;
+  return s;
   }
 }
 
@@ -235,7 +235,7 @@ function list_product_pagi(page_num,id,category){
     
     current_category = category;
     current_page = page_num;
-    showProduct(id);
+    document.getElementById(`${id}`).innerHTML = showProduct();
     // console.log(loadPage(current_page));
     // loadPage(1);
     // console.log(current_page);
@@ -323,9 +323,12 @@ function changePage(){
 
 var limit_banner = 3;
 // showBanner();
-function showBanner(){
-  var s='<div class="banner">'+
-        '<div class="container flex-container">'+
+function showBanner(id){
+  var Banner = this.document.createElement('div');
+    Banner.id = 'banner';
+    Banner.className = 'banner';
+    this.document.getElementById(`${id}`).appendChild(Banner);
+  var s='<div class="container flex-container">'+
         '<div class="slideshow-container">';
   var j = 1;
   var BannerArray = JSON.parse(localStorage.getItem('banner'));
@@ -342,7 +345,7 @@ function showBanner(){
     s+= '<span class="dot" onclick="currentSlide('+j+')"></span>';
     j++;
   }
-    s+= '</div></div>';
+    s+= '</div>';
     document.getElementById('banner').innerHTML=s;
     showSlides();
     
@@ -361,10 +364,11 @@ loadWebsite();
 
 function loadWebsite(){
   window.addEventListener('load', function(){
-    var Banner = this.document.createElement('div');
-    Banner.id = 'banner';
-    this.document.getElementById('main').appendChild(Banner);
-    showBanner();
+    showBanner('main');
+    var previewP = this.document.createElement('div');
+    previewP.id = 'previewProduct';
+    previewP.className = 'container';
+    this.document.getElementById('main').appendChild(previewP);
     
   })
 }
