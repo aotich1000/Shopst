@@ -1,6 +1,6 @@
 // import 'slide.js';
 function currency(num) {
-  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' VND';
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' ₫';
 }
 createProduct();
 createBanner();
@@ -18,6 +18,46 @@ function createProduct() {
       { productId: 8, category: '2', img: 'logo.jpg', nameP: 'Product 8', price: 100000000 },
       { productId: 9, category: '2', img: 'logo.jpg', nameP: 'Product 9', price: 100000000 },
       { productId: 10, category: '2', img: 'logo.jpg', nameP: 'Product 10', price: 100000000 },
+      { productId: 11, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100000000 },
+      { productId: 12, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 100000000 },
+      { productId: 13, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 100000000 },
+      { productId: 14, category: '1', img: 'logo.jpg', nameP: 'Product 4', price: 100000000 },
+      { productId: 15, category: '2', img: 'logo.jpg', nameP: 'Product 5', price: 100000000 },
+      { productId: 16, category: '2', img: 'logo.jpg', nameP: 'Product 6', price: 100000000 },
+      { productId: 17, category: '2', img: 'logo.jpg', nameP: 'Product 7', price: 100000000 },
+      { productId: 18, category: '2', img: 'logo.jpg', nameP: 'Product 8', price: 100000000 },
+      { productId: 19, category: '2', img: 'logo.jpg', nameP: 'Product 9', price: 100000000 },
+      { productId: 20, category: '2', img: 'logo.jpg', nameP: 'Product 10', price: 100000000 },
+      { productId: 21, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100000000 },
+      { productId: 22, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 100000000 },
+      { productId: 23, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 100000000 },
+      { productId: 24, category: '1', img: 'logo.jpg', nameP: 'Product 4', price: 100000000 },
+      { productId: 25, category: '2', img: 'logo.jpg', nameP: 'Product 5', price: 100000000 },
+      { productId: 26, category: '2', img: 'logo.jpg', nameP: 'Product 6', price: 100000000 },
+      { productId: 27, category: '2', img: 'logo.jpg', nameP: 'Product 7', price: 100000000 },
+      { productId: 28, category: '2', img: 'logo.jpg', nameP: 'Product 8', price: 100000000 },
+      { productId: 29, category: '2', img: 'logo.jpg', nameP: 'Product 9', price: 100000000 },
+      { productId: 30, category: '2', img: 'logo.jpg', nameP: 'Product 10', price: 100000000 },
+      { productId: 31, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100000000 },
+      { productId: 32, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 100000000 },
+      { productId: 33, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 100000000 },
+      { productId: 34, category: '1', img: 'logo.jpg', nameP: 'Product 4', price: 100000000 },
+      { productId: 35, category: '2', img: 'logo.jpg', nameP: 'Product 5', price: 100000000 },
+      { productId: 36, category: '2', img: 'logo.jpg', nameP: 'Product 6', price: 100000000 },
+      { productId: 37, category: '2', img: 'logo.jpg', nameP: 'Product 7', price: 100000000 },
+      { productId: 38, category: '2', img: 'logo.jpg', nameP: 'Product 8', price: 100000000 },
+      { productId: 39, category: '2', img: 'logo.jpg', nameP: 'Product 9', price: 100000000 },
+      { productId: 40, category: '2', img: 'logo.jpg', nameP: 'Product 10', price: 100000000 },
+      { productId: 41, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100000000 },
+      { productId: 42, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 100000000 },
+      { productId: 43, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 100000000 },
+      { productId: 44, category: '1', img: 'logo.jpg', nameP: 'Product 4', price: 100000000 },
+      { productId: 45, category: '2', img: 'logo.jpg', nameP: 'Product 5', price: 100000000 },
+      { productId: 46, category: '2', img: 'logo.jpg', nameP: 'Product 6', price: 100000000 },
+      { productId: 47, category: '2', img: 'logo.jpg', nameP: 'Product 7', price: 100000000 },
+      { productId: 48, category: '2', img: 'logo.jpg', nameP: 'Product 8', price: 100000000 },
+      { productId: 49, category: '2', img: 'logo.jpg', nameP: 'Product 9', price: 100000000 },
+      { productId: 50, category: '2', img: 'logo.jpg', nameP: 'Product 10', price: 100000000 },
     ];
     localStorage.setItem('product', JSON.stringify(ProductArray));
 }
@@ -32,7 +72,7 @@ function createBanner() {
 }
 
 var current_page = 1;
-var limit = 5;
+var limit = 15;
 var count_page;
 var current_category;
 var productArray = JSON.parse(localStorage.getItem('product'));
@@ -54,10 +94,12 @@ count_page = Math.ceil(productArray.length/limit);
                                 <a href="#"> Chi tiết
                             </div>
                         </div> */}
-function showProduct(){
+//show produc 
+//có hai dạng xem thử và xem theo sản phảm/phân loại/tìm kiếm có phân trang
+function showProduct(listitem){
   var s ='';
   var a =''
-  var productArray = JSON.parse(localStorage.getItem('productpagi'));
+  var productArray = JSON.parse(localStorage.getItem(`${listitem}`));
   if (productArray && productArray.length > 0) {
   for (var i = 0; i < productArray.length; i++) {
       a+= '<div class="card">'+
@@ -84,6 +126,7 @@ function showProduct(){
   return s;
   }
 }
+
 
 
 function blockProductInfo()
@@ -235,7 +278,7 @@ function list_product_pagi(page_num,id,category){
     
     current_category = category;
     current_page = page_num;
-    document.getElementById(`${id}`).innerHTML = showProduct();
+    document.getElementById(`${id}`).innerHTML = showProduct('productpagi');
     // console.log(loadPage(current_page));
     // loadPage(1);
     // console.log(current_page);
@@ -350,6 +393,48 @@ function showBanner(id){
     showSlides();
     
 }
+function showProduct_none_pagi(listitem){
+  var s ='';
+  var a =''
+  var productArray = JSON.parse(localStorage.getItem(`${listitem}`));
+  if (productArray && productArray.length > 0) {
+  for (var i = 0; i < productArray.length; i++) {
+      a+= '<div class="card">'+
+          '<div class="card-header"></div>'+
+          '<div class="card-body">'+
+          '<img src="./img/'+ productArray[i].img +'" alt="anh1"></img>'+
+          '</div>'+
+          '<div class="card-footer">'+
+              '<p><a href=""><b>'+ productArray[i].nameP +'</b></p>'+
+              '<p>'+ currency(productArray[i].price) +'</a></p>'+
+          '</div>'+
+          '<div class="card-overlay hidden">'+
+              '<div class="overlay-item">'+
+                  '<a onclick="showProductInfo('+productArray[i].productId+')"> Xem chi tiết </a>'+
+              '</div>'+
+              '<div class="overlay-item">'+
+                  '<a href="#"> + Thêm vào giỏ hàng</a>'+
+              '</div>'+
+          '</div> </div>';
+  }
+  // console.log(current_page);
+  s +=  '<div class="container"><div class="flex-container middle-content flex-wrap">' + a +'</div>' + blockProductInfo() + '</div>';
+
+  return s;
+  }
+}
+
+function showPreviewProduct(){
+    var previewP = this.document.createElement('div');
+    previewP.id = 'previewProduct';
+    previewP.className = 'container';
+    this.document.getElementById('main').appendChild(previewP);
+    var productArray = JSON.parse(localStorage.getItem('product'));
+    var preProduct = shuffleArray(productArray);
+    localStorage.setItem('preProduct', JSON.stringify(preProduct));
+    var s = showTitle('Gợi ý hôm nay') + showProduct_none_pagi('preProduct');
+    document.getElementById('previewProduct').innerHTML = s;
+}
 
 function showTitle(title){
   var s = '';
@@ -365,10 +450,34 @@ loadWebsite();
 function loadWebsite(){
   window.addEventListener('load', function(){
     showBanner('main');
-    var previewP = this.document.createElement('div');
-    previewP.id = 'previewProduct';
-    previewP.className = 'container';
-    this.document.getElementById('main').appendChild(previewP);
     
+    this.document.getElementById('previewProduct').innerHTML = showPreviewProduct();
   })
 }
+
+function quantityup(){
+  var newquan = document.getElementById('quantity');
+      newquan.value =  parseInt(newquan.value) + 1;
+}
+
+function quantitydown(){
+  var newquan = document.getElementById('quantity');
+  if(newquan.value > 1)
+      newquan.value =  parseInt(newquan.value) - 1;
+}
+
+function shuffleArray(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array.slice(0,15);
+}
+
