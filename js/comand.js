@@ -8,9 +8,9 @@ createBanner();
 function createProduct() {
  
     var ProductArray = [
-      { productId: 1, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100000000 },
-      { productId: 2, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 100000000 },
-      { productId: 3, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 100000000 },
+      { productId: 1, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100 },
+      { productId: 2, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 200 },
+      { productId: 3, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 300 },
       { productId: 4, category: '1', img: 'logo.jpg', nameP: 'Product 4', price: 100000000 },
       { productId: 5, category: '2', img: 'logo.jpg', nameP: 'Product 5', price: 100000000 },
       { productId: 6, category: '2', img: 'logo.jpg', nameP: 'Product 6', price: 100000000 },
@@ -205,8 +205,8 @@ function closeProductInfo(){
 
 
 
-function showArray(){
-  var getItemP = localStorage.getItem('productpagi');
+function showArray(array){
+  var getItemP = localStorage.getItem(`${array}`);
   var showItem = JSON.parse(getItemP);
   console.log(showItem);
   // for(i=0; i<showItem.length;i++){
@@ -232,7 +232,7 @@ function showArray(){
 // cần lọc mảng sản phẩm theo phân loại
 // tính toán lại số trang
 // set lại trang ban đầu 
-
+// 
 function ArrayProductForCategory(category, start_price, end_price){
   var productArray = JSON.parse(localStorage.getItem('product'));
   var productArrayCategory = [];
@@ -248,13 +248,18 @@ function ArrayProductForCategory(category, start_price, end_price){
       productArrayCategory[temp] = productArray[i];
       temp = temp +  1;
     }
-    if(productArray[i].price > start_price && ){
+    //tìm kiếm theo khoảng giá
+    if(parseInt(productArray[i].price)  > parseInt(start_price) && parseInt(productArray[i].price)  < parseInt(end_price)){
       productArrayCategory[temp] = productArray[i];
       temp = temp +  1;
     }
+
+    //*chưa thể tìm kiếm multi tag
   }
   localStorage.setItem('productcategory', JSON.stringify(productArrayCategory));
   // count_page = Math.ceil(productArrayCategory.length/limit);
+  showArray('productcategory');
+
 }
 
 function list_product_pagi(page_num,id,category){
@@ -284,7 +289,7 @@ function list_product_pagi(page_num,id,category){
       temp = temp +  1;
     }
     localStorage.setItem('productpagi', JSON.stringify(productArrayPagi));
-    showArray();
+    showArray('productpagi');
     
     current_category = category;
     current_page = page_num;
