@@ -368,13 +368,13 @@ div #finish_order{
 
 
 #editUser input[type=button]{
-    background-color: salmon;
+    background-color: #607D8B;
     margin-top: 30px;
 
 }
 
 #addUser input[type=button]{
-    background-color: salmon;
+    background-color:#607D8B;
     margin-top: 30px;
 
 }
