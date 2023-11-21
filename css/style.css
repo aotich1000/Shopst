@@ -153,9 +153,10 @@ body {
   transition:0.5s ease;
   opacity: 0;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 .card:hover .card-overlay{
   display: block;
@@ -164,7 +165,9 @@ body {
 
 .card-overlay .overlay-item{
   background-color: #fff;
-  height: 50%;
+  padding: 7px;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .card-overlay .overlay-item a{
