@@ -69,7 +69,7 @@ body {
 .banner {
   width: 100%;
   height: auto;
-  margin-top: 25px;
+  margin-top: 10px;
   position: relative;
   display: block;
 }
@@ -650,6 +650,7 @@ body {
 
 .menu {
   margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .justify-content-center {
@@ -696,9 +697,10 @@ body {
 
 /* Style the list */
 ul.breadcrumb {
-  padding: 10px 16px;
+  margin: 0px 0px 0px 10px;
+  padding: 5px 0px;
   list-style: none;
-  background-color: #eee;
+  /* background-color: #eee; */
 }
 
 /* Display list items side by side */
@@ -763,15 +765,41 @@ ul.breadcrumb li a:hover {
 }
 }
 
-@media only screen and (max-width: 477px) {
+@media only screen and (max-width: 800px) {
+  .logo {
+    width: 70%;
+  }
+  #menu {
+    display: none;
+  }
+  .menu-ico {
+    display: block;
+    width: 20%;
+  }
+  .menu-ico img{
+    width:  40px;
+  }
+  .card {
+    width: 32%;
+  }
+  #mainmenu{
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width: 763px) {
   .topbar {
     display: none;
   }
 
-  #menu {
+  /* #menu {
     display: none;
-  }
+  } */
 
+  .header{
+    margin-top: 5px;
+  }
   .logo {
     width: 70%;
   }
@@ -789,9 +817,9 @@ ul.breadcrumb li a:hover {
     width: 20%;
   }
 
-  .menu-ico img {
+  /* .menu-ico img {
     width: 65%;
-  }
+  } */
 
   /* Chi tiết sản phẩm */
   #productInfo #info{
@@ -817,4 +845,3 @@ ul.breadcrumb li a:hover {
   height: 200px;
 }
 }
-

@@ -76,7 +76,6 @@ var limit = 15;
 var count_page;
 var current_category;
 var productArray = JSON.parse(localStorage.getItem('product'));
-count_page = Math.ceil(productArray.length/limit);
 {/*                   <div class="card">
                         <div class="card-header"></div>
                         <div class="card-body">
@@ -234,18 +233,28 @@ function showArray(){
 // tính toán lại số trang
 // set lại trang ban đầu 
 
-function ArrayProductForCategory(category){
+function ArrayProductForCategory(category, start_price, end_price){
   var productArray = JSON.parse(localStorage.getItem('product'));
   var productArrayCategory = [];
   var temp = 0;
+  //tìm kiếm theo danh mục
   for(i = 0; i <  productArray.length; i++){
     if(productArray[i].category === category){
       productArrayCategory[temp] = productArray[i];
       temp = temp +  1;
     }
+    //tìm kiếm theo tên
+    if(productArray[i].nameP === category){
+      productArrayCategory[temp] = productArray[i];
+      temp = temp +  1;
+    }
+    if(productArray[i].price > start_price && ){
+      productArrayCategory[temp] = productArray[i];
+      temp = temp +  1;
+    }
   }
   localStorage.setItem('productcategory', JSON.stringify(productArrayCategory));
-  count_page = Math.ceil(productArrayCategory.length/limit);
+  // count_page = Math.ceil(productArrayCategory.length/limit);
 }
 
 function list_product_pagi(page_num,id,category){
@@ -258,10 +267,11 @@ function list_product_pagi(page_num,id,category){
     if(category != null){
       ArrayProductForCategory(category);
       var productArray = JSON.parse(localStorage.getItem('productcategory'));
-      // console.log(productArray);
-    }else
+      count_page = Math.ceil(productArray.length/limit);
+    }else{
       var productArray = JSON.parse(localStorage.getItem('product'));
-
+      count_page = Math.ceil(productArray.length/limit);
+    }
     if( productArray.length < end_point){
       end_point = productArray.length + start_point;
     }
@@ -278,6 +288,7 @@ function list_product_pagi(page_num,id,category){
     
     current_category = category;
     current_page = page_num;
+    
     document.getElementById(`${id}`).innerHTML = showProduct('productpagi');
     // console.log(loadPage(current_page));
     // loadPage(1);
@@ -315,8 +326,14 @@ function changePage(){
   document.addEventListener('click', function(event){
     var targetElement = event.target;
     var targetElementId = targetElement.id;
-    if(targetElementId === 'showall'){
+    // console.log(event.target.value);
+    if(targetElement.id === 'action' && targetElement.value === 'showall'){
       list_product_pagi(1,'main');
+    }
+    if(targetElement.id === 'action' && targetElement.value === 'index'){
+      document.getElementById('main').innerHTML = "";
+      showBanner('main');
+      showPreviewProduct();
     }
     if(event.target.className === 'pagi-item') 
        list_product_pagi(targetElementId,'main',current_category);
@@ -440,7 +457,7 @@ function showTitle(title){
   var s = '';
   s += '<div class="title-content middle-content">'+
       '<h2>' + title +'</h2>'+
-      '<a href="#" id="xemthem">Xem thêm >></a>'+
+      '<a href="#" onclick="list_product_pagi(1,`main`)">Xem thêm >></a>'+
       '</div>';
   return s;
 }
@@ -450,8 +467,7 @@ loadWebsite();
 function loadWebsite(){
   window.addEventListener('load', function(){
     showBanner('main');
-    
-    this.document.getElementById('previewProduct').innerHTML = showPreviewProduct();
+    showPreviewProduct();
   })
 }
 
@@ -480,4 +496,24 @@ function shuffleArray(array) {
 
   return array.slice(0,15);
 }
-
+showMenu();
+function showMenu(){
+  var s = `<div class="container" style="background-color: #04AA6D;"> 
+  <div class="flex-container">
+      <div class="menu-item"><button id="action" value="index">Trang chủ </button> </div>
+      <div class="menu-item"><button id="action" value="showall">Sản phẩm</button> </div>
+      <div class="menu-item"><button onclick="list_product_pagi(1,'main','1')">Sp Cho chó</button> </div>
+      <div class="menu-item"><button onclick="list_product_pagi(1,'main','2')">Sp Cho mèo</button> </div>
+      <div class="dropdown">
+          <button class="dropbtn">Danh mục sản phẩm</button>
+          <div class="dropdown-content">
+              <a href="#">Phân loại 1</a>
+              <a href="#">Phân loại 1</a>
+              <a href="#">Phân loại 1</a>
+              <a href="#">Phân loại 1</a>
+          </div>
+      </div> 
+</div>
+</div>`
+  document.getElementById('mainmenu').innerHTML = s;
+}
