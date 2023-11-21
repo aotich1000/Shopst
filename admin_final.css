@@ -212,3 +212,222 @@ button{
     background-color: wheat;  
     display: none;
 }
+
+
+/*-----TUẤN CSS -----*/
+
+
+body{
+    background-color: #DDD;
+}
+
+button, input[type="button"]{
+    cursor: pointer;
+}
+
+#orderList{
+    min-width:90%;
+    background-color: #fff;
+    margin: 100px 30px 0px 30px;
+    padding-top: 20px;
+    display:flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 0px 30px 30px 30px;
+}
+
+#userList{
+    min-width:90%;
+    background-color: #fff;
+    margin: 100px 30px 0px 30px;
+    padding-top: 20px;
+    display:flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 0px 30px 30px 30px;
+}
+
+#adminAccount{
+    min-width:90%;
+    background-color: #fff;
+    margin: 100px 30px 0px 30px;
+    padding-top: 20px;
+    display:flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 0px 30px 30px 30px;
+}
+
+.header{
+    text-align: center;
+}
+
+.tHead{
+    font-size: 20px;
+}
+
+tr,td,th{
+    border:2px solid black;
+    padding: 5px;
+    text-align: center;
+    
+}
+
+td{
+    font-size: 18x;
+}
+
+.action{
+    background-color: #DDD;
+    min-width:90%;
+    margin: 100px 30px 0px 30px;
+    display:flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+}
+
+.action div{
+    background-color: #fff;
+    width: 100%;
+    min-height: 200px; 
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    display:block;
+}
+
+.action-btn-container{
+    display:flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.action-btn-container button{
+    flex-basis: 45%;
+}
+
+.action form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 30px;
+    max-width:100%;
+    margin: 0px 20px 0px 0px;
+
+}
+
+.action label, input, select{
+    font-size: 18px;
+    padding: 7px;
+    margin-top:6px;
+    font-weight: bold;
+    
+    
+}
+
+.action input[type=button]{
+    margin-top: 20px;
+    border: 2px solid black;
+}
+
+#finish_order input[type=button]{
+    background-color: salmon;
+}
+
+
+#finish_order label{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 25px 0px 0px 15px;
+}
+
+#finish_order input,select,input[type=button]{
+    min-width: 250px;
+    font-weight: bold;
+    margin-left:20px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+div #finish_order{
+    padding-top: 20px;
+}
+
+.action h1{
+    margin-left: 5px;
+    display:inline;
+}
+
+
+
+#editUser input[type=button]{
+    background-color: salmon;
+    margin-top: 30px;
+
+}
+
+#addUser input[type=button]{
+    background-color: salmon;
+    margin-top: 30px;
+
+}
+
+.close-btn{
+    border:none;
+    background-color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.action span{
+    display:flex;
+    justify-content:space-between;
+}
+
+.addUser-btn{
+    width:20%;
+    margin-bottom: 20px;
+    padding:10px;
+    border:2px solid #ddd;
+    font-size:18px;
+    font-weight: bold;
+}
+
+.admin-container{
+    display:flex;
+    flex-direction: column;
+    row-gap: 0.8rem;
+    
+
+}
+
+.admin-container label{
+    font-size: 25px;
+
+}
+
+.admin-container input{
+    border: 2px solid black;
+}
+
+
+
+.action-container button{
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 10px 0px 20px;
+}
+
+.action-container div{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
