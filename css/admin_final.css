@@ -1,0 +1,215 @@
+*{
+    outline: none;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+body{
+    display: flex;
+    background-color: #F0FFFF;
+
+}
+
+
+
+/* *************** sidebar ************* */
+.sidebar{
+    position: sticky;
+    top : 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 80px;
+    height: 100vh;  
+    padding:0 1.7rem;
+    color: #fff;
+    transition: all 0.5s linear;
+    background: #607D8B;
+
+}   
+
+.sidebar:hover{
+    width: 250px;
+    transition: 0.5s;
+}
+
+
+.menu{
+    top: 6%;
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li{
+    display: flex;
+    padding: 1rem;
+    margin-top: 15px;
+    border-radius: 10px;
+    transition:  all 0.3s ease-in-out;
+}
+
+.menu a{
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    text-decoration: none;
+    gap: 1.3rem;
+    align-items: center;
+}
+
+.menu a span{
+    overflow: hidden;
+}
+
+.menu a i {
+    font-size: 1.3rem;
+}
+
+.menu li:hover,
+.active{
+    background: #e0e0e058;
+}
+
+
+
+/* ----------------------main-content-------------------- */
+
+
+
+#content{
+    position: relative;
+    background: #ebe9e9;
+    width: 100%;
+    padding: 1rem;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 100px;
+}
+
+.top1 {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.top2 a {
+    font-size: 17px;
+    text-decoration: none;
+
+}
+.top2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#listproduct{
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.text{
+    justify-content: center; 
+    display: flex; 
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#addProduct{
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.add-table{
+    display: flex;
+    justify-content:space-around;
+    margin: 20px 0;
+}
+
+.add-table input{
+    border-radius: 6px;
+}
+
+
+.add-table label{
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: monospace;
+}
+
+#numberPage{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#pagination{
+    display: flex;
+}
+
+#pagination li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid black;
+    list-style: none;
+    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.selected-page{
+    color: red;
+    font-style: italic;
+    font-size: larger;
+}
+
+th{
+    border: 2px solid black;
+}
+
+
+.container{
+    flex-wrap: wrap;
+}
+
+th img{
+    width: 150px;
+}
+table {
+    width: 100%;
+}
+
+button{
+    width: 75px;
+    height: auto;
+}
+
+#overlay{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    z-index: 100;
+    background-color: wheat;  
+    display: none;
+}
+
