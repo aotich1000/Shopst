@@ -397,6 +397,7 @@ function clearValueProduct(){
 
 //--------------------TUẤN JS -------------------
 
+/*
 var adminAcc = {
     username: "laptrinhweb123",
     password: "admin123", 
@@ -456,7 +457,7 @@ var userArr = [
 ];
 localStorage.setItem('user-list', JSON.stringify(userArr));
 
-
+*/
 
 function renderOrder(){
     let orderList = JSON.parse(localStorage.getItem("order-list"));
