@@ -262,8 +262,9 @@ button, input[type="button"]{
 }
 
 .header{
-    padding:10px;
+    padding-top:30px;
     text-align: center;
+    margin-bottom:30px;
 }
 
 .tHead{
@@ -361,7 +362,7 @@ div #finish_order{
 }
 
 .action h1{
-    margin-left: 5px;
+    margin: 15px 0px 0px 5px;
     display:inline;
 }
 
