@@ -86,9 +86,7 @@ var productArray = JSON.parse(localStorage.getItem('product'));
                             <p>None Price</a></p>
                         </div>
                         <div class="card-overlay hidden">
-                            <div class="overlay-item">
-                                <a href="#">Thêm vào giỏ hàng</a>
-                            </div>
+                            
                             <div class="overlay-item">
                                 <a href="#"> Chi tiết
                             </div>
@@ -113,9 +111,6 @@ function showProduct(listitem){
           '<div class="card-overlay hidden">'+
               '<div class="overlay-item">'+
                   '<a onclick="showProductInfo('+productArray[i].productId+')"> Xem chi tiết </a>'+
-              '</div>'+
-              '<div class="overlay-item">'+
-                  '<a href="#"> + Thêm vào giỏ hàng</a>'+
               '</div>'+
           '</div> </div>';
   }
