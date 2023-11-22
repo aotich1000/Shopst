@@ -211,43 +211,57 @@ document.addEventListener("DOMContentLoaded", function() {
     // Bắt sự kiện click cho mỗi mục menu
     menuItems.forEach(function(item, index) {
         item.addEventListener('click', function(event) {
-            if (index === 0){
-                document.getElementById('listproduct').style.display = 'none'
-            document.getElementById('add-submit').style.display = 'none'
-            document.getElementById('addProduct').style.display = 'none'
-            document.getElementById('add-update').style.display = 'none'
-            document.getElementById('h2-cha').style.display = 'none'
-            document.getElementById('h2-add').style.display = 'none'
-            document.getElementById('tuan2').style.display = 'none'
-            document.getElementById('tuan1').style.display = 'none'
-            document.getElementById('adminAccount').style.display = 'none'
-            }
+        document.getElementById('addProduct').style.display="none";
             
+
+            document.getElementById('tuan1').style.display = 'none'
+            document.getElementById('tuan2').style.display = 'none'
+            document.getElementById('adminAccount').style.display = 'none'  
+            document.getElementById('add-submit').style.display = 'none';
+            document.getElementById('addProduct').style.display = 'none';
+            document.getElementById('add-update').style.display = 'block';
+            document.getElementById('h2-cha').style.display = 'block';
+            document.getElementById('h2-add').style.display = 'none';
+
+            if (index === 0) {
+                clearValueProduct();
+                document.getElementById('listproduct').style.display = 'block'
+                document.getElementById('addProduct').style.display = 'none'
+                // document.getElementById('h2-add').style.display = 'block'
+                // document.getElementById('h2-cha').style.display = 'none'
+                // document.getElementById('add-update').style.display = 'none'
+                // document.getElementById('add-submit').style.display = 'block'
+                document.getElementById('tuan2').style.display = 'none'
+                document.getElementById('tuan1').style.display = 'none'
+                document.getElementById('adminAccount').style.display = 'none'  
+            }
+
+
             if (index === 1) {
                 clearValueProduct();
                 document.getElementById('listproduct').style.display = 'block'
                 document.getElementById('addProduct').style.display = 'block'
                 document.getElementById('h2-add').style.display = 'block'
-                document.getElementById('h2-cha').style.display = 'block'
-                document.getElementById('add-update').style.display = 'block'
+                document.getElementById('h2-cha').style.display = 'none'
+                document.getElementById('add-update').style.display = 'none'
                 document.getElementById('add-submit').style.display = 'block'
                 document.getElementById('tuan2').style.display = 'none'
                 document.getElementById('tuan1').style.display = 'none'
                 document.getElementById('adminAccount').style.display = 'none'
             }
 
-            if (index === 2) {
-                clearValueProduct();
-                document.getElementById('listproduct').style.display = 'block'
-                document.getElementById('addProduct').style.display = 'none'
-                document.getElementById('h2-add').style.display = 'none'
-                document.getElementById('h2-cha').style.display = 'none'
-                document.getElementById('add-update').style.display = 'none'
-                document.getElementById('add-submit').style.display = 'none'
-                document.getElementById('tuan2').style.display = 'none'
-                document.getElementById('tuan1').style.display = 'none'
-                document.getElementById('adminAccount').style.display = 'none'
-            }
+            // if (index === 2) {
+            //     clearValueProduct();
+            //     document.getElementById('listproduct').style.display = 'block'
+            //     document.getElementById('addProduct').style.display = 'none'
+            //     document.getElementById('h2-add').style.display = 'none'
+            //     document.getElementById('h2-cha').style.display = 'none'
+            //     document.getElementById('add-update').style.display = 'none'
+            //     document.getElementById('add-submit').style.display = 'none'
+            //     document.getElementById('tuan2').style.display = 'none'
+            //     document.getElementById('tuan1').style.display = 'none'
+            //     document.getElementById('adminAccount').style.display = 'none'
+            // }
 
 
             if (index === 3 ){
@@ -285,29 +299,23 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('h2-add').style.display = 'none'
             document.getElementById('tuan2').style.display = 'none'
             document.getElementById('tuan1').style.display = 'none'
-            renderAdmin()
             document.getElementById('adminAccount').style.display = 'block'
+            renderAdmin()
             }
 
             
         });
     });
 });
+document.getElementById('tuan1').style.display = 'none'
+document.getElementById('tuan2').style.display = 'none'
+document.getElementById('adminAccount').style.display = 'none'  
 document.getElementById('add-submit').style.display = 'none';
 document.getElementById('addProduct').style.display = 'none';
 document.getElementById('add-update').style.display = 'block';
 document.getElementById('h2-cha').style.display = 'block';
 document.getElementById('h2-add').style.display = 'none';
 
-
-/*
-document.getElementById('add-submit').style.display = 'none';
-            document.getElementById('addProduct').style.display = 'none';
-            document.getElementById('add-update').style.display = 'block';
-            document.getElementById('h2-cha').style.display = 'none';
-            document.getElementById('h2-add').style.display = 'none';
-
-*/
 
 
 
@@ -397,7 +405,6 @@ function clearValueProduct(){
 
 //--------------------TUẤN JS -------------------
 
-/*
 var adminAcc = {
     username: "laptrinhweb123",
     password: "admin123", 
@@ -457,11 +464,12 @@ var userArr = [
 ];
 localStorage.setItem('user-list', JSON.stringify(userArr));
 
-*/
+
 
 function renderOrder(){
     let orderList = JSON.parse(localStorage.getItem("order-list"));
-    let a = ` <h1 class="header"><i class="fa fa-list"></i> Danh Sách Đơn Hàng</h1>
+    let a = ` 
+                <h1 class="text"><i class="fa fa-list"></i> Danh Sách Đơn Hàng</h1>
                 <table id=" orderTable">
                   <thead id="tHead">
                    <tr class="tHead">
@@ -497,18 +505,20 @@ function view_detail(orderID){
     let detailList = JSON.parse(localStorage.getItem("order-detail"));
 
     let a = `<span>
-    <h1>Chi tiết đơn hàng</h1>
+    <h1 style = "margin-bottom: 20px">Chi tiết đơn hàng</h1>
     </span>
     <form>
-        <label>ID Đơn hàng:</label>
-        <input value="${orderID}">
+        <div style = "display : flex ; justify-content: center  ; align-items: center;">
+            <label>ID Đơn hàng:</label>
+            <input value="${orderID}">
+        </div>
         <div class="action-container"> `
 
     let num =0;
     for ( var i =0; i< detailList.length; i++){
         if ( detailList[i].id ==orderID){
             num+= 1
-             a +=  `<div>
+             a +=  `<div style = "display : flex ; justify-content: space-evenly; align-items: center;">
                     <label>Mã sản phẩm ${num}: </label>
                     <input value="${detailList[i].product_id}">
                     <label>Số lượng: </label>
@@ -516,13 +526,13 @@ function view_detail(orderID){
                     <label>Đơn giá:</label>
                     <input value=${detailList[i].unit_price}>
                     <label>Ảnh: </label>
-                    <img src="img/1.jpg">
+                    <img src="img/1.jpg" width="10%" height ="10%">
                     </div>
                    <br>
                    `
         }
     }
-       a+= ` </div> <input type="button" value="OK" onclick="closeForm('view_detail')">
+       a+= ` </div> <input style = "position : relative ; left : 40%" type="button" value="OK" onclick="closeForm('view_detail')">
     </form>`
 
     document.getElementById("view_detail").innerHTML = a
@@ -613,22 +623,36 @@ function editUser(index){
     let userList = JSON.parse(localStorage.getItem("user-list"))
      let a = ` 
      <span>
-       <h1>Chỉnh sửa thông tin User </h1>
-       <button onclick="closeForm('editUser')" class="close-btn">X</button>
+        <h1>Chỉnh sửa thông tin User </h1>
+        <div style = "display : flex ; justify-content: end;" >
+            <button onclick="closeForm('editUser')" class="close-btn">X</button>
+        </div>
      </span>
-     <form>
-         <label>ID User:</label>
-         <input id="iduser" value="${userList[index].id}">
-         <label>Họ tên:</label>
-         <input id="fullname" value="${userList[index].fullname}">
-         <label>Tên đăng nhập:</label>
-         <input id="username" value="${userList[index].username}">
-         <label>Mật khẩu:</label>
-         <input id="password" type="password" value="${userList[index].password}">
-         <label>Email:</label>
-         <input id="email" value="${userList[index].email}">
-         <label>Số điện thoại:</label>
-         <input id="phonenumber" value="${userList[index].phonenumber}">
+     <form style = "display : flex ; flex-direction: column; justify-content : center  ">
+         <div style = "display : flex">
+            <label>ID User:</label>
+            <input id="iduser" value="${userList[index].id}">
+         </div>
+         <div style = "display : flex">
+            <label>Họ tên:</label>
+            <input id="fullname" value="${userList[index].fullname}">
+         </div>
+         <div style = "display : flex">
+            <label>Tên đăng nhập:</label>
+            <input id="username" value="${userList[index].username}">
+         </div>
+         <div style = "display : flex">
+            <label>Mật khẩu:</label>
+            <input id="password" type="password" value="${userList[index].password}">
+         </div>
+         <div style = "display : flex">
+            <label>Email:</label>
+            <input id="email" value="${userList[index].email}">
+         </div>
+         <div style = "display : flex">
+            <label>Số điện thoại:</label>
+            <input id="phonenumber" value="${userList[index].phonenumber}">
+         </div>
          <input type="button" value="Lưu thay đổi" onclick= "changeUser(${index})"> 
      </form>`
 
@@ -677,26 +701,39 @@ function deleteUser(index){
 
 function addUser(){
     let a = ` 
-     <span>
-       <h1>Tạo User </h1>
-       <button onclick="closeForm('addUser')" class="close-btn">X</button>
-     </span>
-     <form>
-         <label>ID User:</label>
-         <input id="new_id">
-         <label>Họ tên:</label>
-         <input id="new_fullname">
-         <label>Tên đăng nhập:</label>
-         <input id="new_username">
-         <label>Mật khẩu:</label>
-         <input id="new_password" type="password">
-         <label>Email:</label>
-         <input id="new_email">
-         <label>Số điện thoại:</label>
-         <input id="new_phonenumber">
-         <input type="button" value="Tạo" onclick="createUser()"> 
-     </form>`
-
+    <span>
+        <h1>Tạo User </h1>
+        <div style = "display : flex ; justify-content: end;" >
+            <button onclick="closeForm('addUser')" class="close-btn">X</button>
+        </div>
+    </span>
+    <form style = "display : flex ; flex-direction: column; justify-content : center  ">
+        <div style = "display : flex">
+            <label>ID User:</label>
+            <input id="new_id">
+        </div>
+        <div style = "display : flex"> 
+            <label>Họ tên:</label>
+            <input id="new_fullname">
+        </div>
+        <div style = "display : flex">
+            <label>Tên đăng nhập:</label>
+            <input id="new_username">
+        </div>
+        <div style = "display : flex">
+            <label>Mật khẩu:</label>
+            <input id="new_password" type="password">
+        </div>
+        <div style = "display : flex">
+            <label>Email:</label>
+            <input id="new_email">
+        </div>
+        <div style = "display : flex">
+            <label>Số điện thoại:</label>
+            <input id="new_phonenumber">
+        </div>
+        <input type="button" value="Tạo" onclick="createUser()"> 
+    </form>`
      document.getElementById("editUser").style.display = "none"
      document.getElementById("addUser").innerHTML = a
      document.getElementById("addUser").style.display = "block"
@@ -790,9 +827,6 @@ function editAccount(){
   document.getElementById("save-btn").style.display = "inline-block"
   document.getElementById("edit-btn").style.display= "none"
 
-
-    
-    
 }
 
 function saveAccount(){

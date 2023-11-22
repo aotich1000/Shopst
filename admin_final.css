@@ -26,7 +26,6 @@ body{
     color: #fff;
     transition: all 0.5s linear;
     background: #607D8B;
-
 }   
 
 .sidebar:hover{
@@ -119,14 +118,10 @@ body{
     background-color: #fff;
     padding: 1rem;
     border-radius: 10px;
+    margin-bottom: 30px;
+
 }
 
-.text{
-    justify-content: center; 
-    display: flex; 
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
 
 #addProduct{
     margin-top: 30px;
@@ -137,17 +132,20 @@ body{
 
 .add-table{
     display: flex;
-    justify-content:space-around;
+    justify-content:center;
     margin: 20px 0;
 }
 
 .add-table input{
-    border-radius: 6px;
+    height: 30px;
+    font-size: 13px;
+    border-radius: 10px;
 }
 
 
 .add-table label{
-    font-size: 17px;
+    margin-left: 20px;
+    font-size: 15px;
     font-weight: bolder;
     font-family: monospace;
 }
@@ -175,11 +173,11 @@ body{
     border-radius: 5px;
 }
 
-.selected-page{
+/* .selected-page{
     color: red;
     font-style: italic;
     font-size: larger;
-}
+} */
 
 th{
     border: 2px solid black;
@@ -202,70 +200,44 @@ button{
     height: auto;
 }
 
-#overlay{
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    z-index: 100;
-    background-color: wheat;  
-    display: none;
-}
+
 
 
 /*-----TUẤN CSS -----*/
 
 
-body{
-    background-color: #DDD;
-}
-
 button, input[type="button"]{
     cursor: pointer;
 }
 
+.text{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
 #orderList{
-    min-width:90%;
     background-color: #fff;
-    margin: 10px 30px 0px 30px;
-    padding-top: 20px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     border-radius: 20px;
-    box-sizing: border-box;
-    padding: 0px 30px 30px 30px;
+    padding: 1rem;
+}
+
+#orderTable{
+    margin-bottom: 50px;
 }
 
 #userList{
-    min-width:90%;
     background-color: #fff;
-    margin: 10px 30px 0px 30px;
-    padding-top: 20px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     border-radius: 20px;
-    box-sizing: border-box;
-    padding: 0px 30px 30px 30px;
+    padding: 2rem;
 }
 
-#adminAccount{
-    min-width:90%;
-    background-color: #fff;
-    margin: 10px 30px 0px 30px;
-    padding-top: 20px;
-    display:flex;
-    flex-direction: column;
-    border-radius: 20px;
-    box-sizing: border-box;
-    padding: 0px 30px 30px 30px;
-}
 
-.header{
-    padding-top:30px;
-    text-align: center;
-    margin-bottom:30px;
-}
+
 
 .tHead{
     font-size: 20px;
@@ -282,7 +254,7 @@ td{
     font-size: 18x;
 }
 
-.action{
+/* .action{
     background-color: #DDD;
     min-width:90%;
     margin: 100px 30px 0px 30px;
@@ -290,17 +262,19 @@ td{
     flex-direction: column;
     box-sizing: border-box;
 
-}
+} */
 
 .action div{
     background-color: #fff;
-    width: 100%;
-    min-height: 200px; 
+    /* width: 100%;
+    min-height: 200px;  */
     border-radius: 20px;
     box-sizing: border-box;
-    padding-left: 20px;
+    /* padding-left: 20px;
     margin-bottom: 30px;
-    display:block;
+    display:block; */
+    /* margin-top: 50px; */
+    padding: 1rem;
 }
 
 .action-btn-container{
@@ -314,32 +288,36 @@ td{
     flex-basis: 45%;
 }
 
-.action form{
+/* .action form{
     display:flex;
     flex-direction: column;
     justify-content: center;
     padding-bottom: 30px;
     max-width:100%;
     margin: 0px 20px 0px 0px;
+} */
 
-}
-
-.action label, input, select{
-    font-size: 18px;
-    padding: 7px;
-    margin-top:6px;
+.action label{
+    margin: 0 10px;
+    font-size: 20px;
     font-weight: bold;
-    
-    
 }
+
+.action input{
+    height: 30px;
+    border-radius: 10px;
+    border: solid 2px black;
+}
+
+
 
 .action input[type=button]{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     border: 2px solid black;
 }
 
 #finish_order input[type=button]{
-    background-color:#607D8B;
+    background-color: salmon;
 }
 
 
@@ -362,36 +340,41 @@ div #finish_order{
 }
 
 .action h1{
-    margin: 15px 0px 0px 5px;
-    display:inline;
+    
+    display: flex;
+    justify-content: center;
 }
 
 
 
 #editUser input[type=button]{
-    background-color: #607D8B;
+    background-color: salmon;
     margin-top: 30px;
 
 }
 
+
+/* ----------------------------------------Tạo user--------------------------------------  */
+
 #addUser input[type=button]{
-    background-color:#607D8B;
+    background-color: salmon;
     margin-top: 30px;
 
 }
 
 .close-btn{
+    display: flex;
+    justify-items: end;
     border:none;
     background-color: #fff;
     font-size: 25px;
     font-weight: bold;
-    margin-right: 20px;
 }
 
-.action span{
+/* .action span{
     display:flex;
     justify-content:space-between;
-}
+} */
 
 .addUser-btn{
     width:20%;
@@ -402,34 +385,44 @@ div #finish_order{
     font-weight: bold;
 }
 
+
+/* -----------------------------Chỉnh Sửa Admin -----------------------------------*/
+
+#adminAccount{
+    background-color: #fff;
+    margin: 30px 0;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+
+.admin-cotainer{
+    margin-top: 20px;
+}
+
 .admin-container{
     display:flex;
     flex-direction: column;
-    row-gap: 0.8rem;
-    
-
+    row-gap: 1rem;
+    padding-bottom: 20px;
 }
 
 .admin-container label{
-    font-size: 25px;
+    font-size: 18px;
 
 }
 
 .admin-container input{
     border: 2px solid black;
+    font-size: 18px;
+
 }
-
-
 
 .action-container button{
-    padding: 20px;
-    font-size: 20px;
+    margin-left: 20px ;
+    font-size: 15px;
     font-weight: bold;
-    margin: 20px 10px 0px 20px;
+    width: 60px;
+    height: 60px;   
 }
 
-.action-container div{
-    display:flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
