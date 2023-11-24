@@ -26,7 +26,6 @@ body{
     color: #fff;
     transition: all 0.5s linear;
     background: #607D8B;
-
 }   
 
 .sidebar:hover{
@@ -36,8 +35,11 @@ body{
 
 
 .menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     top: 6%;
-    height: 88%;
+    height: 80%;
     position: relative;
     list-style: none;
     padding: 0;
@@ -119,14 +121,10 @@ body{
     background-color: #fff;
     padding: 1rem;
     border-radius: 10px;
+    margin-bottom: 30px;
+
 }
 
-.text{
-    justify-content: center; 
-    display: flex; 
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
 
 #addProduct{
     margin-top: 30px;
@@ -135,19 +133,26 @@ body{
     border-radius: 10px;
 }
 
-.add-table{
-    display: flex;
-    justify-content:space-around;
-    margin: 20px 0;
-}
-
-.add-table input{
-    border-radius: 6px;
+.add-table,
+#oldImgs{
+    margin: 40px 0;
 }
 
 
-.add-table label{
-    font-size: 17px;
+.add-table input,
+#oldImgs input{
+    height: 30px;
+    font-size: 13px;
+    border-radius: 10px;
+    width: 170px;
+
+}
+
+
+.add-table label,
+#oldImgs label{
+    margin-left: 20px;
+    font-size: 15px;
     font-weight: bolder;
     font-family: monospace;
 }
@@ -202,14 +207,203 @@ button{
     height: auto;
 }
 
-#overlay{
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    z-index: 100;
-    background-color: wheat;  
-    display: none;
+
+
+
+/*-----TUẤN CSS -----*/
+
+
+button, input[type="button"]{
+    cursor: pointer;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+#orderList{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+#orderTable{
+    margin-bottom: 50px;
+}
+
+#userList{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+
+
+
+.tHead{
+    font-size: 20px;
+}
+
+tr,td,th{
+    border:2px solid black;
+    padding: 5px;
+    text-align: center;
+    
+}
+
+td{
+    font-size: 18x;
+}
+
+.action div{
+    background-color: #fff;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.action-btn-container{
+    display:flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.action-btn-container button{
+    flex-basis: 45%;
+}
+
+
+.action label{
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.action input{
+    height: 30px;
+    border-radius: 10px;
+    border: solid 2px black;
+}
+
+
+
+.action input[type=button]{
+    /* margin-top: 20px; */
+    border: 2px solid black;
+}
+
+#finish_order input[type=button]{
+    background-color: salmon;
+}
+
+
+#finish_order label{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 25px 0px 0px 15px;
+}
+
+#finish_order input,select,input[type=button]{
+    min-width: 250px;
+    font-weight: bold;
+    margin-left:20px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+div #finish_order{
+    margin: 30px 0;
+}
+
+.action h1{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+
+
+#editUser input[type=button]{
+    background-color: salmon;
+    margin-top: 30px;
+
+}
+
+
+/* ----------------------------------------Tạo user--------------------------------------  */
+
+#addUser input[type=button]{
+    background-color: salmon;
+    margin: 30px 40%;
+
+}
+
+.close-btn{
+    display: flex;
+    justify-items: end;
+    border:none;
+    background-color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+.addUser-btn{
+    width:20%;
+    margin: 45px 0;
+    padding:10px;
+    border:2px solid #ddd;
+    font-size:18px;
+    font-weight: bold;
+}
+
+
+/* -----------------------------Chỉnh Sửa Admin -----------------------------------*/
+
+#adminAccount{
+    background-color: #fff;
+    margin: 30px 0;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+
+.admin-cotainer{
+    margin-top: 20px;
+}
+
+.admin-container{
+    display:flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding-bottom: 20px;
+}
+
+.admin-container label{
+    font-size: 18px;
+
+}
+
+.admin-container input{
+    border: 2px solid black;
+    font-size: 18px;
+
+}
+
+.action-container button{
+    margin-left: 20px ;
+    font-size: 15px;
+    font-weight: bold;
+    width: 60px;
+    height: 60px;   
 }
 
