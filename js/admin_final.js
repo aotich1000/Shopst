@@ -607,7 +607,7 @@ function finishOrder(index){
 
 function renderUser(){
     let userList = JSON.parse(localStorage.getItem("user-list"))
-    let a = ` <h1 class="header"><i class="fa fa-user"></i> Danh Sách User</h1>
+    let a = ` <h1 class="header" style="display: flex; justify-content : center"><i style="margin-right : 10px " class="fa fa-user"></i> Danh Sách User</h1>
     <button class="addUser-btn" onclick="addUser()"><i class="fa fa-plus"></i> Thêm User Mới </button>
                 <table id=" userTable">
                   <thead id="tHead">
