@@ -191,7 +191,6 @@ function Search(category, searchKey ,start_price, end_price){
   }
 
   localStorage.setItem('productcategory', JSON.stringify(productArrayCategory));
-  // count_page = Math.ceil(productArrayCategory.length/limit);
   showArray('productcategory');
 
 }
