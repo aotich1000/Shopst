@@ -5,7 +5,7 @@ var ProductArray = [
     { productId: 4, category: '1', img: 'anh-cho-Becgie-2.jpg', nameP: 'Chó Becgie', price: 479},
     { productId: 5, category: '2', img: '2-bengal-1252-1247x1496.jpg', nameP: 'Mèo Bengal', price: 641},
     { productId: 6, category: '2', img: '2-nhan-su-ma-1257-1-1247x1496.jpg', nameP: 'Mèo nhân sư', price: 990},
-    { productId: 7, category: '2', img: 'aln-xam-trang-chan-lun-tai-cup-1247x1496.jpg', nameP: 'Mèo xám trắng chân lùn tai cụt', price: 699},
+    { productId: 7, category: '2', img: 'aln-xam-trang-chan-lun-tai-cup-1247x1496.jpg', nameP: 'Mèo xám trắng chân lùn', price: 699},
     { productId: 8, category: '2', img: 'anh-meo-anh-long-ngan-822929228899-1247x956.jpg', nameP: 'Mèo Anh lông ngắn', price: 711},
     { productId: 9, category: '2', img: 'anh-meo-ba-tu-29292988977.jpg', nameP: 'Mèo Ba Tư', price: 624},
     { productId: 10, category: '2', img: 'anh-meo-bengal-940404000944-1247x1496.jpg', nameP: 'Mèo bengal', price: 545},

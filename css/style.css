@@ -139,6 +139,7 @@ body {
 .card-footer {
   text-align: center;
   position: relative;
+  min-height: 75px;
 }
 
 .card a {
