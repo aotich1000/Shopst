@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/login&cart.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -69,7 +69,7 @@
                             <div class="login-icon" id="login-icon">
                                 <a href="#"><b>Đăng nhập</b></a>
                             </div>
-                            <div id="welcome-message" style="font-size: 20px; font-weight: bold; padding-top: 10px; "></div>
+                            <div id="welcome-message"></div>
                             <div class="login-icon" id="logout-icon" style="display: none; cursor: pointer;">
                                 <a id="logout-button" style="display: none;"><b>Đăng xuất</b></a>
                             </div>  
@@ -122,17 +122,8 @@
     </div>
  
         <div class="main-content" id="main">
-            <!-- <div id="banner"></div> -->
         </div>
-        <!-- <div class="test">
-            <div class="container">
-                <div class="title-content middle-content">
-                    <h2>Sản phẩm test</h2>
-                    <a href="#" id="xemthem">Xem thêm >></a>
-                </div>
-                <div class="container" id="test_product"></div>
-            </div>
-        </div> -->
+       
         <div class="footer">
             <div class="container flex-container">
                 <div class="footer-item">
@@ -152,10 +143,10 @@
                 <p>Copyright © 2023 Ai-chan All Rights Reserved.</p>
             </div>
         </div>
-
+    </div>
     </section> 
     <div class="background-overlay2">
-    <section class="cart">
+    <!-- <section class="cart-table">
       <form action="">
         <div class="head-cart">
           <div class="exit-cart">X</div>
@@ -179,14 +170,23 @@
           <p style="font-weight: bold; margin-top: 20px; margin-bottom: 20px; font-size: 20px;"> Tổng tiền: <span>0</span><sup>đ</sup></p>
         </div>
         <button type="submit" style="cursor: pointer;">THANH TOÁN</button>
-      </form>
+      </form> -->
+      <div class="container cart-table">
+            <div class="head-cart flex-container">
+                <div class="exit-cart">X</div>
+                <h2>Giỏ hàng</h2>
+            </div>
+            <div id="cart-table"></div>
+        </div>
     </div>
     </section>
     
+    <script src="./js/local_storage.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="./js/slide.js"></script>
     <script src="./js/comand.js"></script>
     <script src="./js/login&cart.js"></script>
+    <script src="./js/test.js"></script>
     
 </body>
 

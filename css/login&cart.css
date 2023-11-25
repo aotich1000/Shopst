@@ -720,7 +720,7 @@ ul.breadcrumb li a:hover {
   }
 /*------------------------Cart----------------*/
 .background-overlay2 {
-  display: none;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -730,9 +730,9 @@ ul.breadcrumb li a:hover {
   backdrop-filter: blur(10px); /* Độ mờ */
   z-index: 9999; /* Đảm bảo lớp nền mờ nằm trên các phần tử khác */
 }
-.cart{
+.cart-table{
   
-  width: 800px;
+  /* width: 800px; */
   height:auto;
   margin: auto;
   justify-content: center;
@@ -741,8 +741,8 @@ ul.breadcrumb li a:hover {
   padding-bottom: 30px;
   background-color:#f0eded;
   border: 2px solid black;
-  overflow: scroll;
-  display: flex;
+
+
 
 }
 /* .cart-count{
@@ -754,7 +754,7 @@ ul.breadcrumb li a:hover {
   color: white;
 
 } */
-.cart button{
+.cart-table button{
   width: 130px;
   height: 50px;
   justify-content: center;
@@ -775,16 +775,17 @@ ul.breadcrumb li a:hover {
   color: white;
   
 }
-.h2{
+.cart-table h2{
   margin-bottom: 30px;
+  border-bottom: 2px solid black;
 }
-.cart table {
+.cart-table table {
   width: 100% ;
 }
-.cart table thead tr th:first-child{
-  text-align: left;
+.cart-table table thead tr th:first-child{
+  text-align: center;
 }
-.cart table tr td{
+.cart-table table tr td{
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   padding: 12px 0px;
@@ -801,14 +802,18 @@ ul.breadcrumb li a:hover {
 /* .delete-cart :hover{
 background-color: orange
 } */
-/* .head-cart{
+.head-cart{
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
 
-} */
+}
 .exit-cart{
   display: flex;
-  /* border: 1px solid black; */
+  border: 1px solid black;
+  position: absolute;
+  top: 0;
+  left: 0;
   cursor: pointer;
   margin-bottom: 10px;
   background-color: #f0eded;
@@ -822,4 +827,13 @@ background-color: orange
 }
 .exit-cart:hover{
   background-color: red;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+table img{
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }

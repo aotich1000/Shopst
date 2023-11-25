@@ -99,14 +99,12 @@ loginForm.addEventListener("submit", function(event) {
     // Chuyển hướng đến trang "admin.html"
   } else {
     // Lấy danh sách người dùng từ LocalStorage
-    var userList = JSON.parse(localStorage.getItem('userList')) || [];
+    var userList = JSON.parse(localStorage.getItem('user-list')) || [];
 
     // Kiểm tra thông tin đăng nhập
-    var loggedInUser = null;
     for (var i = 0; i < userList.length; i++) {
-      var user = userList[i];
-      if (user.username === username && user.password === password) {
-        loggedInUser = user;
+      if (userList[i].username === username && userList[i].password === password) {
+        loggedInUser = userList[i];
         break;
       }
     }
@@ -184,34 +182,10 @@ $(document).ready(function(){
 
 
 /*---------------------Cart--------------------*/
-// const btn=document.querySelectorAll("button");
-// console.log(btn);
-var cartItems = JSON.parse(localStorage.getItem("product")) || [];
-for (var i = 0; i < cartItems.length; i++) {
-  var product = cartItems[i];
 
-  // Truy cập thông tin sản phẩm
-  var productId = product.productId
-  var category = product.category;
-  var img = product.img;
-  var nameP = product.nameP;
-  var price = product.price;
 
-  // Sử dụng thông tin sản phẩm để thực hiện các tác vụ khác
-  // ...
-}
-// btn.forEach(function(button,index){
-// button.addEventListener("click",function(event){{
-//   var btnitem=event.target
-//   var product=btnitem.parentElement
-//   var productimg=product.querySelector("img").src
-//   var productname=product.querySelector("h1").innerText
-//   var productprice=product.querySelector("span").innerText
-//   addcart(productprice, productname,productimg)
-// }})
-// })
 
-function addcart(price, nameP, img){
+function addcarta(price, nameP, img){
   var addtr=document.createElement("tr")
   var cartitem=document.querySelectorAll("tbody tr")
   for(var i=0; i<cartitem.length; i++){
@@ -289,7 +263,7 @@ function carttotal(){
 //-----------------------Exits------------------------
 const cartexit = document.querySelector(".exit-cart")
 const carticon = document.querySelector(".cart-iconn")
-const cartshow = document.querySelector(".cart")
+const cartshow = document.querySelector(".cart-table")
 const overlay2 = document.querySelector(".background-overlay2");
 
 carticon.addEventListener("click",function() {
