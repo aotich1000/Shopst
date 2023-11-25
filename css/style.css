@@ -114,9 +114,9 @@ body {
 
 .card img {
   width: 100%;
-  height: auto;
+  height: 100%;
   transition: 0.5s ease;
-
+  object-fit: contain;
 }
 
 .card:hover img {
@@ -133,7 +133,7 @@ body {
   border-bottom: 1px solid black;
   position: relative;
   overflow: hidden;
-
+  height: 275px;
 }
 
 .card-footer {

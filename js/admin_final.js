@@ -222,7 +222,7 @@ function clearValueProduct(){
         var productImg = existingProducts[index].img;
         var oldImg = document.getElementById('oldImg');
         console.log(productImg);
-        oldImg.src = 'img/' + productImg;
+        oldImg.src = '../img/' + productImg;
         document.getElementById('index').value =index;
         document.getElementById('productCate').value = existingProducts[index].category;
         document.getElementById('productId').value = existingProducts[index].productId;
