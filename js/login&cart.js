@@ -79,44 +79,57 @@ var logoutButton = document.getElementById("logout-button");
 
 var loggedInUser;
 
+var loginForm = document.getElementById("login-form");
+var messageElement = document.getElementById("login-message");
+var welcomeMessageElement = document.getElementById("welcome-message");
+var logoutButton = document.getElementById("logout-button");
+
 loginForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
   var username = document.getElementById("login-username").value;
   var password = document.getElementById("login-password").value;
 
-  // Lấy danh sách người dùng từ LocalStorage
-  var userList = JSON.parse(localStorage.getItem('userList')) || [];
-
-  // Kiểm tra thông tin đăng nhập
-  for (var i = 0; i < userList.length; i++) {
-    var user = userList[i];
-    if (user.username === username && user.password === password) {
-      loggedInUser = user;
-      break;
-    }
-  }
-
-  if (loggedInUser) {
-    // Hiển thị thông báo đăng nhập thành công
+  // Kiểm tra tài khoản admin
+  if (username === "admin123" && password === "admin123") {
     messageElement.innerHTML = "Đăng nhập thành công. Đang chuyển hướng...";
-    // Hiển thị thông báo chào mừng
-    welcomeMessageElement.innerHTML = "Xin chào: " + loggedInUser.username + "!";
-
-    
-
-    // Chuyển hướng đến trang "test.html" sau 1 giây (để người dùng có thời gian nhìn thấy thông báo)
     setTimeout(function() {
-      // Ẩn nút Đăng nhập, hiển thị nút Đăng xuất
-    loginForm.style.display = "none";
-    logoutButton.style.display = "block";
-    overlay.style.display = "none";
-    document.getElementById("login-icon").style.display = "none";
-    document.getElementById("logout-icon").style.display = "block";
+      window.location.href = "indexadmin.html";
     }, 1000);
+    // Chuyển hướng đến trang "admin.html"
   } else {
-    // Hiển thị thông báo đăng nhập không thành công
-    messageElement.innerHTML = "Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại.";
+    // Lấy danh sách người dùng từ LocalStorage
+    var userList = JSON.parse(localStorage.getItem('userList')) || [];
+
+    // Kiểm tra thông tin đăng nhập
+    var loggedInUser = null;
+    for (var i = 0; i < userList.length; i++) {
+      var user = userList[i];
+      if (user.username === username && user.password === password) {
+        loggedInUser = user;
+        break;
+      }
+    }
+
+    if (loggedInUser) {
+      // Hiển thị thông báo đăng nhập thành công
+      messageElement.innerHTML = "Đăng nhập thành công. Đang chuyển hướng...";
+      // Hiển thị thông báo chào mừng
+      welcomeMessageElement.innerHTML = "Xin chào: " + loggedInUser.username + "!";
+
+      // Chuyển hướng đến trang "test.html" sau 1 giây (để người dùng có thời gian nhìn thấy thông báo)
+      setTimeout(function() {
+        // Ẩn nút Đăng nhập, hiển thị nút Đăng xuất
+      loginForm.style.display = "none";
+      logoutButton.style.display = "block";
+      overlay.style.display = "none";
+      document.getElementById("login-icon").style.display = "none";
+      document.getElementById("logout-icon").style.display = "block";
+      }, 1000);
+    } else {
+      // Hiển thị thông báo đăng nhập không thành công
+      messageElement.innerHTML = "Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại.";
+    }
   }
 });
 
