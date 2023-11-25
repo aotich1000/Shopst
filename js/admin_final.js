@@ -19,7 +19,7 @@ function loadTable(index){
             <th>${index[i].nameP}</th>
             <th><img src="../img/${index[i].img}" alt="a"></th>
             <th>${index[i].category}</th>
-            <th>${index[i].price}</th>
+            <th>${index[i].price + '$'}</th>
             <th>
                 <button id="${index[i].productId}">Sửa</button>
                 <button id="${index[i].productId}"> Xóa</button> 
@@ -221,12 +221,13 @@ function clearValueProduct(){
         });
         var productImg = existingProducts[index].img;
         var oldImg = document.getElementById('oldImg');
-        oldImg.src = productImg;
+        console.log(productImg);
+        oldImg.src = 'img/' + productImg;
         document.getElementById('index').value =index;
         document.getElementById('productCate').value = existingProducts[index].category;
         document.getElementById('productId').value = existingProducts[index].productId;
         document.getElementById('productName').value = existingProducts[index].nameP;
-        document.getElementById('productCost').value = existingProducts[index].price.replace('$', '');
+        document.getElementById('productCost').value = existingProducts[index].price;
         document.getElementById('addProduct').style.display = "block";
         document.getElementById('h2-add').style.display = "none";
         document.getElementById('h2-cha').style.display = "block";
@@ -246,12 +247,12 @@ function clearValueProduct(){
         var productName = document.getElementById('productName').value;
         var productImg = document.getElementById('productImg').files[0];
         var productCost = document.getElementById('productCost').value;
-
+        console.log(productImg)
         var tempProduct = {
             category: productCate,
             productId: productId,
             nameP: productName,
-            img: "img/" + productImg.name,
+            img: productImg.name,
             price: productCost + "$"
         };
 
