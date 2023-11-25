@@ -38,7 +38,7 @@ var ProductArray = [
     { productId: 37, category: '2', img: 'anh-meo-ba-tu-29292988977.jpg', nameP: 'Mèo Ba Tư', price: 641},
     { productId: 38, category: '2', img: 'anh-meo-mi-long-ngan-992992929288999-1080x1496.jpg', nameP: 'Mèo mi lông ngắn', price: 514},
     { productId: 39, category: '2', img: 'anh-meo-himalaya-888838-1247x1496.jpg', nameP: 'Mèo Himalaya', price: 481},
-    { productId: 40, category: '2', img: 'anh-meo-Munchkin-94949-1247x956.jpg', nameP: 'Meo Munchkin', price: 884},
+    { productId: 40, category: '2', img: 'anh-meo-Munchkin-94949-1247x956.jpg', nameP: 'Mèo Munchkin', price: 884},
     { productId: 41, category: '1', img: 'cho-corgi-chanlun.jpg', nameP: 'Chó Corgi chân lùn', price: 611},
     { productId: 42, category: '1', img: 'cho-doberman-1-1.jpg', nameP: 'Chó doberman', price: 573},
     { productId: 43, category: '1', img: 'cho-golden.jpg', nameP: 'Chó goldem', price: 546},
