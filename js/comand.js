@@ -2,74 +2,8 @@
 function currency(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' ₫';
 }
-createProduct();
-createBanner();
+
 // list_product_pagi(1); 
-function createProduct() {
- 
-    var ProductArray = [
-      { productId: 1, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100 },
-      { productId: 2, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 200 },
-      { productId: 3, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 300 },
-      { productId: 4, category: '1', img: 'logo.jpg', nameP: 'Product 4', price: 100000000 },
-      { productId: 5, category: '2', img: 'logo.jpg', nameP: 'Product 5', price: 100000000 },
-      { productId: 6, category: '2', img: 'logo.jpg', nameP: 'Product 6', price: 100000000 },
-      { productId: 7, category: '2', img: 'logo.jpg', nameP: 'Product 7', price: 100000000 },
-      { productId: 8, category: '2', img: 'logo.jpg', nameP: 'Product 8', price: 100000000 },
-      { productId: 9, category: '2', img: 'logo.jpg', nameP: 'Product 9', price: 100000000 },
-      { productId: 10, category: '2', img: 'logo.jpg', nameP: 'Product 10', price: 100000000 },
-      { productId: 11, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100000000 },
-      { productId: 12, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 100000000 },
-      { productId: 13, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 100000000 },
-      { productId: 14, category: '1', img: 'logo.jpg', nameP: 'Product 4', price: 100000000 },
-      { productId: 15, category: '2', img: 'logo.jpg', nameP: 'Product 5', price: 100000000 },
-      { productId: 16, category: '2', img: 'logo.jpg', nameP: 'Product 6', price: 100000000 },
-      { productId: 17, category: '2', img: 'logo.jpg', nameP: 'Product 7', price: 100000000 },
-      { productId: 18, category: '2', img: 'logo.jpg', nameP: 'Product 8', price: 100000000 },
-      { productId: 19, category: '2', img: 'logo.jpg', nameP: 'Product 9', price: 100000000 },
-      { productId: 20, category: '2', img: 'logo.jpg', nameP: 'Product 10', price: 100000000 },
-      { productId: 21, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100000000 },
-      { productId: 22, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 100000000 },
-      { productId: 23, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 100000000 },
-      { productId: 24, category: '1', img: 'logo.jpg', nameP: 'Product 4', price: 100000000 },
-      { productId: 25, category: '2', img: 'logo.jpg', nameP: 'Product 5', price: 100000000 },
-      { productId: 26, category: '2', img: 'logo.jpg', nameP: 'Product 6', price: 100000000 },
-      { productId: 27, category: '2', img: 'logo.jpg', nameP: 'Product 7', price: 100000000 },
-      { productId: 28, category: '2', img: 'logo.jpg', nameP: 'Product 8', price: 100000000 },
-      { productId: 29, category: '2', img: 'logo.jpg', nameP: 'Product 9', price: 100000000 },
-      { productId: 30, category: '2', img: 'logo.jpg', nameP: 'Product 10', price: 100000000 },
-      { productId: 31, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100000000 },
-      { productId: 32, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 100000000 },
-      { productId: 33, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 100000000 },
-      { productId: 34, category: '1', img: 'logo.jpg', nameP: 'Product 4', price: 100000000 },
-      { productId: 35, category: '2', img: 'logo.jpg', nameP: 'Product 5', price: 100000000 },
-      { productId: 36, category: '2', img: 'logo.jpg', nameP: 'Product 6', price: 100000000 },
-      { productId: 37, category: '2', img: 'logo.jpg', nameP: 'Product 7', price: 100000000 },
-      { productId: 38, category: '2', img: 'logo.jpg', nameP: 'Product 8', price: 100000000 },
-      { productId: 39, category: '2', img: 'logo.jpg', nameP: 'Product 9', price: 100000000 },
-      { productId: 40, category: '2', img: 'logo.jpg', nameP: 'Product 10', price: 100000000 },
-      { productId: 41, category: '1', img: 'logo.jpg', nameP: 'Product 1', price: 100000000 },
-      { productId: 42, category: '1', img: 'logo.jpg', nameP: 'Product 2', price: 100000000 },
-      { productId: 43, category: '1', img: 'logo.jpg', nameP: 'Product 3', price: 100000000 },
-      { productId: 44, category: '1', img: 'logo.jpg', nameP: 'Product 4', price: 100000000 },
-      { productId: 45, category: '2', img: 'logo.jpg', nameP: 'Product 5', price: 100000000 },
-      { productId: 46, category: '2', img: 'logo.jpg', nameP: 'Product 6', price: 100000000 },
-      { productId: 47, category: '2', img: 'logo.jpg', nameP: 'Product 7', price: 100000000 },
-      { productId: 48, category: '2', img: 'logo.jpg', nameP: 'Product 8', price: 100000000 },
-      { productId: 49, category: '2', img: 'logo.jpg', nameP: 'Product 9', price: 100000000 },
-      { productId: 50, category: '2', img: 'logo.jpg', nameP: 'Product 10', price: 100000000 },
-    ];
-    localStorage.setItem('product', JSON.stringify(ProductArray));
-}
-function createBanner() {
- 
-  var BannerArray = [
-    { BannerId: 1, img: 'Banner_1.jpg', nameP: 'Banner 1'},
-    { BannerId: 2, img: 'Banner_2.jpg', nameP: 'Banner 2'},
-    { BannerId: 3, img: 'Banner_3.jpg', nameP: 'Banner 3'}
-  ];
-  localStorage.setItem('banner', JSON.stringify(BannerArray));
-}
 
 var current_page = 1;
 var limit = 15;

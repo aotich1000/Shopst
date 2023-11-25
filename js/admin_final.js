@@ -1,35 +1,35 @@
-var productArrays = [
-    { category: '1',productId: 1, img:'../img/1.jpg', nameP:'Ảnh 1',  price:'200$'},
-    { category: '1',productId: 2, img:'../img/1.jpg', nameP:'anh2',  price: '200$'},
-    { category: '1',productId: 3, img:'../img/1.jpg', nameP:'anh3',  price: '200$'},
-    { category: '1',productId: 4, img:'../img/1.jpg', nameP:'anh4',  price:'200$'},
-    { category: '1',productId: 5, img:'../img/1.jpg', nameP:'anh5',  price:'200$'},
-    { category: '1',productId: 6, img:'../img/1.jpg', nameP:'anh6',  price:'200$'},
-    { category: '1',productId: 7, img:'../img/1.jpg', nameP:'Ảnh 1',  price:'200$'},
-    { category: '1',productId: 8, img:'../img/1.jpg', nameP:'anh2',  price: '200$'},
-    { category: '1',productId: 9, img:'../img/1.jpg', nameP:'anh3',  price: '200$'},
-    { category: '1',productId: 10, img:'../img/1.jpg', nameP:'anh4',  price:'200$'},
-    { category: '1',productId: 11, img:'../img/1.jpg', nameP:'anh5',  price:'200$'},
-    { category: '1',productId: 12, img:'../img/1.jpg', nameP:'anh6',  price:'200$'},
-    { category: '1',productId: 13, img:'../img/1.jpg', nameP:'Ảnh 1',  price:'200$'},
-    { category: '1',productId: 14, img:'../img/1.jpg', nameP:'anh2',  price: '200$'},
-    { category: '1',productId: 15, img:'../img/1.jpg', nameP:'anh3',  price: '200$'},
-    { category: '1',productId: 16, img:'../img/1.jpg', nameP:'anh4',  price:'200$'},
-    { category: '1',productId: 17, img:'../img/1.jpg', nameP:'anh5',  price:'200$'},
-    { category: '1',productId: 18, img:'../img/1.jpg', nameP:'anh6',  price:'200$'},
+// var productArrays = [
+//     { category: '1',productId: 1, img:'../img/1.jpg', nameP:'Ảnh 1',  price:'200$'},
+//     { category: '1',productId: 2, img:'../img/1.jpg', nameP:'anh2',  price: '200$'},
+//     { category: '1',productId: 3, img:'../img/1.jpg', nameP:'anh3',  price: '200$'},
+//     { category: '1',productId: 4, img:'../img/1.jpg', nameP:'anh4',  price:'200$'},
+//     { category: '1',productId: 5, img:'../img/1.jpg', nameP:'anh5',  price:'200$'},
+//     { category: '1',productId: 6, img:'../img/1.jpg', nameP:'anh6',  price:'200$'},
+//     { category: '1',productId: 7, img:'../img/1.jpg', nameP:'Ảnh 1',  price:'200$'},
+//     { category: '1',productId: 8, img:'../img/1.jpg', nameP:'anh2',  price: '200$'},
+//     { category: '1',productId: 9, img:'../img/1.jpg', nameP:'anh3',  price: '200$'},
+//     { category: '1',productId: 10, img:'../img/1.jpg', nameP:'anh4',  price:'200$'},
+//     { category: '1',productId: 11, img:'../img/1.jpg', nameP:'anh5',  price:'200$'},
+//     { category: '1',productId: 12, img:'../img/1.jpg', nameP:'anh6',  price:'200$'},
+//     { category: '1',productId: 13, img:'../img/1.jpg', nameP:'Ảnh 1',  price:'200$'},
+//     { category: '1',productId: 14, img:'../img/1.jpg', nameP:'anh2',  price: '200$'},
+//     { category: '1',productId: 15, img:'../img/1.jpg', nameP:'anh3',  price: '200$'},
+//     { category: '1',productId: 16, img:'../img/1.jpg', nameP:'anh4',  price:'200$'},
+//     { category: '1',productId: 17, img:'../img/1.jpg', nameP:'anh5',  price:'200$'},
+//     { category: '1',productId: 18, img:'../img/1.jpg', nameP:'anh6',  price:'200$'},
 
-];
-localStorage.setItem('product', JSON.stringify(productArrays));    
+// ];
+// localStorage.setItem('product', JSON.stringify(productArrays));    
 
 
 function loadTable(index){
     var s=`<table id="itemTable">
                 <thead>
-                    <tr>
-                        <th>Category</th>
+                    <tr>  
                         <th>ID</th>
-                        <th>Image</th>
                         <th>Name</th>
+                        <th>Image</th>
+                        <th>Category</th>
                         <th>Cost</th>   
                         <th>Thao tác</th>
                     </tr>
@@ -37,10 +37,10 @@ function loadTable(index){
     for(var i=0; i<index.length;i++){
         s+=`    
         <tr>
-            <th>${index[i].category}</th>
             <th>${index[i].productId}</th>
-            <th><img src="${index[i].img}" alt="a"></th>
             <th>${index[i].nameP}</th>
+            <th><img src="../img/${index[i].img}" alt="a"></th>
+            <th>${index[i].category}</th>
             <th>${index[i].price}</th>
             <th>
                 <button id="${index[i].productId}">Sửa</button>
