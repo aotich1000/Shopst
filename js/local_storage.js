@@ -62,7 +62,7 @@ var ProductArray = [
 
 
   var adminAcc = {
-    username: "admin123",
+    username: "laptrinhweb123",
     password: "admin123", 
     email: "nhom16@gmail.com",
     phonenumber: "0123456789"

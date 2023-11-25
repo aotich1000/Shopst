@@ -185,7 +185,11 @@ body {
   width: 100%;
   height: auto;
   transition: 0.5s ease;
-
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px;
 }
 
 .card:hover img {
@@ -198,6 +202,7 @@ body {
 
 
 .card-body {
+  height: 275px;
   padding: 5px;
   border-bottom: 1px solid black;
   position: relative;
@@ -208,6 +213,7 @@ body {
 .card-footer {
   text-align: center;
   position: relative;
+  height: 75px;
 }
 
 .card a {

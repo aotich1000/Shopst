@@ -32,7 +32,7 @@ function loadTable(index){
 
 function exitWebsite() {
     // Chuyển hướng người dùng đến một trang khác hoặc trang chính
-    window.location.href = '../index.html';
+    window.location.href = 'index.html';
 }
 
 // --------------Thêm sản phẩm ------------
