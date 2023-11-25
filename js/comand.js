@@ -233,34 +233,64 @@ function showArray(array){
 // tính toán lại số trang
 // set lại trang ban đầu 
 // 
-function ArrayProductForCategory(category, start_price, end_price){
+function Search(category, searchKey ,start_price, end_price){
   var productArray = JSON.parse(localStorage.getItem('product'));
   var productArrayCategory = [];
   var temp = 0;
   //tìm kiếm theo danh mục
-  for(i = 0; i <  productArray.length; i++){
-    if(productArray[i].category === category){
-      productArrayCategory[temp] = productArray[i];
-      temp = temp +  1;
-    }
-    //tìm kiếm theo tên
-    if(productArray[i].nameP === category){
-      productArrayCategory[temp] = productArray[i];
-      temp = temp +  1;
-    }
-    //tìm kiếm theo khoảng giá
-    if(parseInt(productArray[i].price)  > parseInt(start_price) && parseInt(productArray[i].price)  < parseInt(end_price)){
-      productArrayCategory[temp] = productArray[i];
-      temp = temp +  1;
-    }
+  // for(i = 0; i <  productArray.length; i++){
+  //   if(productArray[i].category === category){
+  //     productArrayCategory[temp] = productArray[i];
+  //     temp = temp +  1;
+  //   }
+  //   //tìm kiếm theo tên
+  //   if(productArray[i].nameP === searchKey){
+  //     productArrayCategory[temp] = productArray[i];
+  //     temp = temp +  1;
+  //   }
+  //   //tìm kiếm theo khoảng giá
+  //   if(parseInt(productArray[i].price)  > parseInt(start_price) && parseInt(productArray[i].price)  < parseInt(end_price)){
+  //     productArrayCategory[temp] = productArray[i];
+  //     temp = temp +  1;
+  //   }
 
-    //*chưa thể tìm kiếm multi tag
+  //   //*chưa thể tìm kiếm multi tag
+  // }
+  //tìm kiếm chỉ danh mục
+  if (category !== '' && searchKey !== '' && start_price === null && end_price === null){
+    for(i = 0; i <  productArray.length; i++){
+      if(productArray[i].category === category){
+        productArrayCategory[temp] = productArray[i];
+        temp = temp +  1;
+      }
+    }
+    console.log(`day la danh muc : ${category}`);
   }
+
+  //tìm kiếm chỉ tên
+  if(searchKey !== '' && category === '' && start_price === null && end_price === null){
+    for(i = 0; i <  productArray.length; i++){
+      if(productArray[i].category === searchKey){
+        productArrayCategory[temp] = productArray[i];
+        temp = temp +  1;
+      }
+    }
+    console.log(`day la key search : ${searchKey}`);
+  }
+
   localStorage.setItem('productcategory', JSON.stringify(productArrayCategory));
   // count_page = Math.ceil(productArrayCategory.length/limit);
   showArray('productcategory');
 
 }
+
+
+  //Tạo một temp local storage chứa danh sách sản phẩm trùng với từ khóa search
+  //Có những cách search sau:
+  // Theo tên - chính xác tên, có thể viết thường
+  // Theo danh mục sản phẩm - chính xác tên, có thể truy cập từ menu
+  // theo khoảng giá sản phẩm. cần có end - start value
+
 
 function list_product_pagi(page_num,id,category){
     start_point = (page_num - 1)*limit;
@@ -270,13 +300,14 @@ function list_product_pagi(page_num,id,category){
     var temp = 0;
 
     if(category != null){
-      ArrayProductForCategory(category);
+      search(category);
       var productArray = JSON.parse(localStorage.getItem('productcategory'));
       count_page = Math.ceil(productArray.length/limit);
     }else{
       var productArray = JSON.parse(localStorage.getItem('product'));
       count_page = Math.ceil(productArray.length/limit);
     }
+
     if( productArray.length < end_point){
       end_point = productArray.length + start_point;
     }
