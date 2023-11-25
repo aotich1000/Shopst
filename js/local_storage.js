@@ -106,7 +106,7 @@ localStorage.setItem('order-detail', JSON.stringify(detailArr))
 
 
 var userArr = [
-    {id: "A01", fullname: "Customer1", username: "C1", password: "CA1", email: "C1@gmail.com", phonenumber:"0xxxxxxxx0" },
+    {id: "A01", fullname: "Customer1", username: "1", password: "1", email: "C1@gmail.com", phonenumber:"0xxxxxxxx0" },
     {id: "A02", fullname: "Customer2", username: "C2", password: "CA2", email: "C2@gmail.com", phonenumber:"0xxxxxxxx0" },
     {id: "A03", fullname: "Customer3", username: "C3", password: "CA3", email: "C3@gmail.com", phonenumber:"0xxxxxxxx0" },
     {id: "A04", fullname: "Customer4", username: "C4", password: "CA4", email: "C4@gmail.com", phonenumber:"0xxxxxxxx0" },

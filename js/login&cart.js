@@ -85,17 +85,7 @@ loginForm.addEventListener("submit", function(event) {
   var username = document.getElementById("login-username").value;
   var password = document.getElementById("login-password").value;
 
-  // Lấy danh sách người dùng từ LocalStorage
-  var userList = JSON.parse(localStorage.getItem('userList')) || [];
-
-  // Kiểm tra thông tin đăng nhập
-  for (var i = 0; i < userList.length; i++) {
-    var user = userList[i];
-    if (user.username === username && user.password === password) {
-      loggedInUser = user;
-      break;
-    }
-  }
+  Checkuser(username,password);
 
   if (loggedInUser) {
     // Hiển thị thông báo đăng nhập thành công
@@ -298,3 +288,19 @@ cartshow.style.display="none"
 overlay2.style.display = "none";
 
 });
+
+
+
+
+function Checkuser(username, password){
+  //lấy danh sách dữ liệu user
+  var userList = JSON.parse(localStorage.getItem('user-list')) || [];
+
+  // Kiểm tra thông tin đăng nhập
+  for (var i = 0; i < userList.length; i++) {
+    if (userList[i].username === username && userList[i].password === password) {
+        loggedInUser = userList[i];
+      break;
+    }
+  }
+}

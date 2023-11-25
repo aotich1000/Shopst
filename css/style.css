@@ -372,6 +372,7 @@ body {
 .login-place {
   display: flex;
   justify-content: right;
+  align-items: center;
 }
 
 .login-button {
