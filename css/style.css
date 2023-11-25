@@ -109,14 +109,14 @@ body {
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 52%);
   transition: 0.3s;
   border-radius: 5px;
-  z-index: 2;
+
 }
 
 .card img {
   width: 100%;
-  height: auto;
+  height: 100%;
   transition: 0.5s ease;
-
+  object-fit: contain;
 }
 
 .card:hover img {
@@ -133,7 +133,7 @@ body {
   border-bottom: 1px solid black;
   position: relative;
   overflow: hidden;
-
+  height: 275px;
 }
 
 .card-footer {
@@ -244,7 +244,7 @@ body {
 
 #productInfo #info .right #productname{
 	font-size: 25px;
-	margin:10px 0;
+  margin:10px 0 ;
 }
 
 #productInfo #info .right #share-buttons{
@@ -372,6 +372,7 @@ body {
 .login-place {
   display: flex;
   justify-content: right;
+  align-items: center;
 }
 
 .login-button {
