@@ -1,32 +1,14 @@
-// import 'slide.js';
+
 function currency(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' ₫';
 }
-
-// list_product_pagi(1); 
 
 var current_page = 1;
 var limit = 15;
 var count_page;
 var current_category;
 var productArray = JSON.parse(localStorage.getItem('product'));
-{/*                   <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-body">
-                            <img src="./img/logo.jpg" alt="anh1">
-                        </div>
-                        <div class="card-footer">
-                            <p><a href=""><b>Whotao?</b></p>
-                            <p>None Price</a></p>
-                        </div>
-                        <div class="card-overlay hidden">
-                            <div class="overlay-item">
-                                <a href="#">Thêm vào giỏ hàng</a>
-                            </div>
-                            <div class="overlay-item">
-                                <a href="#"> Chi tiết
-                            </div>
-                        </div> */}
+
 //show produc 
 //có hai dạng xem thử và xem theo sản phảm/phân loại/tìm kiếm có phân trang
 function showProduct(listitem){
@@ -142,11 +124,7 @@ function closeProductInfo(){
 function showArray(array){
   var getItemP = localStorage.getItem(`${array}`);
   var showItem = JSON.parse(getItemP);
-  console.log(showItem);
-  // for(i=0; i<showItem.length;i++){
-  //   console.log(showItem[i].img);
-  // }
-  
+  console.log(showItem);  
 }
 
 //Phần trang
@@ -309,44 +287,6 @@ function changePage(){
        list_product_pagi(targetElementId,'main',current_category);
   });
 }
-
-{/* <div class="banner">
-                <div class="container flex-container">
-                    <div class="slideshow-container">
-
-                        <!-- Full-width images with number and caption text -->
-                        <div class="mySlides fade">
-                            <div class="numbertext">1 / 3</div>
-                            <img src="./img/illust_86644511_20220711_152248.jpg" style="width:100%">
-                            <div class="text">Caption Text</div>
-                        </div>
-
-                        <div class="mySlides fade">
-                            <div class="numbertext">2 / 3</div>
-                            <img src="./img/illust_86644511_20220711_152252.jpg" style="width:100%">
-                            <div class="text">Caption Two</div>
-                        </div>
-
-                        <div class="mySlides fade">
-                            <div class="numbertext">3 / 3</div>
-                            <img src="./img/illust_86644511_20220711_152255.jpg" style="width:100%">
-                            <div class="text">Caption Three</div>
-                        </div>
-
-                        <!-- Next and previous buttons -->
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    </div>
-
-
-                    <!-- The dots/circles -->
-                    <div style="text-align:center" class="dot-place">
-                        <span class="dot" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                    </div>
-                </div>
-            </div> */}
 
 // Limit banner là 3
 // tạo một banner mới là 
