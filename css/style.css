@@ -737,6 +737,10 @@ ul.breadcrumb li a:hover {
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
 
+.mainmenu{
+  margin-top: 5px;
+}
+
 @media only screen and (min-width:478px) and (max-width: 828px) {
   /* Chi tiết sản phẩm */
   #productInfo #info{
@@ -786,7 +790,16 @@ ul.breadcrumb li a:hover {
   #mainmenu{
     display: none;
   }
-
+  .menu-item{
+    width: 100%;
+    text-align: center;
+  }
+  .abc{
+    flex-direction: column;
+  }
+  .menu-item button{
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 763px) {

@@ -435,22 +435,12 @@ function shuffleArray(array) {
 }
 showMenu();
 function showMenu(){
-  var s = `<div class="container" style="background-color: #04AA6D;"> 
-  <div class="flex-container">
+  var s = `<div class="container flex-container abc" style="background-color: #04AA6D;"> 
       <div class="menu-item"><button id="action" value="index">Trang chủ </button> </div>
       <div class="menu-item"><button id="action" value="showall">Sản phẩm</button> </div>
       <div class="menu-item"><button onclick="list_product_pagi(1,'main','1')">Sp Cho chó</button> </div>
       <div class="menu-item"><button onclick="list_product_pagi(1,'main','2')">Sp Cho mèo</button> </div>
-      <div class="dropdown">
-          <button class="dropbtn">Danh mục sản phẩm</button>
-          <div class="dropdown-content">
-              <a href="#">Phân loại 1</a>
-              <a href="#">Phân loại 1</a>
-              <a href="#">Phân loại 1</a>
-              <a href="#">Phân loại 1</a>
-          </div>
-      </div> 
-</div>
+      
 </div>`
   document.getElementById('mainmenu').innerHTML = s;
 }
