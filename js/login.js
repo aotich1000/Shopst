@@ -197,5 +197,5 @@ $(document).ready(function(){
 
 
 
-  // var a = JSON.parse(localStorage.getItem('user-list'));
-  // console.log(a);
+  var a = JSON.parse(localStorage.getItem('userlogin'));
+  console.log(a);
