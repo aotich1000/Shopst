@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="./css/login&cart.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-overlay">
+        
+        <div class="container_login">
+          <form id="login-form" class="login-form" >
+            <div>
+              <div class="login-exit">X</div>
+                <h2>Đăng nhập</h2>
+            </div>
+            <div style="margin-bottom: 10px;">Tên đăng nhập: </div style="margin-bottom: 10px;">
+            <div style="display: flex;"><i class="far fa-user"></i>
+            <input type="text" style="width: 300px;" id="login-username" placeholder="Tên đăng nhập" required></div>
+            <div style="margin-bottom: 10px;">Mật khẩu: </div style="margin-bottom: 10px;">
+            <div style="display: flex;"><i class="fas fa-key"></i>
+            <input type="password" id="login-password" placeholder="Mật khẩu">
+            <div id="eye">
+            <i class="far fa-eye" style="padding-left: 10px; cursor: pointer;"></i>
+            </div>
+            
+          </div>
+          <div id="login-message" style="display: flex; color: red; padding-top: 10px; justify-content: center;align-items: center;"></div>
+            <button type="submit">Đăng nhập</button>
+            <div style="margin-top: 10px;">Chưa có tài khoản? <u id="register-link" style="color: red; cursor: pointer; flex-direction: column;">Đăng ký</u></div>
+          </form>
+      
+          
+          <form id="register-form" class="register-form" style="display: none;">
+            <div>
+              <div class="register-exit">X</div>
+              <h2>Đăng ký</h2>
+            </div>
+            <div style="margin-bottom: 10px;">Tên đăng nhập:</div>
+            <input type="text" id="register-username" placeholder="Tên đăng nhập" required>
+            <div style="margin-bottom: 10px;">Mật khẩu:</div>
+            <input type="password" id="register-password" placeholder="Mật khẩu" required>
+            <div style="margin-bottom: 10px;">Email:</div>
+            <input type="text" id="register-email" placeholder="Email" required>
+            <div style="margin-bottom: 10px;">Số điện thoại:</div>
+            <input type="text" id="register-phone" placeholder="SĐT" required>
+            <button type="submit">Đăng ký</button>
+            <div id="register-error" style="color: red;"></div>
+            <div style="margin-top: 10px;">Đã có tài khoản? <u id="login-link" style="color: red; cursor: pointer; flex-direction: column;">Đăng nhập</u></div>
+          </form>
+        </div>
+      </div>
+      
+    <div class="wrapper">
+        <div class="topbar">
+                <div class="container">
+                    <div class="flex-container middle-content">
+                        <div class="contract">
+                            Địa chỉ: 273 An Dương Vương Quận 5 TP Hồ Chí Minh SĐT: 09xxxxxxxxxx
+                        </div>
+                        <div class="login-place">
+                            <div class="login-icon" id="login-icon">
+                                <a href="#"><b>Đăng nhập</b></a>
+                            </div>
+                            <div id="welcome-message">
+                              <button class="showname"></button>
+                              <div class="setting">                                   
+                                <div class="login-icon" id="logout-icon" style=" cursor: pointer;">
+                                  <a id="update-button" href="setting.html"><b>Setting</b></a>
+                                  <a id="logout-button"><b>Đăng xuất</b></a>
+                              </div>  
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        <div class="header">
+                <div class="container">
+                    <div class="flex-container middle-content">
+                        <div class="logo">
+                            <img src="./img/logo.jpg" alt="logo">
+                            <h2 id="shopname">Whotao?</h2>
+                        </div>
+                        <div class="menu-ico"><img src="./img/more.png" alt="ac" onclick="openmenu()"></div>
+                        <div class="flex-container middle-content" id="menu">
+                            <div class="search-bar">
+                                <input type="text" placeholder="Tìm kiếm gì đó....">
+                                <img src="./img/search.png" alt="search">
+                            </div>
+                            <div class="user-ico"><img src="./img/user.png" alt="us"></div>
+                            <div class="cart-iconn" id="cart-iconn">
+                                <img src="./img/shopping-cart.png" alt="ca" >
+                                <div class="cart-count"><span>0</span></div  >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            
+    <script src="./js/local_storage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="./js/slide.js"></script>
+    <script src="./js/comand.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/reponsive-menu.js"></script>
+    <script src="./js/cart.js"></script>
+    
+</body>
