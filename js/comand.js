@@ -1,6 +1,6 @@
 // import 'slide.js';
 function currency(num) {
-  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' ₫';
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + '$';
 }
 
 var current_page = 1;
@@ -38,14 +38,14 @@ function showProduct(listitem){
           '</div>'+
           '<div class="card-footer">'+
               '<p><a href=""><b>'+ productArray[i].nameP +'</b></p>'+
-              '<p>'+ productArray[i].price +'</a></p>'+
+              '<p>'+ productArray[i].price +'$</a></p>'+
           '</div>'+
           '<div class="card-overlay hidden">'+
               '<div class="overlay-item">'+
                   '<a onclick="showProductInfo('+productArray[i].productId+')"> Xem chi tiết </a>'+
               '</div>'+
               '<div class="overlay-item">'+
-                  '<a href="#" onclick=getquantity('+productArray[i].productId+',1)> + Thêm vào giỏ hàng</a>'+
+                  '<a href="#" onclick=addcart('+productArray[i].productId+',1)> + Thêm vào giỏ hàng</a>'+
               '</div>'+
           '</div> </div>';
   }

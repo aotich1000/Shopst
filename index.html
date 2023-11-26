@@ -69,7 +69,7 @@
                             <div class="login-icon" id="login-icon">
                                 <a href="#"><b>Đăng nhập</b></a>
                             </div>
-                            <div id="welcome-message"></div>
+                            <div id="welcome-message" style="font-size: 20px; font-weight: bold; margin-top: 5px;"></div>
                             <div class="login-icon" id="logout-icon" style="display: none; cursor: pointer;">
                                 <a id="logout-button" style="display: none;"><b>Đăng xuất</b></a>
                             </div>  
@@ -159,7 +159,7 @@
                 <h2>Giỏ hàng</h2>
             </div>
             <div id="cart-table"></div>
-            <div><button type="submit" style="cursor: pointer;">Mua hàng</button></div>
+            <div><button type="submit" style="cursor: pointer;" onclick="saveInvoiceToLocalStorage();">Mua hàng</button></div>
         </div>
     </div>
     </section>

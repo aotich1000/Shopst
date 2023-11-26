@@ -50,7 +50,7 @@ registerForm.addEventListener("submit", function(event) {
 
   if (errorElement.innerHTML === '') {
     // Lấy danh sách người dùng từ LocalStorage (nếu có)
-    var userList = JSON.parse(localStorage.getItem('userList')) || [];
+    var userlist = JSON.parse(localStorage.getItem('user-list')) || [];
 
     // Tạo một đối tượng người dùng mới
     var newUser = {
@@ -61,10 +61,10 @@ registerForm.addEventListener("submit", function(event) {
     };
 
     // Thêm người dùng mới vào danh sách
-    userList.push(newUser);
+    userlist.push(newUser);
 
     // Cập nhật danh sách người dùng trong LocalStorage
-    localStorage.setItem('userList', JSON.stringify(userList));
+    localStorage.setItem('user-list', JSON.stringify(userlist));
 
     alert('Đăng ký thành công');
     document.getElementById('register-form').style.display = 'none';
@@ -99,12 +99,12 @@ loginForm.addEventListener("submit", function(event) {
     // Chuyển hướng đến trang "admin.html"
   } else {
     // Lấy danh sách người dùng từ LocalStorage
-    var userList = JSON.parse(localStorage.getItem('userList')) || [];
+    var userlist = JSON.parse(localStorage.getItem('user-list')) || [];
 
     // Kiểm tra thông tin đăng nhập
-    for (var i = 0; i < userList.length; i++) {
-      if (userList[i].username === username && userList[i].password === password) {
-        loggedInUser = userList[i];
+    for (var i = 0; i < userlist.length; i++) {
+      if (userlist[i].username === username && userlist[i].password === password) {
+        loggedInUser = userlist[i];
         break;
       }
     }
@@ -133,7 +133,6 @@ loginForm.addEventListener("submit", function(event) {
 
 logoutButton.addEventListener("click", function() {
   // Xóa thông tin người dùng đã đăng nhập
-  loggedInUser = null;
 
   // Xóa thông báo chào mừng
   welcomeMessageElement.innerHTML = "";
@@ -181,29 +180,4 @@ $(document).ready(function(){
   });
 
 
-/*---------------------Cart--------------------*/
-//-----------------------Exits------------------------
-const cartexit = document.querySelector(".exit-cart")
-const carticon = document.querySelector(".cart-iconn")
-const cartshow = document.querySelector(".cart-table")
-const overlay2 = document.querySelector(".background-overlay2");
 
-carticon.addEventListener("click",function() {
-  if (loggedInUser) {
-
-cartshow.style.display="block"
-overlay2.style.display = "block";
-
-}
-else {
-  alert("Bạn cần đăng nhập để thao tác với giỏ hàng!");
-  loginForm.style.display="block"
-  overlay.style.display="block"
-}
-});
-
-cartexit.addEventListener("click",function() {
-cartshow.style.display="none"
-overlay2.style.display = "none";
-
-});

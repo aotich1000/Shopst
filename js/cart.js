@@ -8,7 +8,32 @@
 //     { productId: 6, category: '2', img: '2-nhan-su-ma-1257-1-1247x1496.jpg', nameP: 'Mèo nhân sư', price: 990, quantity : 2},
 //     { productId: 7, category: '2', img: 'aln-xam-trang-chan-lun-tai-cup-1247x1496.jpg', nameP: 'Mèo xám trắng chân lùn tai cụt', price: 699, quantity : 2}
 // ];
+//-----------------------Exits------------------------
+const cartexit = document.querySelector(".exit-cart")
+const carticon = document.querySelector(".cart-iconn")
+const cartshow = document.querySelector(".cart-table")
+const overlay2 = document.querySelector(".background-overlay2");
 
+carticon.addEventListener("click",function() {
+  if (loggedInUser) {
+
+cartshow.style.display="block"
+overlay2.style.display = "block";
+
+}
+else {
+  alert("Bạn cần đăng nhập để thao tác với giỏ hàng!");
+  loginForm.style.display="block"
+  overlay.style.display="block"
+}
+});
+
+cartexit.addEventListener("click",function() {
+cartshow.style.display="none"
+overlay2.style.display = "none";
+
+});
+//----------------------------------------------------------------
 var cart = [];
 
 function addcart(id, soluong) {
@@ -57,54 +82,57 @@ function addcart(id, soluong) {
 }
 
 function loadCart() {
-  var s = ``;
-  totalcost = 0;
-  var totalQuantity = 0; // Tổng số lượng sản phẩm
-
-  for (var i = 0; i < cart.length; i++) {
-    s += `<tr>
-            <th>${i + 1}</th>
-            <th>${cart[i].nameP}</th>
-            <th><img src="./img/${cart[i].img}" alt="a"></th>
-            <th><input type="number" value="${cart[i].quantity}" min="1" onchange="updateQuantity(${i}, this.value)"></th>
-            <th>${currency(cart[i].quantity * cart[i].price)}</th>
-            <td><button onclick="removeItem(${i})" style="">Xoá</button></td>
-            <th></th>
-          </tr>`;
-    totalcost += Number(cart[i].quantity * cart[i].price);
-    totalQuantity += Number(cart[i].quantity); // Cập nhật tổng số lượng sản phẩm
+    var s = ``;
+    totalcost = 0;
+  
+    for (var i = 0; i < cart.length; i++) {
+      s += `<tr>
+              <th>${i + 1}</th>
+              <th>${cart[i].nameP}</th>
+              <th><img src="./img/${cart[i].img}" alt="a"></th>
+              <th><input type="number" value="${cart[i].quantity}" min="1" onchange="updateQuantity(${i}, this.value)"></th>
+              <th>${currency(cart[i].quantity * cart[i].price)}</th>
+              <td><button onclick="removeItem(${i})" style="">Xoá</button></td>
+              <th></th>
+            </tr>`;
+      totalcost += Number(cart[i].quantity * cart[i].price);
+    }
+  
+    var a = `<table>
+                <thead>
+                    <th>ID sản phẩm</th>
+                    <th>Tên</th>
+                    <th>Hình ảnh</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Chọn</th>
+                </thead>
+                <tbody>
+                    ${s}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Tổng tiền: ${currency(totalcost)}</th>
+                    <th></th>
+                  </tr>
+                </tfoot>
+            </table>`;
+  
+    console.log(totalcost);
+    document.getElementById('cart-table').innerHTML = a;
+  
+    // Gán số lượng sản phẩm vào class "cart-count"
+    document.querySelector('.cart-count').textContent = cart.length;
+    var invoice = {
+        items: cart,
+        date: new Date().toISOString(),
+      };
+      saveInvoiceToLocalStorage(invoice);
   }
-
-  var a = `<table>
-              <thead>
-                  <th>ID sản phẩm</th>
-                  <th>Tên</th>
-                  <th>Hình ảnh</th>
-                  <th>Số lượng</th>
-                  <th>Giá</th>
-                  <th>Chọn</th>
-              </thead>
-              <tbody>
-                  ${s}
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th>Tổng tiền: ${currency(totalcost)}</th>
-                  <th></th>
-                </tr>
-              </tfoot>
-          </table>`;
-
-  console.log(totalcost);
-  document.getElementById('cart-table').innerHTML = a;
-
-  // Gán tổng số lượng sản phẩm vào class "cart-count"
-  document.querySelector('.cart-count').textContent = totalQuantity;
-}
 //---------update tổng tiền----------
 function updateTotal() {
   totalcost = 0;
@@ -118,7 +146,30 @@ function getquantity() {
   var idp = document.getElementById('idp').value;
   addcart(idp, quan);
   loadCart(); // Cập nhật giỏ hàng sau khi thêm sản phẩm
+  var invoice = {
+    items: cart,
+    date: new Date().toISOString(),
+  };
+
+  // Lưu hóa đơn vào local storage
+  saveInvoiceToLocalStorage(invoice);
 }
+function saveInvoiceToLocalStorage(invoice) {
+    // Chuyển đổi đối tượng hóa đơn thành chuỗi JSON
+    const invoiceJSON = JSON.stringify(invoice);
+  
+    // Lưu chuỗi JSON vào local storage
+    localStorage.setItem('invoice', invoiceJSON);
+  }
+  // Lấy chuỗi JSON từ local storage
+const invoiceJSON = localStorage.getItem('invoice');
+
+// Chuyển đổi chuỗi JSON thành đối tượng hóa đơn
+const invoice = JSON.parse(invoiceJSON);
+
+// Sử dụng thông tin hóa đơn
+console.log(invoice.items);
+console.log(invoice.date);
 //-------Xóa sản phẩm----------
 function removeItem(index) {
   cart.splice(index, 1)[0]; // Xoá sản phẩm khỏi giỏ hàng 
