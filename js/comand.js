@@ -444,3 +444,5 @@ function showMenu(){
 </div>`
   document.getElementById('mainmenu').innerHTML = s;
 }
+var a = JSON.parse(localStorage.getItem('user-list'));
+console.log(a);
