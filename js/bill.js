@@ -1,27 +1,96 @@
-function checkLogin()
+// function checkLogin() {
+// 	if(localStorage.getItem('userlogin'))
+// 	{
+// 		var user = JSON.parse(localStorage.getItem('userlogin'));
+// 		welcomeMessageElement.style.display="block";
+// 		document.querySelector("#welcome-message .showname").innerHTML = "Xin chào: " + a.username + "!";
+// 		document.getElementById("login-icon").style.display = "none";
+// 	}
+// 	else {
+// 		return;
+// 	}
+// }
+
+function add1()
 {
-    if(localStorage.getItem('userlogin')){
-    var user=JSON.parse(localStorage.getItem('userlogin'));
-    document.getElementById("login-icon").style.display = "none";
-    welcomeMessageElement.style.display="block";
-    document.querySelector("#welcome-message .showname").innerHTML = "Xin chào: " + user.username + "!";
-    }
+	var s='';
+	s='<div id="st-container">'+
+	'<div class="st-left-col">'+
+		'<div class="block-menu">'+
+			'<div class="block-item-menu">'+
+				'<a onclick="add2(\'page\')" href="#" id="page">'+
+				'<div class="item-menu">'+
+					'<i class="fa-solid fa-house fa-lg"></i>'+
+					'<p>Trang chủ</p>'+
+				'</div>'+
+			'</a>'+
+			'</div>'+
+
+
+			'<div class="block-item-menu">'+
+				'<a onclick="add2(\'info\')" href="#" id="info">'+
+				'<div class="item-menu">'+
+					'<i class="fa-solid fa-house fa-lg"></i>'+
+					'<p>Thông tin khách hàng</p>'+
+				'</div>'+
+			'</a>'+
+			'</div>'+
+		   
+			'<div class="block-item-menu">'+
+				'<a onclick="add2(\'invoice\')" href="#" id="invoice">'+
+				'<div class="item-menu">'+
+					'<i class="fa-solid fa-clock-rotate-left fa-lg"></i>'+
+					'<p>Hóa đơn đã mua</p>'+
+				'</div>'+
+			'</a>'+
+			'</div>'+
+
+			'<div class="block-item-menu">'+
+				'<a onclick="add2(\'exit\')" href="#" id="exit">'+
+				'<div class="item-menu">'+
+					'<i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i>'+
+					'<p>Thoát</p>'+
+				'</div>'+
+			'</a>'+
+			'</div>'+
+		  
+		'</div>'+
+	'</div>'+
+	'<div class="st-right-col">'+
+		   '<div class="block-1">'+
+
+		   '</div>'+
+
+		   '<div class="block-2">'+
+
+		   '</div>'+
+
+		   '<div class="block-3 modal">'+
+			'<button type="button" class="close" onClick="closebillDT()">+</button>'+
+			   '<div class="bill-dt">'+
+
+			  '</div>'+
+		   '</div>'+
+	'</div>'+
+'</div>';
+ document.getElementById("mainmenu").innerHTML=s;
+ document.getElementById("main").style.display="none";
 }
 
-function add()
+
+
+
+function add2(id)
 {
-   var url = document.location.href;
-   var temp = url.split("?");
-   console.log(temp);
    var s='';
    var user = JSON.parse(localStorage.getItem('userlogin'));
-   if(temp[1]=='' || temp[1]==undefined || temp[1].search('all')==0)
+   if(id=='page')
    {
    s='<p>'+'Xin chào '+user.fullname+'</p>';
    document.querySelector('#st-container .st-right-col').innerHTML=s;
    }
    else {
-    if(temp[1]=='Info'){
+    if(id=='info'){
     s='<div class="from-group"><label for="name">Họ và tên</label>'+
 	'<input type="text" id="name" disabled value="'+user.fullname+'"><button class="btn-1" onclick="ishow()"><i class="fa-regular fa-pen-to-square fa-lg"></i></button></div>'+
 
@@ -39,10 +108,13 @@ function add()
 
 	'<div onclick="updateInfo()" class="btn-from-submit-update">Cập nhật thông tin</div>';
     document.querySelector('#st-container .st-right-col').innerHTML=s;
-	}
-	if(temp[1]=='Invoice')
+	} else if (id=='invoice')
 	{
 		//showbill()
+	} else if(id=='exit')
+
+	{
+		location.reload();
 	}
 }
 
@@ -51,7 +123,7 @@ function add()
 
  function password()
  {
-	document.querySelector('#st-container .st-right-col .from-group:nth-child(3) .block-2-pass').style.display="block";
+	document.querySelector('#st-container .st-right-col .from-group:nth-child(4) .block-2-pass').style.display="block";
 	var s='';
 	s='<div class="pass-form">'+
 	'<div class="eye"><input type="password" placeholder="Mật khẩu cũ" id="pass1"><button  id="btn-2-pass1" class="btn-2" onclick="eshow(\'pass1\',\'btn-2-pass1\')"><i class="fa-regular fa-eye fa-lg"></i></button></div></div>'+
@@ -60,9 +132,14 @@ function add()
 	'<div class="pass-form">'+
 	'<div class="eye"><input type="password" placeholder="Nhập mật khẩu mới" id="pass3"><button  id="btn-2-pass3" class="btn-2" onclick="eshow(\'pass3\',\'btn-2-pass3\')"><i class="fa-regular fa-eye fa-lg"></i></button></div>'+
 	'</div><button onclick="outCP()">Xác Nhận</button>';
-    document.querySelector('#st-container .st-right-col .from-group:nth-child(3) .block-2-pass .block-2-passDT').innerHTML=s;
+    document.querySelector('#st-container .st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT').innerHTML=s;
  }
 
+
+ var usernameRegex = /^[a-zA-Z0-9_]{3,}$/;
+ var passwordRegex = /^[\w!@#$%^&*]{6,}$/;
+ var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+ var phoneRegex = /^\d{10}$/;
  function outCP()
  {
 	var user = JSON.parse(localStorage.getItem('userlogin'));
@@ -79,7 +156,7 @@ function add()
 	   return;
 	}
 	
-	else if(!usernameRegex.test(y))
+	else if(!passwordRegex.test(y))
 	{
 	   customAlert('Mạt khẩu phải trên 6 kí tự','warning');
 	   return;
