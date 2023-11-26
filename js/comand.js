@@ -44,6 +44,9 @@ function showProduct(listitem){
               '<div class="overlay-item">'+
                   '<a onclick="showProductInfo('+productArray[i].productId+')"> Xem chi tiết </a>'+
               '</div>'+
+              '<div class="overlay-item">'+
+                  '<a href="#" onclick=addcart('+productArray[i].productId+',1)> + Thêm vào giỏ hàng</a>'+
+              '</div>'+
           '</div> </div>';
   }
   // console.log(current_page);
@@ -72,7 +75,8 @@ function blockProductInfo()
           '<button class="quantitydown" onClick="quantitydown()">-</button><input type="text" id="quantity" value="1"><button class="quantityup" onClick="quantityup()">+</button>'+
          '</div>'+
           '</div>'+
-          '<button class="addtocart">Thêm vào giỏ</button>'+
+          '<input type="hidden" name="idp" id="idp" value="1">'+
+          '<button class="addtocart" onclick=getquantity()>Thêm vào giỏ</button>'+
           '<div id="share-buttons">'+
               '<a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>'+
               '<a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>'+                          
@@ -106,6 +110,7 @@ function showProductInfo(productid)
 			document.getElementById('productprice').innerHTML = 'Giá: '+ currency(productArray[i].price);
 			document.getElementById('imgbig').src='./img/'+productArray[i].img;
 			document.getElementById('quantity').value = 1;
+      document.getElementById('idp').value = productArray[i].productId;
 			//document.querySelector('#info .right button.addtocart').setAttribute();
 		}
 	}
@@ -362,7 +367,7 @@ function showProduct_none_pagi(listitem){
                   '<a onclick="showProductInfo('+productArray[i].productId+')"> Xem chi tiết </a>'+
               '</div>'+
               '<div class="overlay-item">'+
-                  '<a href="#"> + Thêm vào giỏ hàng</a>'+
+                  '<a href="#" onclick=addcart('+productArray[i].productId+',1)> + Thêm vào giỏ hàng</a>'+
               '</div>'+
           '</div> </div>';
   }
