@@ -194,8 +194,3 @@ $(document).ready(function(){
     overlay.style.display = "none";
   
   });
-
-
-
-  var a = JSON.parse(localStorage.getItem('userlogin'));
-  console.log(a);
