@@ -101,6 +101,20 @@ loginForm.addEventListener("submit", function(event) {
     // Lấy danh sách người dùng từ LocalStorage
     var userlist = JSON.parse(localStorage.getItem('user-list')) || [];
 
+   //lấy thông tin user đang đăng nhập
+    for(var i=0;i<userlist.length;i++){
+      if(username==userlist[i].username){
+        if(password==userlist[i].password){
+          localStorage.setItem('userlogin',JSON.stringify(userlist[i]));
+          break;
+        }
+      }
+    } 
+    var a=JSON.parse(localStorage.getItem('userlogin'));
+    console.log(a);
+
+
+
     // Kiểm tra thông tin đăng nhập
     for (var i = 0; i < userlist.length; i++) {
       if (userlist[i].username === username && userlist[i].password === password) {
@@ -113,7 +127,8 @@ loginForm.addEventListener("submit", function(event) {
       // Hiển thị thông báo đăng nhập thành công
       messageElement.innerHTML = "Đăng nhập thành công. Đang chuyển hướng...";
       // Hiển thị thông báo chào mừng
-      welcomeMessageElement.innerHTML = "Xin chào: " + loggedInUser.username + "!";
+      welcomeMessageElement.style.display="block";
+      document.querySelector("#welcome-message .showname").innerHTML = "Xin chào: " + a.username + "!";
 
       // Chuyển hướng đến trang "test.html" sau 1 giây (để người dùng có thời gian nhìn thấy thông báo)
       setTimeout(function() {
@@ -139,6 +154,7 @@ logoutButton.addEventListener("click", function() {
   location.reload();
   document.getElementById("login-icon").style.display = "block";
   document.getElementById("logout-icon").style.display = "none";
+  localStorage.removeItem('userlogin');
 });
 
 //-----Hien mk------------
@@ -181,3 +197,5 @@ $(document).ready(function(){
 
 
 
+  // var a = JSON.parse(localStorage.getItem('user-list'));
+  // console.log(a);

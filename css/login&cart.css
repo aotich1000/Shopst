@@ -190,10 +190,10 @@ body {
 
 }
 
-.login-icon:hover {
+/* .login-icon:hover {
   background-color: black;
 
-}
+} */
 
 .login-icon a {
   text-decoration: none;
@@ -202,8 +202,41 @@ body {
 
 .login-icon a:hover {
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  background-color: #ccc;
 }
+
+#welcome-message {
+  display: none;
+  padding: 0 20px;
+  position: relative;
+}
+
+#welcome-message .showname{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#welcome-message .setting {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  height: 60px;
+  width: 100px;
+  line-height: 25px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: none;
+  animation: bottomup 0.5s;
+  z-index: 100;
+}
+
+#welcome-message:hover .setting {
+  display: block;
+}
+
 
 
 
