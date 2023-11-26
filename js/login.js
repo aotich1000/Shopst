@@ -99,7 +99,7 @@ loginForm.addEventListener("submit", function(event) {
     // Chuyển hướng đến trang "admin.html"
   } else {
     // Lấy danh sách người dùng từ LocalStorage
-    var userList = JSON.parse(localStorage.getItem('user-list')) || [];
+    var userList = JSON.parse(localStorage.getItem('userList')) || [];
 
     // Kiểm tra thông tin đăng nhập
     for (var i = 0; i < userList.length; i++) {
@@ -182,84 +182,6 @@ $(document).ready(function(){
 
 
 /*---------------------Cart--------------------*/
-
-
-
-function addcarta(price, nameP, img){
-  var addtr=document.createElement("tr")
-  var cartitem=document.querySelectorAll("tbody tr")
-  for(var i=0; i<cartitem.length; i++){
-    var productt = document.querySelectorAll(".title")
-      if(productt[i].innerHTML==productname){
-        alert("Sản phẩm đã tồn tại trong giỏ hàng, hãy điều chỉnh số lưọng!")
-        return
-  }
-}
-  var trcontent='<tr><td style="display: flex; align-items: center;"><img style="width: 70px;" src="'+img+'" alt=""><span class="title">'+nameP+'</span></td><td><p><span class="prices">'+price+'</span><sup>đ</sup></p></td><td><input style="width: 30px; outline: none;" type="number" value="1" min="1"></td><td style="cursor: pointer;"><span class="delete-cart">Xóa</span></td></tr>'
-  addtr.innerHTML=trcontent
-  var carttable=document.querySelector("tbody")
-  carttable.append(addtr)
-  // Lấy số lượng sản phẩm hiện tại từ phần tử hiển thị số lượng
-var currentCount = parseInt(document.querySelector('.cart-count').textContent);
-
-// Tăng số lượng sản phẩm khi thêm vào giỏ hàng
-currentCount++;
-
-// Cập nhật số lượng sản phẩm trong phần tử hiển thị số lượng
-document.querySelector('.cart-count').textContent = currentCount.toString();
-  carttotal()
-  deletecart()
-}
-//---------------------Delete------------------------
-function deletecart(){
-  var cartitem=document.querySelectorAll("tbody tr")
-  for(var i=0; i<cartitem.length; i++){
-    var productt = document.querySelectorAll(".delete-cart") 
-    productt[i].addEventListener("click",function(event){
-      var cartdelete=event.target
-      var cartitemx=cartdelete.parentElement.parentElement
-      cartitemx.remove()
-     // Lấy số lượng sản phẩm hiện tại từ phần tử hiển thị số lượng
-var currentCount = parseInt(document.querySelector('.cart-count').textContent);
-
-// Giảm số lượng sản phẩm khi xóa khỏi giỏ hàng
-currentCount--;
-// Đảm bảo số lượng sản phẩm không nhỏ hơn 0
-if (currentCount < 0) {
-  currentCount = 0;
-}
-// Cập nhật số lượng sản phẩm trong phần tử hiển thị số lượng
-document.querySelector('.cart-count').textContent = currentCount.toString();
-      carttotal()
-})
-
-}
-}
-//---------------------thaydoisoluong-------------------------
-function chanceSL(){
-  var cartitem=document.querySelectorAll("tbody tr")
-  for(var i=0; i<cartitem.length;i++){
-    var inputchance= cartitem[i].querySelector("input")
-    inputchance.addEventListener("change",function(){
-      carttotal()
-    })
-  }
-}
-//---------------------Totals------------------------
-function carttotal(){
-  var cartitem=document.querySelectorAll("tbody tr")
-  var totalall=0
-  for (var i=0; i<cartitem.length; i++) {
-    var inputvalue = cartitem[i].querySelector("input").value
-    var productprice = cartitem[i].querySelector(".prices").innerHTML
-    time=inputvalue*productprice
-    totalall=totalall+time
-
-}
-  var carttotalall=document.querySelector(".total-price span")
-  carttotalall.innerHTML=totalall
-  chanceSL()
-}
 //-----------------------Exits------------------------
 const cartexit = document.querySelector(".exit-cart")
 const carticon = document.querySelector(".cart-iconn")

@@ -356,7 +356,7 @@ body {
   color: white;
 
 } */
-.cart-table button{
+.cart-table  button{
   width: 130px;
   height: 50px;
   justify-content: center;
@@ -365,6 +365,16 @@ body {
   font-weight: bold;
   border-radius: 5px;
   margin-top: 20px ;
+}
+.cart-table td button{
+  width: 70px;
+  height: 30px;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: auto;
 }
 .tr{
   margin: 1px solid black;
@@ -388,12 +398,17 @@ body {
   text-align: center;
 }
 .cart-table table tr td{
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  padding: 12px 0px;
-  background-color: white;
+  background-color: #f0eded;
+  justify-content: center;
+  align-items: center;
 }
 
+.cart-table table tr th input{
+  background-color: #f0eded;
+  width: 30px;
+  height: 25px;
+  border-radius: none;
+}
 
 /* .cart table thead tr th:last-child{
   text-align: right;
@@ -412,7 +427,6 @@ background-color: orange
 }
 .exit-cart{
   display: flex;
-  border: 1px solid black;
   position: absolute;
   top: 0;
   left: 0;

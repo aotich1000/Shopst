@@ -45,7 +45,7 @@ function showProduct(listitem){
                   '<a onclick="showProductInfo('+productArray[i].productId+')"> Xem chi tiết </a>'+
               '</div>'+
               '<div class="overlay-item">'+
-                  '<a href="#" onclick=addcart('+productArray[i].productId+',1)> + Thêm vào giỏ hàng</a>'+
+                  '<a href="#" onclick=getquantity('+productArray[i].productId+',1)> + Thêm vào giỏ hàng</a>'+
               '</div>'+
           '</div> </div>';
   }
