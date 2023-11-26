@@ -113,7 +113,8 @@ loginForm.addEventListener("submit", function(event) {
       // Hiển thị thông báo đăng nhập thành công
       messageElement.innerHTML = "Đăng nhập thành công. Đang chuyển hướng...";
       // Hiển thị thông báo chào mừng
-      welcomeMessageElement.innerHTML = "Xin chào: " + loggedInUser.username + "!";
+      welcomeMessageElement.style.display="block";
+      document.querySelector("#welcome-message .showname").innerHTML = "Xin chào: " + loggedInUser.username + "!";
 
       // Chuyển hướng đến trang "test.html" sau 1 giây (để người dùng có thời gian nhìn thấy thông báo)
       setTimeout(function() {
