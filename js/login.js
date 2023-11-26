@@ -137,7 +137,7 @@ logoutButton.addEventListener("click", function() {
   // Xóa thông báo chào mừng
   welcomeMessageElement.innerHTML = "";
   location.reload();
-  document.getElementById("login-icon").style.display = "blocl";
+  document.getElementById("login-icon").style.display = "block";
   document.getElementById("logout-icon").style.display = "none";
 });
 
