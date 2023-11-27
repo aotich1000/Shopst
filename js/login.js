@@ -137,7 +137,8 @@ loginForm.addEventListener("submit", function(event) {
       overlay.style.display = "none";
       document.getElementById("login-icon").style.display = "none";
       document.getElementById("logout-icon").style.display = "block";
-      
+      document.getElementById("dangnhapmenu").innerHTML = "";
+      document.getElementById("qltk").innerHTML = `<button onclick="add1()">Quản lý tài khoản</button>`;
       }, 1000);
     } else {
       // Hiển thị thông báo đăng nhập không thành công
@@ -194,3 +195,4 @@ $(document).ready(function(){
     overlay.style.display = "none";
   
   });
+

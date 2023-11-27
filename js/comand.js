@@ -441,7 +441,7 @@ function showMenu(){
       <div class="menu-item"><button onclick="opensearch()">Tìm kiếm nâng cao</button> </div>
       <div class="menu-item hidden-menu"><button>Giỏ hàng</button> </div>
       <div class="menu-item hidden-menu" id='dangnhapmenu'><button onclick = "openlogin()"> Đang nhập</button> </div>
-      <div class="menu-item hidden-menu"><button>Quản lý tài khoản</button> </div>
+      <div class="menu-item hidden-menu" id='qltk'></div>
 </div>`
   document.getElementById('mainmenu').innerHTML = s;
 }
