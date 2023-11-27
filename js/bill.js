@@ -221,7 +221,7 @@ function password()
 	'<div class="pass-form">'+
 	'<div class="eye"><input type="password" placeholder="Mật khẩu mới" id="pass2"><button  id="btn-2-pass2" class="btn-2" onclick="eshow(\'pass2\',\'btn-2-pass2\')"><i class="fa-regular fa-eye fa-lg"></i></button></div></div>'+
 	'<div class="pass-form">'+
-	'<div class="eye"><input type="password" placeholder="Nhập mật khẩu mới" id="pass3"><button  id="btn-2-pass3" class="btn-2" onclick="eshow(\'pass3\',\'btn-2-pass3\')"><i class="fa-regular fa-eye fa-lg"></i></button></div>'+
+	'<div class="eye"><input type="password" placeholder="Nhập lại mật khẩu mới" id="pass3"><button  id="btn-2-pass3" class="btn-2" onclick="eshow(\'pass3\',\'btn-2-pass3\')"><i class="fa-regular fa-eye fa-lg"></i></button></div>'+
 	'</div><button onclick="outCP()">Xác Nhận</button>';
     document.querySelector('#st-container .st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT').innerHTML=s;
  }
@@ -249,7 +249,7 @@ function password()
 	
 	else if(!passwordRegex.test(y))
 	{
-	   customAlert('Mạt khẩu phải trên 6 kí tự','warning');
+	   customAlert('Mật khẩu không hợp lệ! Mật khẩu phải chứa ít nhất 6 ký tự và có thể bao gồm chữ cái, số và các ký tự đặc biệt','warning');
 	   return;
 	}
 	else if(z!=y)
@@ -333,20 +333,35 @@ function ishow()
 function updateInfo()
 {
 	var user = JSON.parse(localStorage.getItem('userlogin'));
-    console.log(user);
 	var s='';
 	s=document.querySelector('#st-container .st-right-col .from-group:nth-child(1) input').value;
 	user.fullname=s;
+
 	s=document.querySelector('#st-container .st-right-col .from-group:nth-child(2) input').value;
-	user.email=s;
+	if(!emailRegex.test(s))
+	{
+        customAlert('Enail không hợp lệ!', 'warning');
+		return;
+	}
+	else{
+		user.email=s;
+}	
     s=document.querySelector('#st-container .st-right-col .from-group:nth-child(3) input').value;
-	user.phonenumber=s;
+	if(!phoneRegex.test(s))
+	{
+        customAlert('Số điện thoại không hợp lệ!', 'warning');
+		return;
+	}
+	else{
+		user.phonenumber=s;
+	}
+	
     console.log(user);
     var userlist = JSON.parse(localStorage.getItem('user-list'));
     var userlogin = JSON.parse(localStorage.getItem('userlogin'));
     for(var i=0; i<userlist.length ;i++)
     {
-      if(userlogin.fullname == userlist[i].fullname)
+      if(userlogin.username == userlist[i].username)
       {
           if(userlogin.password == userlist[i].password)
       {
