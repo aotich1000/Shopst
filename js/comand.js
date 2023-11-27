@@ -6,7 +6,7 @@ function currency(num) {
 var current_page = 1;
 var limit = 15;
 var count_page;
-var current_action = 'showall';
+// var current_action = 'showall';
 var productArray = JSON.parse(localStorage.getItem('product'));
 {/*                   <div class="card">
                         <div class="card-header"></div>
@@ -271,7 +271,7 @@ function changePage(){
     var targetElementId = targetElement.id;
     // console.log(event.target.value);
     if(targetElement.id === 'action' && targetElement.value === 'showall'){
-      list_product_pagi(1,'main');
+      searchProducts('searchNameA');
     }
     if(targetElement.id === 'action' && targetElement.value === 'index'){
       document.getElementById('main').innerHTML = "";
@@ -279,7 +279,6 @@ function changePage(){
       showPreviewProduct();
     }
     if(event.target.className === 'pagi-item') {
-      current_action = 'showall';
        list_product_pagi(targetElementId,'main',current_action);
     }
   });
