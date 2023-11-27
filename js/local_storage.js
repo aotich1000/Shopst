@@ -116,22 +116,22 @@ var orderArr = [
 localStorage.setItem('order-list', JSON.stringify(orderArr))
 
 var detailArr = [
-    {id:101, numof_product: 2, product_id: '1', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:101, numof_product: 2, product_id: '2', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:103, numof_product: 3, product_id: '3', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:103, numof_product: 3, product_id: '4', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:103, numof_product: 3, product_id: '5', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:104, numof_product: 2, product_id: '6', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:104, numof_product: 2, product_id: '7', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:105, numof_product: 1, product_id: '8', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:106, numof_product: 1, product_id: '9', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:107, numof_product: 1, product_id: '10', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:108, numof_product: 3, product_id: '5', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:108, numof_product: 3, product_id: '9', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:108, numof_product: 3, product_id: '8', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:109, numof_product: 2, product_id: '3', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:109, numof_product: 2, product_id: '4', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:110, numof_product: 1, product_id: '11', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:101, numof_product: 2, product_id: '1', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:101, numof_product: 2, product_id: '2', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:103, numof_product: 3, product_id: '3', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:103, numof_product: 3, product_id: '4', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:103, numof_product: 3, product_id: '5', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:104, numof_product: 2, product_id: '6', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:104, numof_product: 2, product_id: '7', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:105, numof_product: 1, product_id: '8', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:106, numof_product: 1, product_id: '9', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:107, numof_product: 1, product_id: '10', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:108, numof_product: 3, product_id: '5', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:108, numof_product: 3, product_id: '9', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:108, numof_product: 3, product_id: '8', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:109, numof_product: 2, product_id: '3', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:109, numof_product: 2, product_id: '4', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
+    {id:110, numof_product: 1, product_id: '11', quantity: 10, unit_price: 10000, img: "img/1.jpg"   },
 
 ];
 localStorage.setItem('order-detail', JSON.stringify(detailArr))
