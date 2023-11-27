@@ -67,7 +67,7 @@ window.onload = function(){
                 category : productCate,
                 productId: productId,
                 nameP: productName,
-                img: "img/" + productImg.name,
+                img: productImg.name,
                 price: productCost + "$",
             };
     
@@ -107,9 +107,10 @@ window.onload = function(){
             if (index !== -1) {
                 existingProducts.splice(index, 1);
                 localStorage.setItem('product', JSON.stringify(existingProducts));
-                renderPageNumber();
                 
                 alert('Hãy nhấn vào Số trang bên dưới để load lại danh sách sản phẩm!');
+                renderPageNumber();
+
             } else {
                 alert('Không tìm thấy sản phẩm để xóa!');
             }

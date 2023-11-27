@@ -1,4 +1,7 @@
-var ProductArray = [
+
+let product =JSON.parse(localStorage.getItem('product')) ?? [];
+if(product.length==0){
+  let ProductArray = [
     { productId: 1, category: '1', img: 'anh-cho-Akita-5.jpg', nameP: 'Chó Akita', price: 452},
     { productId: 2, category: '1', img: 'anh-cho-alaska-182921.jpg', nameP: 'Chó alaska', price: 682 },
     { productId: 3, category: '1', img: 'anh-cho-bac-ha-8.jpg', nameP: 'Chó Bắc Hà', price: 782},
@@ -50,8 +53,11 @@ var ProductArray = [
     { productId: 49, category: '1', img: 'cho-labrador.jpg', nameP: 'Chó labrador', price: 818},
     { productId: 50, category: '1', img: 'cho-lapxuong.jpg', nameP: 'Chó lạp xưởng', price: 433},
   ];
+  product = ProductArray;
   localStorage.setItem('product', JSON.stringify(ProductArray));
+}
 
+let htmlProduct = [...product];
 
   var BannerArray = [
     { BannerId: 1, img: 'bannerpetshop.png', nameP: 'Banner 1'},
