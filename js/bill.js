@@ -48,22 +48,7 @@ function add1()
 		  
 		'</div>'+
 	'</div>'+
-	'<div class="st-right-col">'+
-		   '<div class="block-1">'+
-
-		   '</div>'+
-
-		   '<div class="block-2">'+
-
-		   '</div>'+
-
-		   '<div class="block-3 modal">'+
-			'<button type="button" class="close" onClick="closebillDT()">+</button>'+
-			   '<div class="bill-dt">'+
-
-			  '</div>'+
-		   '</div>'+
-	'</div>'+
+	'<div class="st-right-col">'+'</div>'+
 '</div>';
 	s = `<div class="container"> ${s} </div>`
  document.getElementById("main").innerHTML=s;
@@ -83,7 +68,8 @@ function add2(id)
    document.querySelector('#st-container .st-right-col').innerHTML=s;
    }
    else {
-    if(id=='info'){
+    if(id=='info')
+	{
     s='<div class="from-group"><label for="name">Họ và tên</label>'+
 	'<input type="text" id="name" disabled value="'+user.fullname+'"><button class="btn-1" onclick="ishow()"><i class="fa-regular fa-pen-to-square fa-lg"></i></button></div>'+
 
@@ -101,10 +87,27 @@ function add2(id)
 
 	'<div onclick="updateInfo()" class="btn-from-submit-update">Cập nhật thông tin</div>';
     document.querySelector('#st-container .st-right-col').innerHTML=s;
-	} else if (id=='invoice')
+	} 
+	else if (id=='invoice')
 	{
-		showbill()
-	} else if(id=='exit')
+		var x='<div class="block-1">'+
+
+		'</div>'+
+
+		'<div class="block-2">'+
+
+		'</div>'+
+
+		'<div class="block-3 modal">'+
+		 '<button type="button" class="close" onClick="closebillDT()">+</button>'+
+			'<div class="bill-dt">'+
+
+		   '</div>'+
+		'</div>';
+		document.querySelector('#st-container .st-right-col').innerHTML=x;
+		showbill();
+	} 
+	else if(id=='exit')
 
 	{
 		location.reload();
