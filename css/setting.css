@@ -309,8 +309,13 @@ display: flex;
   outline: none;
   border: none;
   color: tomato;
-  margin-top: 131px;
+  margin-top: 100px;
   font-size: 20px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 20px;
+  padding: 20px;
 }
 
 #st-container .st-right-col .block-3 .close:hover{
@@ -357,6 +362,11 @@ align-items: center;
 #customalert.show {
     visibility: visible;
    animation: fadein 0.5s, fadeout 0.5s 3s;
+}
+@media (max-width:799px){
+  #st-container .st-right-col .block-3 .bill-dt{
+    width: 100%;
+  }
 }
 
 @media (max-width:477px)
