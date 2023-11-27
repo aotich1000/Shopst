@@ -9,13 +9,14 @@
     background-color: #f6fbfc;
     border-radius: 5px;
     height: 500px;
+    position: sticky;
+    top: 0;
 }
 
 .st-left-col .block-menu{
   padding: 10px;
   border-radius: 15px;
   background-color: #f6fbfc;
-  top: 74px;
   position: -webkit-sticky;
   position: sticky;
 }
@@ -102,7 +103,7 @@
 
 .st-right-col .from-group:nth-child(4) .block-2-pass .close{
   position: absolute;
-  right: 28%;
+  right: 26%;
   top: 45px;
   font-size: 35pt;
   transform: rotate(45deg);
@@ -304,15 +305,17 @@ display: flex;
 }
  
 #st-container .st-right-col .block-3 .close{
-position: absolute;
-right: 15px;
-top: 0px;
-font-size: 35pt;
-transform: rotate(45deg);
-background-color: transparent;
-cursor: pointer;
-outline: none;
-border: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: tomato;
+  margin-top: 100px;
+  font-size: 20px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 20px;
+  padding: 20px;
 }
 
 #st-container .st-right-col .block-3 .close:hover{
@@ -359,4 +362,70 @@ align-items: center;
 #customalert.show {
     visibility: visible;
    animation: fadein 0.5s, fadeout 0.5s 3s;
+}
+@media (max-width:799px){
+  #st-container .st-right-col .block-3 .bill-dt{
+    width: 100%;
+  }
+}
+
+@media (max-width:477px)
+{
+  #st-container{
+    gap:5px;
+   }
+   
+   #st-container .st-left-col {
+    width: 150px;
+    height:400px;
+   }
+   
+   .st-left-col .block-menu{
+     padding: 5px;
+   }
+   
+   .st-right-col{
+     gap:5px;
+   }
+   
+   .st-right-col .from-group:nth-child(4) .eye .btn-2 i{
+     font-size: 10px;
+   }
+   
+   #st-container .st-right-col .billcontent{
+     flex-direction: column;
+     justify-content: center;
+     align-items: flex-start;
+   }
+   
+   #st-container .st-right-col .billcontent div:nth-child(1){
+     width: 100%;
+   }
+   
+   #st-container .st-right-col .billcontent div:nth-child(2){
+     width: 100%;
+   }
+   
+   #st-container .st-right-col .block-3 .bill-dt{
+     height: 700px;
+     width: 100%;
+   }
+   
+   #st-container .st-right-col .block-3 .bill-dt p{
+     text-align: center;
+   }
+   
+   #st-container .st-right-col .block-3 .bill-dt .blockDT .blockDT-left img{
+     width: 100%;
+     height:60px;
+   }
+   
+   #st-container .st-right-col .block-3 .bill-dt .blockDT .blockDT-right div{
+     justify-content: space-around;
+   }
+   
+   #st-container .st-right-col .block-3 .bill-dt .invoice p {
+    text-align: center;
+    padding-bottom: 30px;
+}
 }
