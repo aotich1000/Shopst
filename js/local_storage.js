@@ -54,9 +54,9 @@ var ProductArray = [
 
 
   var BannerArray = [
-    { BannerId: 1, img: 'Banner_1.jpg', nameP: 'Banner 1'},
-    { BannerId: 2, img: 'Banner_2.jpg', nameP: 'Banner 2'},
-    { BannerId: 3, img: 'Banner_3.jpg', nameP: 'Banner 3'}
+    { BannerId: 1, img: 'bannerpetshop.png', nameP: 'Banner 1'},
+    { BannerId: 2, img: 'bannerpet1.png', nameP: 'Banner 2'},
+    { BannerId: 3, img: 'bannerpet3.jpg', nameP: 'Banner 3'}
   ];
   localStorage.setItem('banner', JSON.stringify(BannerArray));
 
