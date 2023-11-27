@@ -124,7 +124,7 @@ function add2(id)
 		console.log(billArray)
 		var billDTArray = JSON.parse(localStorage.getItem('order-detail'));
 		console.log(billDTArray);
-		//console.log(billDTArray);
+		console.log(billDTArray);
 		var sum=0;
 		var sodonhang=0;
 		var s='<h2>Đơn hàng đã đặt</h2>';
@@ -154,7 +154,61 @@ function add2(id)
 	}
 }
 
- function password()
+
+function showDT(id)
+{
+	var billArray = JSON.parse(localStorage.getItem('order-list'));
+	var billDTArray = JSON.parse(localStorage.getItem('order-detail'));
+	var x=[];
+	var s=0;
+    for(var i=0;i<billDTArray.length;i++)
+	{
+		if(id==billDTArray[i].id)
+		{
+           var newItem={
+			numofProduct:billDTArray[i].numof_product,
+		    soluong:billDTArray[i].quantity,
+			tonggia:billDTArray[i].quantity*billDTArray[i].unit_price,
+			image:billDTArray[i].img
+		   };
+           x.unshift(newItem);
+		}
+	}
+	var text='';
+	for(var i=0;i<billArray.length;i++)
+	{    if(id==billArray[i].id){
+	    text+='<p>Ngày đặt hàng:  '+billArray[i].date+'</p>';
+        break;
+	   }
+	}
+	for (var i=0;i<x.length;i++)
+	{
+		s+=x[i].tonggia;
+		text+='<div class="blockDT">'+
+		'<div class="blockDT-left"><img src="./'+x[i].image+'"></div>'+
+		'<div class="blockDT-right"><p>'+x[i].numofProduct+'</p>   <div><p>'+x[i].soluong+'</p> <p>'+currency(x[i].tonggia)+'</p></div></div>'+	
+		'</div>';
+	}
+
+	for(var i=0;i<billDTArray.length;i++)
+	{
+		if(id==billDTArray[i].id)
+		{
+			text+='<div class="invoice"><p>Thanh Toán</p> <div class="totalInvoice"><p>Tổng đơn hàng</p> <p>'+currency(s)+'</p></div> </div>'
+			break;
+		}
+	}
+
+    document.querySelector('#st-container .st-right-col .block-3').style.display='block';
+    document.querySelector('#st-container .st-right-col .block-3 .bill-dt').innerHTML=text;
+}
+
+function closebillDT()
+{
+	document.querySelector('#st-container .st-right-col .block-3').style.display='none';
+}
+
+function password()
  {
 	document.querySelector('#st-container .st-right-col .from-group:nth-child(4) .block-2-pass').style.display="block";
 	var s='';
@@ -323,3 +377,5 @@ function customAlert(message,type) {
     x.className = "show";
     setTimeout(function(){ x.className = x.classList.remove("show"); }, 3500);
 }
+
+
