@@ -264,7 +264,7 @@ function password()
       var userlogin = JSON.parse(localStorage.getItem('userlogin'));
       for(var i=0; i<userlist.length ;i++)
       {
-        if(userlogin.fullname == userlist[i].fullname)
+        if(userlogin.username == userlist[i].username)
         {
             if(userlogin.password == userlist[i].password)
         {
