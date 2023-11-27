@@ -159,6 +159,7 @@ function showDT(id)
 {
 	var billArray = JSON.parse(localStorage.getItem('order-list'));
 	var billDTArray = JSON.parse(localStorage.getItem('order-detail'));
+	var productArray=JSON.parse(localStorage.getItem('product'));
 	var x=[];
 	var s=0;
     for(var i=0;i<billDTArray.length;i++)
@@ -169,7 +170,7 @@ function showDT(id)
 			numofProduct:billDTArray[i].numof_product,
 		    soluong:billDTArray[i].quantity,
 			tonggia:billDTArray[i].quantity*billDTArray[i].unit_price,
-			image:billDTArray[i].img
+			image:productArray[billDTArray[i].product_id].img
 		   };
            x.unshift(newItem);
 		}
@@ -185,7 +186,7 @@ function showDT(id)
 	{
 		s+=x[i].tonggia;
 		text+='<div class="blockDT">'+
-		'<div class="blockDT-left"><img src="./'+x[i].image+'"></div>'+
+		'<div class="blockDT-left"><img src="./img/'+x[i].image+'"></div>'+
 		'<div class="blockDT-right"><p>'+x[i].numofProduct+'</p>   <div><p>'+x[i].soluong+'</p> <p>'+currency(x[i].tonggia)+'</p></div></div>'+	
 		'</div>';
 	}
