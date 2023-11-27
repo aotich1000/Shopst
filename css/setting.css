@@ -61,6 +61,16 @@
   align-items: center;
 }
 
+#st-container .st-right-col .block-1 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin: 30px 0 50px 0;
+  background-color: #E7E9EB;
+  border-radius: 30px;
+}
+
 #customalert {
     visibility: hidden;
     min-width: 250px;
