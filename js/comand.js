@@ -190,9 +190,15 @@ function searchProducts(id,category) {
     return nameMatch && categoryMatch && priceMatch;
   });
 
-  localStorage.setItem("searchResults", JSON.stringify(filteredProducts));
-  current_action = 'search';
-  list_product_pagi(1,`main`,current_action);
+  
+  if(filteredProducts.length == 0){
+    alert('Không tìm thấy kết quả');
+  }else{
+    localStorage.setItem("searchResults", JSON.stringify(filteredProducts));
+    current_action = 'search';
+    list_product_pagi(1,`main`,current_action);
+  }
+
 }
 
 function list_product_pagi(page_num,id,action){
