@@ -194,6 +194,26 @@ function ArrayProductForCategory(category, start_price, end_price){
 
 }
 
+function searchProducts(id) {
+  var productArray = JSON.parse(localStorage.getItem('product'));
+  var searchName = document.getElementById(`${id}`).value.toLowerCase();
+  var searchCategory = document.getElementById("searchCategory").value;
+  var searchMinPrice = parseFloat(document.getElementById("searchMinPrice").value);
+  var searchMaxPrice = parseFloat(document.getElementById("searchMaxPrice").value);
+
+  var filteredProducts = productArray.filter(function(product) {
+    var nameMatch = product.nameP.toLowerCase().includes(searchName);
+    var categoryMatch = (searchCategory === "" || product.category === searchCategory);
+    var priceMatch = (isNaN(searchMinPrice) || product.price >= searchMinPrice) &&
+                     (isNaN(searchMaxPrice) || product.price <= searchMaxPrice);
+
+    return nameMatch && categoryMatch && priceMatch;
+  });
+
+  localStorage.setItem("searchResults", JSON.stringify(filteredProducts));
+  showArray('searchResults');
+}
+
 function list_product_pagi(page_num,id,category){
     start_point = (page_num - 1)*limit;
     end_point = page_num*limit;

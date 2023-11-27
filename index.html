@@ -91,12 +91,12 @@
                             <h2 id="shopname">Whotao?</h2>
                         </div>
                         <div class="menu-ico"><img src="./img/more.png" alt="ac" onclick="openmenu()"></div>
-                        <div class="flex-container middle-content" id="menu">
+                        <div class="flex-container left-header" id="menu">
                             <div class="search-bar">
-                                <input type="text" placeholder="Tìm kiếm gì đó....">
-                                <img src="./img/search.png" alt="search">
+                                <input type="text" id="searchNameA" placeholder="Tìm kiếm gì đó....">
+                                <a href="#" onclick="searchProducts('searchNameA')"><img src="./img/search.png" alt="search"></a> 
                             </div>
-                            <div class="user-ico"><img src="./img/user.png" alt="us"></div>
+                           
                             <div class="cart-iconn" id="cart-iconn">
                                 <img src="./img/shopping-cart.png" alt="ca" >
                                 <div class="cart-count"><span>0</span></div  >
@@ -106,8 +106,25 @@
                 </div>
         </div>
         <div class="mainmenu" id="mainmenu">
-    </div>
- 
+        </div>
+        <!-- <div class="advand-search container">
+            <div><h5>Tìm kiếm nâng cao:</h5></div>
+            <div>
+                <label for="searchName">Tên sản phẩm:</label>
+                <input type="text" id="searchNameB">
+            
+                <label for="searchCategory">Danh mục:</label>
+                <input type="text" id="searchCategory">
+            
+                <label for="searchMinPrice">Giá tối thiểu:</label>
+                <input type="number" id="searchMinPrice">
+            
+                <label for="searchMaxPrice">Giá tối đa:</label>
+                <input type="number" id="searchMaxPrice">
+            
+                <button onclick="searchProducts('searchNameB')">Tìm kiếm</button>
+            </div>
+        </div> -->
         <div class="main-content" id="main">
         </div>
        
@@ -133,31 +150,6 @@
     </div>
     </section> 
     <div class="background-overlay2">
-    <!-- <section class="cart-table">
-      <form action="">
-        <div class="head-cart">
-          <div class="exit-cart">X</div>
-          <h2>Giỏ hàng</h2>
-        </div>
-    
-        <table>
-          <thead>
-            <tr class="trhead">
-              <th>Sản phẩm</th>
-              <th>Giá</th>
-              <th>Số lượng</th>
-              <th>Chọn</th>
-            </tr>
-          </thead>
-          <tbody>
-    
-          </tbody>
-        </table>
-        <div style="text-align: right;" class="total-price">
-          <p style="font-weight: bold; margin-top: 20px; margin-bottom: 20px; font-size: 20px;"> Tổng tiền: <span>0</span><sup>đ</sup></p>
-        </div>
-        <button type="submit" style="cursor: pointer;">THANH TOÁN</button>
-      </form> -->
       <div class="container cart-table">
             <div class="head-cart flex-container">
                 <div class="exit-cart">X</div>
