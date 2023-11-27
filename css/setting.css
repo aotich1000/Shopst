@@ -61,6 +61,161 @@
   align-items: center;
 }
 
+#st-container .st-right-col .block-1{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin:30px 0 50px 0;
+  background-color:#E7E9EB;
+  border-radius: 30px;
+}
+
+#st-container .st-right-col .block-1 .block-1-text{
+  width: 50%;
+  text-align: center;
+}
+#st-container .st-right-col .block-1 .block-1-text:nth-child(1){
+border-right: 1px solid #111;
+}
+
+
+#st-container .st-right-col .block-1 .block-1-text p:nth-child(1){
+  font-weight: 700;
+}
+
+#st-container .st-right-col .block-1 .block-1-text p{
+  margin: 10px 0;
+}
+
+#st-container .st-right-col h2{
+  text-align: center;
+  font-size: 30px;
+}
+#st-container .st-right-col .billcontent{
+  border:  1px solid #000;
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+} 
+#st-container .st-right-col .billcontent div:nth-child(1){
+  width: 40%;
+  text-align: left;
+}
+
+#st-container .st-right-col .billcontent div:nth-child(2){
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+#st-container .st-right-col .billcontent div:nth-child(2) button{
+ background-color: transparent;
+ border: none;
+ cursor: pointer;
+}
+
+#st-container .st-right-col .billcontent div:nth-child(2) button:hover{
+color: #229ED9;
+}
+
+#st-container .st-right-col .billcontent div{
+  width: 30%;
+  text-align: center;
+}
+
+#st-container .st-right-col .block-3 .bill-dt{
+  height: 600px;
+  width: 1000px;
+  background-color: #fff;
+  margin: 50px auto;
+  padding: 50px 20px 20px;
+  position: relative;
+  animation: topdown 0.5s;
+  z-index: 20;
+  overflow-y: auto; /* Thêm thanh cuộn bên trong .bill-dt */
+}
+
+
+#st-container .st-right-col .block-3 .bill-dt .blockDT{
+display: flex;
+align-items: center;
+margin-bottom: 50px;
+background-color: #E7E9EB;
+border-radius: 20px;
+padding: 10px;
+}
+
+
+#st-container .st-right-col .block-3 .bill-dt .blockDT .blockDT-left{
+width: 10%;
+}
+
+#st-container .st-right-col .block-3 .bill-dt .blockDT .blockDT-left img{
+width: 70px;
+height: 70px;
+object-fit: contain;
+}
+
+#st-container .st-right-col .block-3 .bill-dt .blockDT .blockDT-right{
+width: 90%;
+display: flex;
+flex-direction: column;
+gap:20px;
+}
+
+#st-container .st-right-col .block-3 .bill-dt .blockDT .blockDT-right div{
+width: 100%; 
+display: flex;
+ justify-content: space-between;
+}
+ 
+#st-container .st-right-col .block-3 .close{
+position: absolute;
+right: 15px;
+top: 0px;
+font-size: 35pt;
+transform: rotate(45deg);
+background-color: transparent;
+cursor: pointer;
+outline: none;
+border: none;
+}
+
+#st-container .st-right-col .block-3 .close:hover{
+color: turquoise;
+}
+
+
+#st-container .st-right-col .block-3 .bill-dt .invoice{
+margin-top: 40px;
+padding: 10px;
+}
+
+#st-container .st-right-col .block-3 .bill-dt p{
+ margin: 5px 0;
+}
+
+#st-container .st-right-col .block-3 .bill-dt>p{
+ margin-bottom: 50px;
+ color: tomato;
+ font-weight: 700;
+}
+
+#st-container .st-right-col .block-3 .bill-dt .invoice .totalInvoice{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+
 #customalert {
     visibility: hidden;
     min-width: 250px;

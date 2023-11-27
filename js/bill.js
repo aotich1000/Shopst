@@ -103,7 +103,7 @@ function add2(id)
     document.querySelector('#st-container .st-right-col').innerHTML=s;
 	} else if (id=='invoice')
 	{
-		//showbill()
+		showbill()
 	} else if(id=='exit')
 
 	{
@@ -113,6 +113,46 @@ function add2(id)
 
  }
 
+
+ function showbill(){
+	if(localStorage.getItem('order-list')===null && localStorage.getItem('order-detail')===null){
+		document.querySelector('#st-container .st-right-col .block-2').innerHTML = 'Xin lỗi bạn chưa có đơn hàng nào';
+	}
+	else{
+		var user = JSON.parse(localStorage.getItem('userlogin'));
+		var billArray = JSON.parse(localStorage.getItem('order-list'));
+		console.log(billArray)
+		var billDTArray = JSON.parse(localStorage.getItem('order-detail'));
+		console.log(billDTArray);
+		//console.log(billDTArray);
+		var sum=0;
+		var sodonhang=0;
+		var s='<h2>Đơn hàng đã đặt</h2>';
+		for (var i = 0; i < billArray.length; i++) {
+			if(user.id==billArray[i].user){
+
+				for(var j=0;j < billDTArray.length;j++) 
+				{
+				if(billDTArray[j].id==billArray[i].id)
+				{
+                sum+=billDTArray[j].unit_price*billDTArray[j].quantity;
+				}
+				}
+
+				s+='<div class="billcontent">'+
+				'<div><p>Bạn đã mua đơn hàng  '+billArray[i].id+'</p></div>'+
+				'<div>'+billArray[i].status+'<button onclick="showDT('+billArray[i].id+')" title="Chi tiết đơn hàng"> >> </button></div>'+
+			'</div>';
+            sodonhang++;
+			}
+		}
+
+        var x= '<div class="block-1-text"><p>'+sodonhang+'</p> <p>Đơn hàng</p> </div>'+'<div class="block-1-text"> <p>'+currency(sum)+'</p> <p>Số tiền tích lũy</p> </div>';
+		console.log(sum);
+		document.querySelector('#st-container .st-right-col .block-1').innerHTML =x;
+		document.querySelector('#st-container .st-right-col .block-2').innerHTML =s;
+	}
+}
 
  function password()
  {
