@@ -258,6 +258,7 @@ tr,td,th{
     
 }
 
+
 td{
     font-size: 18x;
 }
@@ -278,6 +279,7 @@ td{
 
 .action-btn-container button{
     flex-basis: 45%;
+    font-size: 16px;
 }
 
 
@@ -366,6 +368,12 @@ div #finish_order{
     font-weight: bold;
 }
 
+#orderTable td,th{
+    width:15%;
+    min-height: 100px;
+}
+
+
 
 /* -----------------------------Chỉnh Sửa Admin -----------------------------------*/
 
@@ -393,6 +401,8 @@ div #finish_order{
 
 }
 
+
+
 .admin-container input{
     border: 2px solid black;
     font-size: 18px;
@@ -405,5 +415,32 @@ div #finish_order{
     font-weight: bold;
     width: 60px;
     height: 60px;   
+}
+
+
+/* CSS BẢNG THỐNG KÊ*/
+#stat-btn{
+    background-color: #fff;
+    width:fit-content;
+}
+
+#stat-btn:hover{
+    background-color: grey;
+}
+
+.getDate-container{
+    display:flex;
+    justify-content:center;
+    margin-top: 40px;
+}
+
+#statTable th,td,tr{
+    padding: 10px;
+    font-size: 20px;
+}
+
+.dateLabel{
+    font-size: 25px;
+
 }
 

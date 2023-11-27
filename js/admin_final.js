@@ -306,6 +306,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('tuan2').style.display = 'none'
                 document.getElementById('tuan1').style.display = 'none'
                 document.getElementById('adminAccount').style.display = 'none'  
+                document.getElementById('tuan3').style.display = 'none'
 
             }
 
@@ -322,8 +323,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('tuan1').style.display = 'none'
                 document.getElementById('adminAccount').style.display = 'none'
                 document.getElementById('oldImgs').style.display= 'none';
-
-                
+                document.getElementById('tuan3').style.display = 'none'
 
             }
 
@@ -337,6 +337,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('add-submit').style.display = 'none'
                 document.getElementById('tuan2').style.display = 'none'
                 document.getElementById('adminAccount').style.display = 'none'
+                document.getElementById('tuan3').style.display = 'none'
                 renderOrder()
                 document.getElementById('tuan1').style.display = 'block'
             }
@@ -350,22 +351,41 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('add-submit').style.display = 'none'
                 document.getElementById('tuan1').style.display = 'none'
                 document.getElementById('adminAccount').style.display = 'none'
+                document.getElementById('tuan3').style.display = 'none'
                 renderUser()
                 document.getElementById('tuan2').style.display = 'block'
             }
 
-            if (index === 4){
+            
+ 
+            if ( index === 4){
             document.getElementById('listproduct').style.display = 'none'
             document.getElementById('add-submit').style.display = 'none'
             document.getElementById('addProduct').style.display = 'none'
             document.getElementById('add-update').style.display = 'none'
             document.getElementById('h2-cha').style.display = 'none'
-            document.getElementById('h2-add').style.display = 'none'
+            document.getElementById('h2-add').style.display =  'none'
             document.getElementById('tuan2').style.display = 'none'
             document.getElementById('tuan1').style.display = 'none'
-            document.getElementById('adminAccount').style.display = 'block'
-            renderAdmin()
+            document.getElementById('adminAccount').style.display = 'none'
+            renderStat()
+            document.getElementById('tuan3').style.display = 'block'
+
             }
+
+            if (index === 5){
+                document.getElementById('listproduct').style.display = 'none'
+                 document.getElementById('add-submit').style.display = 'none'
+                 document.getElementById('addProduct').style.display = 'none'
+                 document.getElementById('add-update').style.display = 'none'
+                 document.getElementById('h2-cha').style.display = 'none'
+                 document.getElementById('h2-add').style.display =  'none'
+                 document.getElementById('tuan2').style.display = 'none'
+                 document.getElementById('tuan1').style.display = 'none'
+                 document.getElementById('tuan3').style.display = 'none'
+                 document.getElementById('adminAccount').style.display = 'block'
+                 renderAdmin()
+                 }
 
             
         });
@@ -373,6 +393,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 document.getElementById('tuan1').style.display = 'none'
 document.getElementById('tuan2').style.display = 'none'
+document.getElementById('tuan3').style.display = 'none'
 document.getElementById('adminAccount').style.display = 'none'  
 document.getElementById('add-submit').style.display = 'none';
 document.getElementById('addProduct').style.display = 'none';
@@ -452,26 +473,42 @@ function view_detail(orderID){
             <label>ID Đơn hàng:</label>
             <input value="${orderID}">
         </div>
-        <div class="action-container"> `
+         <table id="orderTable" style="font-size: 20px">
+         <thead>
+         <th>STT</th>
+         <th>Mã sản phẩm</th>
+         <th>Tên sản phẩm</th>
+         <th>Số lượng </th>
+         <th>Đơn giá</th>
+         <th>Ảnh</th>
+         </thead> `
 
     let num =0;
     for ( var i =0; i< detailList.length; i++){
         if ( detailList[i].id ==orderID){
             num+= 1
-             a +=  `<div style = "display : flex ; justify-content: space-evenly; align-items: center;">
-                    <label>STT: ${num}</label>
-                    <label>Mã sản phẩm :${detailList[i].product_id} </label>
-                    <label>Tên sản phẩm: ${product[detailList[i].product_id].nameP} </label>
-                    <label>Số lượng:${detailList[i].quantity} </label>
-                    <label>Đơn giá:${detailList[i].unit_price}</label>
-                    <label>Ảnh:</label>
-                    <img src="../img/${product[detailList[i].product_id].img}" width="10%" height ="10%">
-                    </div>
-                   <br>
+            for ( let k =0; k < product.length; k++){
+                if ( detailList[i].product_id == product[k].productId){
+                    var nameP = product[k].nameP
+                    var img = product[k].img
+                    break;
+                }
+            }
+             a +=  `
+                    <tr>
+                    <td>${num}</td>
+                    <td>${detailList[i].product_id} </td>
+                    <td>${nameP} </td>
+                    <td>${detailList[i].quantity} </td>
+                    <td>${detailList[i].unit_price}${'$'}</td>
+                    <td>
+                    <img src="../img/${img}" width="80%" height ="80%">
+                    </td>
+                    </tr>
                    `
         }
     }
-       a+= ` </div> <input style = "position : relative ; left : 40%" type="button" value="OK" onclick="closeForm('view_detail')">
+       a+= ` </table></div> <input style = "position : relative ; left : 40%" type="button" value="OK" onclick="closeForm('view_detail')">
     </form>`
 
     document.getElementById("view_detail").innerHTML = a
@@ -792,3 +829,136 @@ function closeForm(name){
 
 }
  
+
+function renderStat(){
+    let a = ` 
+                <h1 class="text"><i style="margin-right : 10px" class="fa fa-signal"></i> Thống kê doanh thu sản phẩm</h1>
+            <div class="getDate-container">
+                <label class="dateLabel">Tháng:</label>
+                <select id="getMonth">
+                <option value="1">Tháng 1</option>
+                <option value="2">Tháng 2</option>
+                <option value="3">Tháng 3</option>
+                <option value="4">Tháng 4</option>
+                <option value="5">Tháng 5</option>
+                <option value="6">Tháng 6</option>
+                <option value="7">Tháng 7</option>
+                <option value="8">Tháng 8</option> 
+                <option value="9">Tháng 9</option>
+                <option value="10">Tháng 10</option>
+                <option value="11">Tháng 11</option>
+                <option value="12">Tháng 12</option>
+                </select>
+
+                <label class="dateLabel" style="margin-left: 20px">Năm:</label>
+                <select id="getYear">
+                </select>
+
+                <input type="button" value="Thống kê" id="stat-btn" onclick="calculateRevenue()">
+
+            </div>
+
+                <table id=" statTable" style="margin-top: 20px; background-color:#fff">
+                  <thead id="tHead">
+                   <tr class="tHead" style="font-size: 22px">
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Sold</th>
+                    <th>Monthly Revenue</th>
+                   </tr>
+                  </thead>
+                 <tbody id="PRS">`
+
+   a += `</tbody></table>`
+   document.getElementById("statistics").innerHTML = a
+
+   //   PRS = product revenue statistics
+   
+const selectElement = document.getElementById("getYear")
+for (let year = 1985; year <= 2023; year++) {
+    const option = document.createElement('option');
+    option.value = year;
+    option.textContent = year;
+    selectElement.appendChild(option);
+}
+}
+
+
+function calculateRevenue(){
+    var monthRevenue = document.getElementById('getMonth').value
+    var yearRevenue = document.getElementById('getYear').value
+    console.log(monthRevenue)
+    console.log(yearRevenue)
+
+    var productArray = JSON.parse(localStorage.getItem('product')) || []
+    var orderDetail = JSON.parse(localStorage.getItem('order-detail')) || []
+    var orderArray = JSON.parse(localStorage.getItem('order-list'))
+
+    // LỌC RA CÁC HÓA ĐƠN & CHI TIẾT HÓA ĐƠN TRONG THỜI GIAN CẦN THỐNG KÊ
+
+    var filterInvoices = [] // mảng lưu chi tiết hóa đơn được lọc ra
+    for ( let i=0; i < orderArray.length; i++){
+    let date = orderArray[i].date;
+    let dateParts = date.split('-'); 
+    let day = dateParts[0];  // chưa cần dùng đến
+    let month = dateParts[1]; 
+    let year = dateParts[2]; 
+    console.log(month)
+    console.log(year)
+        if ( month == monthRevenue && year == yearRevenue ){
+            for ( let j = 0; j < orderDetail.length; j++){
+                if (orderArray[i].id == orderDetail[j].id){
+                    filterInvoices.push({
+                        id : orderDetail[j].id,
+                        productId : orderDetail[j].product_id,
+                        quantity : orderDetail[j].quantity,
+                        price : orderDetail[j].unit_price
+                    })
+                }
+            }
+        }
+    }
+    console.log(filterInvoices)
+
+var productRevenue = []
+
+    for ( let i=0; i < productArray.length; i++){
+        let count = 0
+        for ( let j=0; j < filterInvoices.length; j++){
+            if ( productArray[i].productId == filterInvoices[j].productId){
+                count++;
+            }
+        }
+        if (count > 0){
+            productRevenue.push({
+                id : productArray[i].productId,
+                category : productArray[i].category,
+                nameP : productArray[i].nameP,
+                img : productArray[i].img,
+                price : productArray[i].price,
+                amountSold : count,
+                revenue : productArray[i].price * count
+            })
+        } 
+    }
+    console.log(productRevenue)
+    let a = ''
+    for ( let i=0; i < productRevenue.length; i++){
+    a += `<tr>
+           <td>${productRevenue[i].id} </td>
+           <td>${productRevenue[i].category} </td>
+           <td>${productRevenue[i].nameP} </td>
+           <td><img src="../img/${productRevenue[i].img}" width="80%" height ="80%"></td>
+           <td>${productRevenue[i].price}${'$'} </td>
+           <td>${productRevenue[i].amountSold} </td>
+           <td>${productRevenue[i].revenue}${'$'} </td>
+          </tr>`
+    }
+
+    document.getElementById("PRS").innerHTML = a
+
+
+}

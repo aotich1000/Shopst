@@ -176,9 +176,9 @@ function saveInvoiceToLocalStorage2(){
    
 const date = new Date(); // Lấy ngày hiện tại
 const day = date.getDate(); // Lấy ngày trong tháng (1-31)
-const month = date.getMonth(); // Lấy tháng (0-11)
+const month = date.getMonth() + 1; // Lấy tháng (0-11)
 const year = date.getFullYear(); // Lấy năm (đầy đủ 4 chữ số)
-const purchase_date = `${day}-${month}-${year} `;
+const purchase_date = `${day}-${month}-${year}`;
 console.log(purchase_date);
  
    var Id = orderList[orderList.length - 1].id + 1;

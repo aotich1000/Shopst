@@ -91,7 +91,7 @@ let htmlProduct = [...product];
   localStorage.setItem('banner', JSON.stringify(BannerArray));
 
 
-
+/*
   var adminAcc = {
     username: "laptrinhweb123",
     password: "admin123", 
@@ -151,3 +151,4 @@ var userArr = [
 
 ];
 localStorage.setItem('user-list', JSON.stringify(userArr));
+*/
