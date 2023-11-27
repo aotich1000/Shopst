@@ -190,8 +190,9 @@ function searchProducts(id,category) {
     return nameMatch && categoryMatch && priceMatch;
   });
 
-  
+  console.log(filteredProducts);
   if(filteredProducts.length == 0){
+    document.getElementById(`${id}`).value = '';
     alert('Không tìm thấy kết quả');
   }else{
     localStorage.setItem("searchResults", JSON.stringify(filteredProducts));
