@@ -162,13 +162,63 @@ function getquantity() {
   // Lưu hóa đơn vào local storage
   saveInvoiceToLocalStorage(invoice);
 }
+
+function saveInvoiceToLocalStorage2(){
+
+   var invoice = JSON.parse(localStorage.getItem('invoice'))
+   // Tạo id cho đơn hàng mới
+   var orderList = JSON.parse(localStorage.getItem("order-list"));
+   var userlogin = JSON.parse(localStorage.getItem("userlogin"));
+
+   
+const date = new Date(); // Lấy ngày hiện tại
+const day = date.getDate(); // Lấy ngày trong tháng (1-31)
+const month = date.getMonth(); // Lấy tháng (0-11)
+const year = date.getFullYear(); // Lấy năm (đầy đủ 4 chữ số)
+const purchase_date = `${day}-${month}-${year} `;
+console.log(purchase_date);
+ 
+   var Id = orderList[orderList.length - 1].id + 1;
+   orderList.push({
+     id : Id,
+     user :  userlogin.username,
+     date : purchase_date,
+     status : "Chưa xử lý"
+   })
+   localStorage.setItem("order-list", JSON.stringify(orderList));
+   createInvoiceDetails(invoice, Id);
+   alert("Mua hàng thành công !")
+   
+ }
+
+ function createInvoiceDetails(invoice, invoiceId){
+
+  
+   var orderDetails = JSON.parse(localStorage.getItem("order-detail"))
+   for ( let i=0; i < invoice.items.length; i++){
+        orderDetails.push({
+         id : invoiceId,
+         numof_product : invoice.items.length,
+         product_id : invoice.items[i].productId,
+         quantity : invoice.items[i].quantity,
+         unit_price : invoice.items[i].price,
+         img : invoice.items[i].img
+        })
+   }
+   localStorage.setItem("order-detail", JSON.stringify(orderDetails));
+ }
+
+
+
 function saveInvoiceToLocalStorage(invoice) {
     // Chuyển đổi đối tượng hóa đơn thành chuỗi JSON
+
     const invoiceJSON = JSON.stringify(invoice);
   
     // Lưu chuỗi JSON vào local storage
     localStorage.setItem('invoice', invoiceJSON);
-  }
+
+}
   // Lấy chuỗi JSON từ local storage
 const invoiceJSON = localStorage.getItem('invoice');
 

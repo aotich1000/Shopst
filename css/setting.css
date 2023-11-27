@@ -60,3 +60,22 @@
   margin: 10px 0;
   align-items: center;
 }
+
+#customalert {
+    visibility: hidden;
+    min-width: 250px;
+    color: #fff;
+    font-size: 14pt;
+    text-align: center;
+    border-radius: 2px;
+    padding: 20px;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+}
+#customalert.show {
+    visibility: visible;
+   animation: fadein 0.5s, fadeout 0.5s 3s;
+}

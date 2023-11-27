@@ -61,6 +61,7 @@ var ProductArray = [
   localStorage.setItem('banner', JSON.stringify(BannerArray));
 
 
+  /*
   var adminAcc = {
     username: "laptrinhweb123",
     password: "admin123", 
@@ -68,6 +69,7 @@ var ProductArray = [
     phonenumber: "0123456789"
 }
 localStorage.setItem('account', JSON.stringify(adminAcc))
+
 
 var orderArr = [
     {id: 101 , user:'A1', date: '17-12-2004', status: "Chưa xử lý"   },
@@ -119,3 +121,4 @@ var userArr = [
 
 ];
 localStorage.setItem('user-list', JSON.stringify(userArr));
+*/
