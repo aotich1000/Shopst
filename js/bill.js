@@ -17,14 +17,6 @@ function add1()
 	s='<div id="st-container">'+
 	'<div class="st-left-col">'+
 		'<div class="block-menu">'+
-			'<div class="block-item-menu">'+
-				'<a onclick="add2(\'page\')" href="#" id="page">'+
-				'<div class="item-menu">'+
-					'<i class="fa-solid fa-house fa-lg"></i>'+
-					'<p>Trang chủ</p>'+
-				'</div>'+
-			'</a>'+
-			'</div>'+
 
 
 			'<div class="block-item-menu">'+
@@ -73,8 +65,9 @@ function add1()
 		   '</div>'+
 	'</div>'+
 '</div>';
- document.getElementById("mainmenu").innerHTML=s;
- document.getElementById("main").style.display="none";
+	s = `<div class="container"> ${s} </div>`
+ document.getElementById("main").innerHTML=s;
+//  document.getElementById("main").style.display="none";
 }
 
 
