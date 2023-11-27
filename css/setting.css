@@ -55,12 +55,138 @@
   margin: 0 auto;
 }
 
+/* UpdateInfo */
 .st-right-col .from-group{
   display: flex;
   margin: 10px 0;
   align-items: center;
 }
 
+.st-right-col .from-group .btn-1{
+  background-color: transparent;
+  border: none;
+  color:#818181;;
+}
+
+.st-right-col .from-group:nth-child(4) .eye input
+{
+  margin: 0;
+}
+
+.st-right-col .from-group:nth-child(4) .eye
+{
+  position: relative;
+  width: 100%;
+  margin: 0 5px;
+}
+
+.st-right-col .from-group:nth-child(4) .eye .btn-2{
+  position: absolute;
+  right: 0;
+  top:0;
+  width: 10%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.st-right-col .from-group:nth-child(4) .block-2-pass{
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 10;
+} 
+
+.st-right-col .from-group:nth-child(4) .block-2-pass .close{
+  position: absolute;
+  right: 28%;
+  top: 45px;
+  font-size: 35pt;
+  transform: rotate(45deg);
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  z-index: 11;
+}
+
+
+.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT{
+  height: 400px;
+  width: 500px;
+  background-color: #fff;
+  margin: 50px auto;
+  padding: 50px 20px 20px;
+  position: relative;
+  animation: topdown 0.5s;
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.st-right-col .from-group:nth-child(4) .block-1-pass{
+    margin-left:82%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color:#3b5998;
+}
+
+.st-right-col .from-group:nth-child(4) .block-1-pass:hover{
+   color:tomato;
+}
+
+.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT .pass-form{
+  margin-bottom: 50px;
+}
+
+.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT > button{
+  position: absolute;
+  background-color:#088178;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT > button:hover{
+  color: #229ED9;
+  background-color: transparent;
+}
+
+.st-right-col .from-group i{
+  cursor: pointer;
+}
+
+.st-right-col .from-group label{
+  width: 100px;
+}
+
+.st-right-col .from-group input{
+  width: 100%;
+  margin: 0 5px;
+  height: 40px;
+  border-radius: 30px;
+}
+
+.st-right-col .btn-from-submit-update{
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  background: #04AA6D;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  padding: 11px 0;
+  width: 100%;
+}
+
+
+
+/* Invocie */
 #st-container .st-right-col .block-1{
   display: flex;
   align-items: center;
