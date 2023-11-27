@@ -129,7 +129,6 @@ loginForm.addEventListener("submit", function(event) {
       // Hiển thị thông báo chào mừng
       welcomeMessageElement.style.display="block";
       document.querySelector("#welcome-message .showname").innerHTML = "Xin chào: " + a.username + "!";
-
       // Chuyển hướng đến trang "test.html" sau 1 giây (để người dùng có thời gian nhìn thấy thông báo)
       setTimeout(function() {
         // Ẩn nút Đăng nhập, hiển thị nút Đăng xuất
@@ -138,6 +137,7 @@ loginForm.addEventListener("submit", function(event) {
       overlay.style.display = "none";
       document.getElementById("login-icon").style.display = "none";
       document.getElementById("logout-icon").style.display = "block";
+      
       }, 1000);
     } else {
       // Hiển thị thông báo đăng nhập không thành công
@@ -178,7 +178,7 @@ $(document).ready(function(){
   const overlay = document.querySelector(".background-overlay");
   
   // Hiển thị overlay và form khi nhấp vào biểu tượng đăng nhập
-  loginIcon.addEventListener("click", function() {
+  loginIcon.addEventListener("click", function openlogin() {
     loginform.style.display = "block";
     overlay.style.display = "block";
   });

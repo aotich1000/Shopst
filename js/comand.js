@@ -50,7 +50,7 @@ function showProduct(listitem){
           '</div> </div>';
   }
   // console.log(current_page);
-  s +=  '<div class="container"><div class="flex-container middle-content flex-wrap">' + a +'</div>' + loadPage() + blockProductInfo() + '</div>';
+  s +=  '<div class="container"><div class="flex-container listcard flex-wrap">' + a +'</div>' + loadPage() + blockProductInfo() + '</div>';
 
   return s;
   }
@@ -165,42 +165,22 @@ function showArray(array){
 // tính toán lại số trang
 // set lại trang ban đầu 
 // 
-function ArrayProductForCategory(category, start_price, end_price){
-  var productArray = JSON.parse(localStorage.getItem('product'));
-  var productArrayCategory = [];
-  var temp = 0;
-  //tìm kiếm theo danh mục
-  for(i = 0; i <  productArray.length; i++){
-    if(productArray[i].category === category){
-      productArrayCategory[temp] = productArray[i];
-      temp = temp +  1;
-    }
-    //tìm kiếm theo tên
-    if(productArray[i].nameP === category){
-      productArrayCategory[temp] = productArray[i];
-      temp = temp +  1;
-    }
-    //tìm kiếm theo khoảng giá
-    if(parseInt(productArray[i].price)  > parseInt(start_price) && parseInt(productArray[i].price)  < parseInt(end_price)){
-      productArrayCategory[temp] = productArray[i];
-      temp = temp +  1;
-    }
 
-    //*chưa thể tìm kiếm multi tag
-  }
-  localStorage.setItem('productcategory', JSON.stringify(productArrayCategory));
-  // count_page = Math.ceil(productArrayCategory.length/limit);
-  showArray('productcategory');
-
-}
-
-function searchProducts(id) {
+function searchProducts(id,category) {
   var productArray = JSON.parse(localStorage.getItem('product'));
   var searchName = document.getElementById(`${id}`).value.toLowerCase();
   var searchCategory = document.getElementById("searchCategory").value;
   var searchMinPrice = parseFloat(document.getElementById("searchMinPrice").value);
   var searchMaxPrice = parseFloat(document.getElementById("searchMaxPrice").value);
+  
+  
+  // console.log(searchName);
+  // console.log(searchName);
 
+  if(category != null){
+    searchCategory = category;
+  }
+  
   var filteredProducts = productArray.filter(function(product) {
     var nameMatch = product.nameP.toLowerCase().includes(searchName);
     var categoryMatch = (searchCategory === "" || product.category === searchCategory);
@@ -211,24 +191,24 @@ function searchProducts(id) {
   });
 
   localStorage.setItem("searchResults", JSON.stringify(filteredProducts));
-  showArray('searchResults');
+  list_product_pagi(1,`main`,`search`);
 }
 
-function list_product_pagi(page_num,id,category){
+function list_product_pagi(page_num,id,action){
     start_point = (page_num - 1)*limit;
     end_point = page_num*limit;
     var productArrayPagi = [];
-    // console.log(start_point);
-    var temp = 0;
 
-    if(category != null){
-      ArrayProductForCategory(category);
-      var productArray = JSON.parse(localStorage.getItem('productcategory'));
+    var temp = 0;
+    if(action == `search`){
+      var productArray = JSON.parse(localStorage.getItem(`searchResults`));
       count_page = Math.ceil(productArray.length/limit);
     }else{
-      var productArray = JSON.parse(localStorage.getItem('product'));
+      var productArray = JSON.parse(localStorage.getItem(`product`));
       count_page = Math.ceil(productArray.length/limit);
     }
+
+
     if( productArray.length < end_point){
       end_point = productArray.length + start_point;
     }
@@ -242,8 +222,6 @@ function list_product_pagi(page_num,id,category){
     }
     localStorage.setItem('productpagi', JSON.stringify(productArrayPagi));
     showArray('productpagi');
-    
-    current_category = category;
     current_page = page_num;
     
     document.getElementById(`${id}`).innerHTML = showProduct('productpagi');
@@ -293,7 +271,7 @@ function changePage(){
       showPreviewProduct();
     }
     if(event.target.className === 'pagi-item') 
-       list_product_pagi(targetElementId,'main',current_category);
+       list_product_pagi(targetElementId,'main',`search`);
   });
 }
 
@@ -392,7 +370,7 @@ function showProduct_none_pagi(listitem){
           '</div> </div>';
   }
   // console.log(current_page);
-  s +=  '<div class="container"><div class="flex-container middle-content flex-wrap">' + a +'</div>' + blockProductInfo() + '</div>';
+  s +=  '<div class="container"><div class="flex-container listcard flex-wrap">' + a +'</div>' + blockProductInfo() + '</div>';
 
   return s;
   }
@@ -458,9 +436,12 @@ function showMenu(){
   var s = `<div class="container flex-container abc" style="background-color: #04AA6D;"> 
       <div class="menu-item"><button id="action" value="index">Trang chủ </button> </div>
       <div class="menu-item"><button id="action" value="showall">Sản phẩm</button> </div>
-      <div class="menu-item"><button onclick="list_product_pagi(1,'main','1')">Sp Cho chó</button> </div>
-      <div class="menu-item"><button onclick="list_product_pagi(1,'main','2')">Sp Cho mèo</button> </div>
-      <div class="menu-item"><button onclick="list_product_pagi(1,'main','2')">Tìm kiém nâng cao</button> </div>
+      <div class="menu-item"><button onclick="searchProducts('searchNameA','chó')">Sp Cho chó</button> </div>
+      <div class="menu-item"><button onclick="searchProducts('searchNameA','mèo')">Sp Cho mèo</button> </div>
+      <div class="menu-item"><button onclick="opensearch()">Tìm kiếm nâng cao</button> </div>
+      <div class="menu-item hidden-menu"><button>Giỏ hàng</button> </div>
+      <div class="menu-item hidden-menu" id='dangnhapmenu'><button onclick = "openlogin()"> Đang nhập</button> </div>
+      <div class="menu-item hidden-menu"><button>Quản lý tài khoản</button> </div>
 </div>`
   document.getElementById('mainmenu').innerHTML = s;
 }
@@ -468,6 +449,13 @@ var a = JSON.parse(localStorage.getItem('user-list'));
 console.log(a);
 
 
-function breadcrumb(){
 
+function breadcrumb(action,content){
+  if(action == "search"){
+    var s = `<li>Trang chủ</li>
+            <li>Sản phẩm</li>
+            <li>Tìm kiếm</li>
+            <li>${content}</li>`;
+  }
+  document.getElementById('breadcrumb').innerHTML = s;
 }

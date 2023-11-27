@@ -108,31 +108,36 @@
         <div class="mainmenu" id="mainmenu">
         </div>
         <div class="container">
-            <ul class="breadcrumb">
-                <li>Home</li>
-                <li>Pictures</li>
-                <li>Summer 15</li>
-                <li>Italy</li>
+            <ul class="breadcrumb" id="breadcrumb">
               </ul>
         </div>
-        <!-- <div class="advand-search container">
-            <div><h5>Tìm kiếm nâng cao:</h5></div>
-            <div>
-                <label for="searchName">Tên sản phẩm:</label>
-                <input type="text" id="searchNameB">
-            
-                <label for="searchCategory">Danh mục:</label>
-                <input type="text" id="searchCategory">
-            
-                <label for="searchMinPrice">Giá tối thiểu:</label>
-                <input type="number" id="searchMinPrice">
-            
-                <label for="searchMaxPrice">Giá tối đa:</label>
-                <input type="number" id="searchMaxPrice">
-            
-                <button onclick="searchProducts('searchNameB')">Tìm kiếm</button>
+        <div class="advand-search" id="advand-search">
+            <div class="advand-search-content container">
+                <div><h5>Tìm kiếm nâng cao:</h5></div>
+                    <div>
+                        <label for="searchName">Tên sản phẩm:</label>
+                        <input type="text" id="searchNameB">
+                    
+                        <label for="searchCategory">Danh mục:</label>
+                            <select id="searchCategory">
+                            <option value="">Không chọn</option>
+                            <option value="chó">Chó</option>
+                            <option value="mèo">Mèo</option>
+                            <option value="Đồ chơi">Đồ chơi</option>
+                            <option value="Đồ Ăn">Đồ Ăn</option>
+                          </select>
+                    
+                        <label for="searchMinPrice">Giá tối thiểu:</label>
+                        <input type="number" id="searchMinPrice">
+                    
+                        <label for="searchMaxPrice">Giá tối đa:</label>
+                        <input type="number" id="searchMaxPrice">
+                    
+                        <button onclick="searchProducts('searchNameB')">Tìm kiếm</button>
+                    </div>
             </div>
-        </div> -->
+            
+        </div>
         <div class="main-content" id="main">
         </div>
        

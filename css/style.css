@@ -445,7 +445,7 @@ body {
   margin: none;
 }
 
-.advand-search{
+.advand-search-content{
   height: 75px;
   padding: 10px 20px 10px 20px;
 }
@@ -742,6 +742,14 @@ ul.breadcrumb li a:hover {
   color: #01447e;
   text-decoration: underline;
 }
+.listcard{
+  justify-content: flex-start;
+}
+
+.advand-search{
+  display: none;
+  /* position: absolute; */
+}
 
 @keyframes topdown{
   0% {transform: translateY(-800px)}
@@ -753,6 +761,10 @@ ul.breadcrumb li a:hover {
 
 .mainmenu{
   margin-top: 5px;
+}
+
+.hidden-menu{
+  display: none;
 }
 
 @media only screen and (min-width:478px) and (max-width: 828px) {
@@ -801,8 +813,8 @@ ul.breadcrumb li a:hover {
   .card {
     width: 32%;
   }
-  #mainmenu{
-    display: none;
+  .hidden-menu{
+    display: block;
   }
   .menu-item{
     width: 100%;
