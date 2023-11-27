@@ -1,4 +1,6 @@
-var ProductArray = [
+let product =JSON.parse(localStorage.getItem('product')) ?? [];
+if(product.length==0){
+  let ProductArray = [
     { productId: 1, category: 'chó', img: 'anh-cho-Akita-5.jpg', nameP: 'Chó Akita', price: 452},
     { productId: 2, category: 'chó', img: 'anh-cho-alaska-182921.jpg', nameP: 'Chó alaska', price: 682 },
     { productId: 3, category: 'chó', img: 'anh-cho-bac-ha-8.jpg', nameP: 'Chó Bắc Hà', price: 782},
@@ -75,8 +77,11 @@ var ProductArray = [
     { productId: 74, category: 'Đồ Ăn', img: 'Thức ăn hạt mềm cho chó giống nhỏ Zenith 300g - Hàn Quốc 66k.PNG', nameP: 'Thức ăn hạt mềm cho chó nhỏ Zenith 300g', price: 3},
     { productId: 75, category: 'Đồ Ăn', img: 'THỨC ĂN HẠT WHISKAS CHO MÈO 130k.PNG', nameP: 'Thức ăn hạt Whiskas cho mèo', price: 4},
   ];
+  product = ProductArray;
   localStorage.setItem('product', JSON.stringify(ProductArray));
+}
 
+let htmlProduct = [...product];
 
   var BannerArray = [
     { BannerId: 1, img: 'bannerpetshop.png', nameP: 'Banner 1'},

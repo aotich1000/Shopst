@@ -67,7 +67,7 @@ window.onload = function(){
                 category : productCate,
                 productId: productId,
                 nameP: productName,
-                img: "img/" + productImg.name,
+                img: productImg.name,
                 price: productCost + "$",
             };
     
@@ -107,9 +107,13 @@ window.onload = function(){
             if (index !== -1) {
                 existingProducts.splice(index, 1);
                 localStorage.setItem('product', JSON.stringify(existingProducts));
+                 // Tự động nhấn vào phần tử li tương ứng
+                var pageNumberToClick = currentPage; // Thay đổi giá trị nếu cần thiết
+                var liToClick = document.querySelector(`#pagination li:nth-child(${pageNumberToClick})`);
+                if (liToClick) {
+                    liToClick.click();
+                }
                 renderPageNumber();
-                
-                alert('Hãy nhấn vào Số trang bên dưới để load lại danh sách sản phẩm!');
             } else {
                 alert('Không tìm thấy sản phẩm để xóa!');
             }
@@ -253,11 +257,15 @@ function clearValueProduct(){
             nameP: productName,
             img: productImg.name,
             price: productCost,
-        };  
-
+        };
         existingProducts[index] = tempProduct;
         localStorage.setItem('product', JSON.stringify(existingProducts));
-        loadTable(existingProducts);
+         // Tự động nhấn vào phần tử li tương ứng
+        var pageNumberToClick = currentPage; // Thay đổi giá trị nếu cần thiết
+        var liToClick = document.querySelector(`#pagination li:nth-child(${pageNumberToClick})`);
+        if (liToClick) {
+            liToClick.click();
+        }
         document.getElementById('addProduct').style.display = "none";
         clearValueProduct(); 
     }
@@ -371,14 +379,6 @@ document.getElementById('addProduct').style.display = 'none';
 document.getElementById('add-update').style.display = 'block';
 document.getElementById('h2-cha').style.display = 'block';
 document.getElementById('h2-add').style.display = 'none';
-// document.getElementById('OldImgs').style.display= 'none';
-
-
-
-
-
-
-
 
 
 
