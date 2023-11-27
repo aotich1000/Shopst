@@ -252,7 +252,7 @@ function clearValueProduct(){
             productId: productId,
             nameP: productName,
             img: productImg.name,
-            price: productCost + "$"
+            price: productCost,
         };
 
         existingProducts[index] = tempProduct;
