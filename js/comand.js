@@ -460,9 +460,14 @@ function showMenu(){
       <div class="menu-item"><button id="action" value="showall">Sản phẩm</button> </div>
       <div class="menu-item"><button onclick="list_product_pagi(1,'main','1')">Sp Cho chó</button> </div>
       <div class="menu-item"><button onclick="list_product_pagi(1,'main','2')">Sp Cho mèo</button> </div>
-      
+      <div class="menu-item"><button onclick="list_product_pagi(1,'main','2')">Tìm kiém nâng cao</button> </div>
 </div>`
   document.getElementById('mainmenu').innerHTML = s;
 }
 var a = JSON.parse(localStorage.getItem('user-list'));
 console.log(a);
+
+
+function breadcrumb(){
+
+}
