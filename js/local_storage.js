@@ -102,36 +102,36 @@ localStorage.setItem('account', JSON.stringify(adminAcc))
 
 
 var orderArr = [
-    {id: 101 , user:'A1', date: '17-12-2004', status: "Chưa xử lý"   },
-    {id: 102 , user:'A2', date: '18-12-2004', status: "Chưa xử lý"   },
-    {id: 103 , user:'A3', date: '19-12-2004', status: "Chưa xử lý"   },
-    {id: 104 , user:'A4', date: '20-12-2004', status: "Chưa xử lý"   },
-    {id: 105 , user:'A5', date: '21-12-2004', status: "Chưa xử lý"   },
-    {id: 106 , user:'A6', date: '22-12-2004', status: "Chưa xử lý"   },
-    {id: 107 , user:'A7', date: '23-12-2004', status: "Chưa xử lý"   },
-    {id: 108, user:'A8', date: '24-12-2004', status: "Chưa xử lý"},
-    {id: 109, user:'A9', date: '25-12-2004', status: "Chưa xử lý"},
-    {id: 110, user:'A19', date: '26-12-2004', status: "Chưa xử lý"}
+    {id: 101 , user:'A01', date: '17-12-2004', status: "Chưa xử lý"   },
+    {id: 102 , user:'A02', date: '18-12-2004', status: "Chưa xử lý"   },
+    {id: 103 , user:'A03', date: '19-12-2004', status: "Chưa xử lý"   },
+    {id: 104 , user:'A01', date: '20-12-2004', status: "Chưa xử lý"   },
+    {id: 105 , user:'A01', date: '21-12-2004', status: "Chưa xử lý"   },
+    {id: 106 , user:'A01', date: '22-12-2004', status: "Chưa xử lý"   },
+    {id: 107 , user:'A01', date: '23-12-2004', status: "Chưa xử lý"   },
+    {id: 108, user:'A01', date: '24-12-2004', status: "Chưa xử lý"},
+    {id: 109, user:'A01', date: '25-12-2004', status: "Chưa xử lý"},
+    {id: 110, user:'A01', date: '26-12-2004', status: "Chưa xử lý"}
 ];
 localStorage.setItem('order-list', JSON.stringify(orderArr))
 
 var detailArr = [
-    {id:101, numof_product: 2, product_id: '001', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:101, numof_product: 2, product_id: '002', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:103, numof_product: 3, product_id: '003', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:103, numof_product: 3, product_id: '004', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:103, numof_product: 3, product_id: '005', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:104, numof_product: 2, product_id: '006', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:104, numof_product: 2, product_id: '007', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:105, numof_product: 1, product_id: '008', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:106, numof_product: 1, product_id: '009', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:107, numof_product: 1, product_id: '010', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:108, numof_product: 3, product_id: '005', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:108, numof_product: 3, product_id: '009', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:108, numof_product: 3, product_id: '008', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:109, numof_product: 2, product_id: '003', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:109, numof_product: 2, product_id: '004', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
-    {id:110, numof_product: 1, product_id: '011', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:101, numof_product: 2, product_id: '1', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:101, numof_product: 2, product_id: '2', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:103, numof_product: 3, product_id: '3', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:103, numof_product: 3, product_id: '4', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:103, numof_product: 3, product_id: '5', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:104, numof_product: 2, product_id: '6', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:104, numof_product: 2, product_id: '7', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:105, numof_product: 1, product_id: '8', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:106, numof_product: 1, product_id: '9', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:107, numof_product: 1, product_id: '10', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:108, numof_product: 3, product_id: '5', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:108, numof_product: 3, product_id: '9', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:108, numof_product: 3, product_id: '8', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:109, numof_product: 2, product_id: '3', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:109, numof_product: 2, product_id: '4', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
+    {id:110, numof_product: 1, product_id: '11', quantity: 10, unit_price: "10000", img: "img/1.jpg"   },
 
 ];
 localStorage.setItem('order-detail', JSON.stringify(detailArr))

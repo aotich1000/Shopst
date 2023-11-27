@@ -443,7 +443,7 @@ function renderOrder(){
 
 function view_detail(orderID){
     let detailList = JSON.parse(localStorage.getItem("order-detail"));
-
+    let product = JSON.parse(localStorage.getItem("product"));
     let a = `<span>
     <h1 style = "margin-bottom: 20px">Chi tiết đơn hàng</h1>
     </span>
@@ -459,14 +459,13 @@ function view_detail(orderID){
         if ( detailList[i].id ==orderID){
             num+= 1
              a +=  `<div style = "display : flex ; justify-content: space-evenly; align-items: center;">
-                    <label>Mã sản phẩm ${num}: </label>
-                    <input value="${detailList[i].product_id}">
-                    <label>Số lượng: </label>
-                    <input value=${detailList[i].quantity}>
-                    <label>Đơn giá:</label>
-                    <input value=${detailList[i].unit_price}>
-                    <label>Ảnh: </label>
-                    <img src="img/1.jpg" width="10%" height ="10%">
+                    <label>STT: ${num}</label>
+                    <label>Mã sản phẩm :${detailList[i].product_id} </label>
+                    <label>Tên sản phẩm: ${product[detailList[i].product_id].nameP} </label>
+                    <label>Số lượng:${detailList[i].quantity} </label>
+                    <label>Đơn giá:${detailList[i].unit_price}</label>
+                    <label>Ảnh:</label>
+                    <img src="../img/${product[detailList[i].product_id].img}" width="10%" height ="10%">
                     </div>
                    <br>
                    `
