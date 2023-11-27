@@ -253,7 +253,7 @@ function clearValueProduct(){
             nameP: productName,
             img: productImg.name,
             price: productCost,
-        };
+        };  
 
         existingProducts[index] = tempProduct;
         localStorage.setItem('product', JSON.stringify(existingProducts));
