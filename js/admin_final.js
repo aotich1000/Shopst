@@ -833,7 +833,9 @@ function closeForm(name){
 function renderStat(){
     let a = ` 
                 <h1 class="text"><i style="margin-right : 10px" class="fa fa-signal"></i> Thống kê doanh thu sản phẩm</h1>
+        
             <div class="getDate-container">
+            <div>
                 <label class="dateLabel">Tháng:</label>
                 <select id="getMonth">
                 <option value="1">Tháng 1</option>
@@ -849,11 +851,12 @@ function renderStat(){
                 <option value="11">Tháng 11</option>
                 <option value="12">Tháng 12</option>
                 </select>
-
-                <label class="dateLabel" style="margin-left: 20px">Năm:</label>
+            </div>
+            <div>
+                <label class="dateLabel">Năm:</label>
                 <select id="getYear">
                 </select>
-
+            </div>
                 <input type="button" value="Thống kê" id="stat-btn" onclick="calculateRevenue()">
 
             </div>
