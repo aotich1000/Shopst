@@ -458,8 +458,12 @@ function showMenu(){
   var s = `<div class="container flex-container abc" style="background-color: #04AA6D;"> 
       <div class="menu-item"><button id="action" value="index">Trang chủ </button> </div>
       <div class="menu-item"><button id="action" value="showall">Sản phẩm</button> </div>
-      <div class="menu-item"><button onclick="list_product_pagi(1,'main','1')">Sp Cho chó</button> </div>
-      <div class="menu-item"><button onclick="list_product_pagi(1,'main','2')">Sp Cho mèo</button> </div>
+      <div class="menu-item"><button onclick="list_product_pagi(1,'main','1')">Chó cảnh</button> </div>
+      <div class="menu-item"><button onclick="list_product_pagi(1,'main','2')">Mèo cảnh</button> </div>
+      <div class="menu-item"><button onclick="list_product_pagi(1,'main','3')">Sản phẩm cho mèo</button> </div>
+      <div class="menu-item"><button onclick="list_product_pagi(1,'main','4')">Sản phẩm cho chó</button> </div>
+
+
       
 </div>`
   document.getElementById('mainmenu').innerHTML = s;
