@@ -14,7 +14,8 @@ const carticon = document.querySelector(".cart-iconn")
 const cartshow = document.querySelector(".cart-table")
 const overlay2 = document.querySelector(".background-overlay2");
 
-carticon.addEventListener("click",function() {
+
+carticon.addEventListener("click",function opencart() {
   if (loggedInUser) {
 
 cartshow.style.display="block"
@@ -151,6 +152,8 @@ function updateTotal() {
 function getquantity() {
     var quan = document.getElementById('quantity').value;
     var idp = document.getElementById('idp').value;
+    closeProductInfo();
+    opencart();
     addcart(idp, quan);
     loadCart(); // Cập nhật giỏ hàng sau khi thêm sản phẩm
   
@@ -241,3 +244,17 @@ function updateQuantity(index, quantity) {
   loadCart();
 }
 getquantity();
+
+function opencart() {
+  if (loggedInUser) {
+
+cartshow.style.display="block"
+overlay2.style.display = "block";
+
+}
+else {
+  alert("Bạn cần đăng nhập để thao tác với giỏ hàng!");
+  loginForm.style.display="block"
+  overlay.style.display="block"
+}
+}

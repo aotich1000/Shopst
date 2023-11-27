@@ -451,7 +451,7 @@ function showMenu(){
       <div class="menu-item"><button onclick="searchProducts('searchNameA','Đồ chơi')">Đồ chơi</button> </div>
       <div class="menu-item"><button onclick="searchProducts('searchNameA','Đồ Ăn')">Đồ ăn</button> </div>
       <div class="menu-item"><button onclick="opensearch()">Tìm kiếm nâng cao</button> </div>
-      <div class="menu-item hidden-menu"><button>Giỏ hàng</button> </div>
+      <div class="menu-item hidden-menu"><button onclick="opencart()">Giỏ hàng</button> </div>
       <div class="menu-item hidden-menu" id='dangnhapmenu'><button onclick = "openlogin()"> Đang nhập</button> </div>
       <div class="menu-item hidden-menu" id='qltk'></div>
 </div>`
