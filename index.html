@@ -114,10 +114,12 @@
         <div class="advand-search" id="advand-search">
             <div class="advand-search-content container">
                 <div><h5>Tìm kiếm nâng cao:</h5></div>
-                    <div>
-                        <label for="searchName">Tên sản phẩm:</label>
-                        <input type="text" id="searchNameB">
-                    
+                    <div class="flex-container flex-wrap">
+                        <div class="advand-search-item">
+                            <label for="searchName">Tên sản phẩm:</label>
+                            <input type="text" id="searchNameB">
+                        </div>
+                        <div class="advand-search-item">
                         <label for="searchCategory">Danh mục:</label>
                             <select id="searchCategory">
                             <option value="">Không chọn</option>
@@ -126,13 +128,15 @@
                             <option value="Đồ chơi">Đồ chơi</option>
                             <option value="Đồ Ăn">Đồ Ăn</option>
                           </select>
-                    
-                        <label for="searchMinPrice">Giá tối thiểu:</label>
-                        <input type="number" id="searchMinPrice">
-                    
-                        <label for="searchMaxPrice">Giá tối đa:</label>
-                        <input type="number" id="searchMaxPrice">
-                    
+                        </div>
+                            <div class="advand-search-item">
+                            <label for="searchMinPrice">Giá tối thiểu:</label>
+                            <input type="number" id="searchMinPrice">
+                        </div>
+                            <div class="advand-search-item">
+                            <label for="searchMaxPrice">Giá tối đa:</label>
+                            <input type="number" id="searchMaxPrice">
+                        </div>
                         <button onclick="searchProducts('searchNameB')">Tìm kiếm</button>
                     </div>
             </div>

@@ -6,7 +6,7 @@ function currency(num) {
 var current_page = 1;
 var limit = 15;
 var count_page;
-var current_category;
+var current_action = 'showall';
 var productArray = JSON.parse(localStorage.getItem('product'));
 {/*                   <div class="card">
                         <div class="card-header"></div>
@@ -190,8 +190,15 @@ function searchProducts(id,category) {
     return nameMatch && categoryMatch && priceMatch;
   });
 
-  localStorage.setItem("searchResults", JSON.stringify(filteredProducts));
-  list_product_pagi(1,`main`,`search`);
+  
+  if(filteredProducts.length == 0){
+    alert('Không tìm thấy kết quả');
+  }else{
+    localStorage.setItem("searchResults", JSON.stringify(filteredProducts));
+    current_action = 'search';
+    list_product_pagi(1,`main`,current_action);
+  }
+
 }
 
 function list_product_pagi(page_num,id,action){
@@ -271,7 +278,7 @@ function changePage(){
       showPreviewProduct();
     }
     if(event.target.className === 'pagi-item') 
-       list_product_pagi(targetElementId,'main',`search`);
+       list_product_pagi(targetElementId,'main',current_action);
   });
 }
 
@@ -436,8 +443,10 @@ function showMenu(){
   var s = `<div class="container flex-container abc" style="background-color: #04AA6D;"> 
       <div class="menu-item"><button id="action" value="index">Trang chủ </button> </div>
       <div class="menu-item"><button id="action" value="showall">Sản phẩm</button> </div>
-      <div class="menu-item"><button onclick="searchProducts('searchNameA','chó')">Sp Cho chó</button> </div>
-      <div class="menu-item"><button onclick="searchProducts('searchNameA','mèo')">Sp Cho mèo</button> </div>
+      <div class="menu-item"><button onclick="searchProducts('searchNameA','chó')">Chó cảnh</button> </div>
+      <div class="menu-item"><button onclick="searchProducts('searchNameA','mèo')">Mèo cảnh</button> </div>
+      <div class="menu-item"><button onclick="searchProducts('searchNameA','Đồ chơi')">Đồ chơi</button> </div>
+      <div class="menu-item"><button onclick="searchProducts('searchNameA','Đồ Ăn')">Đồ ăn</button> </div>
       <div class="menu-item"><button onclick="opensearch()">Tìm kiếm nâng cao</button> </div>
       <div class="menu-item hidden-menu"><button>Giỏ hàng</button> </div>
       <div class="menu-item hidden-menu" id='dangnhapmenu'><button onclick = "openlogin()"> Đang nhập</button> </div>

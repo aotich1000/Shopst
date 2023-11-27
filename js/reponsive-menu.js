@@ -19,7 +19,7 @@ function opensearch(){
 }
 
 
-function openlogin() {
+function openlogin(){
   const loginform = document.querySelector(".login-form");
   const overlay = document.querySelector(".background-overlay");
   loginform.style.display = "block";
