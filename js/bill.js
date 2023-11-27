@@ -99,7 +99,6 @@ function add2(id)
 		'</div>'+
 
 		'<div class="block-3 modal">'+
-		 '<button type="button" class="close" onClick="closebillDT()">+</button>'+
 			'<div class="bill-dt">'+
 
 		   '</div>'+
@@ -190,7 +189,7 @@ function showDT(id)
 		s+=x[i].tonggia;
 		text+='<div class="blockDT">'+
 		'<div class="blockDT-left"><img src="./img/'+x[i].image+'"></div>'+
-		'<div class="blockDT-right"><p>'+x[i].numofProduct+'</p>   <div><p>'+x[i].soluong+'</p> <p>'+currency(x[i].tonggia)+'</p></div></div>'+	
+		'<div class="blockDT-right"><p>'+x[i].numofProduct+'</p>   <div><p> Số lượng: '+x[i].soluong+'</p> <p>Tổng giá: '+currency(x[i].tonggia)+'</p></div></div>'+	
 		'</div>';
 	}
 
@@ -203,6 +202,7 @@ function showDT(id)
 		}
 	}
 
+	text+= '<button type="button" class="close" onClick="closebillDT()">Thoát</button>';
     document.querySelector('#st-container .st-right-col .block-3').style.display='block';
     document.querySelector('#st-container .st-right-col .block-3 .bill-dt').innerHTML=text;
 }
