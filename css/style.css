@@ -442,6 +442,7 @@ body {
   flex-wrap: wrap;
   display: flex;
   align-content: center;
+  margin: none;
 }
 
 .advand-search{
