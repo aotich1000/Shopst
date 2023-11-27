@@ -278,8 +278,10 @@ function changePage(){
       showBanner('main');
       showPreviewProduct();
     }
-    if(event.target.className === 'pagi-item') 
+    if(event.target.className === 'pagi-item') {
+      current_action = 'showall';
        list_product_pagi(targetElementId,'main',current_action);
+    }
   });
 }
 
