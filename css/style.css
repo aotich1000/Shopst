@@ -446,8 +446,19 @@ body {
 }
 
 .advand-search-content{
-  height: 75px;
+  min-height: 75px;
   padding: 10px 20px 10px 20px;
+  border: 1px solid black;
+  margin-bottom: 5px;
+  border-radius: 15px;
+  background-color: antiquewhite;
+}
+.advand-search-item{
+  width: 50%;
+  margin-bottom: 5px;
+}
+.advand-search-item label{
+
 }
 .advand-search h5{
   margin: 5px 0px 5px 0px;
