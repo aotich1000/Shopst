@@ -290,12 +290,14 @@ padding: 10px;
 
 
 #st-container .st-right-col .block-3 .bill-dt .blockDT .blockDT-left{
-width: 10%;
+width: 60%;
+font-size: 18px;
+font-weight: bold;
 }
 
 #st-container .st-right-col .block-3 .bill-dt .blockDT .blockDT-left img{
-width: 70px;
-height: 70px;
+width: 100px;
+height: 100px;
 object-fit: contain;
 }
 
@@ -304,6 +306,8 @@ width: 90%;
 display: flex;
 flex-direction: column;
 gap:20px;
+font-size: 18px;
+font-weight: bold;
 }
 
 #st-container .st-right-col .block-3 .bill-dt .blockDT .blockDT-right div{
@@ -332,8 +336,11 @@ color: turquoise;
 
 
 #st-container .st-right-col .block-3 .bill-dt .invoice{
+font-size: 25px;
+font-weight: bold;
 margin-top: 40px;
 padding: 10px;
+text-align: center;
 }
 
 #st-container .st-right-col .block-3 .bill-dt p{
@@ -347,9 +354,11 @@ padding: 10px;
 }
 
 #st-container .st-right-col .block-3 .bill-dt .invoice .totalInvoice{
+margin-top: 10px;
 display: flex;
-justify-content: space-between;
+justify-content: space-evenly ;
 align-items: center;
+font-size: 22px;
 }
 
 

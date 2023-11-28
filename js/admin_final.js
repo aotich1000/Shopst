@@ -639,16 +639,25 @@ function editUser(index){
 
 function changeUser(index){
     let userList = JSON.parse(localStorage.getItem("user-list"))
+    let id = document.getElementById('iduser').value
+    let fullname =  document.getElementById('fullname').value
+    let username =  document.getElementById('username').value
+    let password =  document.getElementById('password').value
+    let email =  document.getElementById('email').value
+    let phonenumber =  document.getElementById('phonenumber').value
 
 //CHECK EXISTING ID & ACCOUNT
-let id = document.getElementById('iduser').value
-
 for ( let i=0; i<userList.length; i++){
   if (id == userList[i].id && i != index){
     alert("ID đã tồn tại, vui lòng nhập một ID khác")
     return 0
   }
 }
+       //VALIDATE FORM
+       let validationResult = validateCustomerForm(username, password, email, phonenumber)
+    if (validationResult === true) {
+       let cfr = confirm("Xác nhận lưu thay đổi thông tin User ?")
+       if ( cfr == true){
     userList[index] = {
         id : document.getElementById('iduser').value,
         fullname :  document.getElementById('fullname').value,
@@ -657,10 +666,13 @@ for ( let i=0; i<userList.length; i++){
         email :  document.getElementById('email').value,
         phonenumber :  document.getElementById('phonenumber').value
     }
-
     localStorage.setItem('user-list', JSON.stringify(userList))
     renderUser();
     document.getElementById("editUser").style.display ="none"
+       }
+    }  else {
+        alert(validationResult) // In ra thông báo lỗi nếu thông tin không hợp lệ
+    }
 }
 
 function deleteUser(index){
@@ -717,6 +729,27 @@ function addUser(){
     
 }
 
+function validateCustomerForm(username, password, email, phonenumber) {
+    if (username.length < 6 || !(/\d/.test(username))) {
+        return 'Tên đăng nhập phải có ít nhất 6 ký tự và phải chứa ít nhất một số.';
+    }
+
+    if (password.length < 6 || !(/\d/.test(password))) {
+        return 'Mật khẩu phải có ít nhất 6 ký tự và phải chứa ít nhất một số.';
+    }
+
+    if (!email.includes('@') || !email.includes('.')) {
+        return 'Email phải có định dạng hợp lệ (ví dụ: example@gmail.com).';
+    }
+
+    if (!(phonenumber.startsWith('0') && phonenumber.length === 10)) {
+        return 'Số điện thoại phải có 10 số và bắt đầu bằng số 0.';
+    }
+
+    return true; // Trả về true nếu thông tin hợp lệ
+}
+
+
 function createUser(){
 
     let id = document.getElementById('new_id').value
@@ -725,18 +758,6 @@ function createUser(){
     let password = document.getElementById('new_password').value
     let email = document.getElementById('new_email').value
     let phonenumber = document.getElementById('new_phonenumber').value
-
-    
-     //CHECK NULL INPUT 
-if (id == "" ||
-fullname == ""||
-username == ""||
-password == ""||
-email == ""||
-phonenumber == ""){
-alert("Vui lòng nhập đầy đủ thông tin cho User mới")
-return 0
-}
 
     //CHECK EXISTING ID
 let userList = JSON.parse(localStorage.getItem("user-list"))
@@ -747,7 +768,10 @@ for ( let i=0; i<userList.length; i++){
   }
 }
 
-    let cfr = confirm("Xác nhận tạo User mới ?")
+     // VALIDATE FORM
+    let validationResult = validateCustomerForm(username, password, email, phonenumber);
+    if (validationResult === true) {
+       let cfr = confirm("Xác nhận tạo User mới ?")
     if ( cfr == true){
     userList.push ({
         id : document.getElementById('new_id').value,
@@ -757,13 +781,13 @@ for ( let i=0; i<userList.length; i++){
         email :  document.getElementById('new_email').value,
         phonenumber :  document.getElementById('new_phonenumber').value
     })
-
     localStorage.setItem('user-list', JSON.stringify(userList))
     renderUser();
-    document.getElementById("addUser").style.display ="none"
-   
+    document.getElementById("addUser").style.display ="none" 
+}   
+} else {
+    alert(validationResult) 
 }
-
 }
 
 function renderAdmin(){

@@ -123,33 +123,39 @@ function add2(id)
 	else{
 		var user = JSON.parse(localStorage.getItem('userlogin'));
 		var billArray = JSON.parse(localStorage.getItem('order-list'));
-		console.log(billArray)
+		var productArray = JSON.parse(localStorage.getItem('product'))
 		var billDTArray = JSON.parse(localStorage.getItem('order-detail'));
-		console.log(billDTArray);
-		console.log(billDTArray);
+
 		var sum=0;
 		var sodonhang=0;
+		let tientichluy = 0;
 		var s='<h2>Đơn hàng đã đặt</h2>';
 		for (var i = 0; i < billArray.length; i++) {
-			if(user.id==billArray[i].user){
+			if(user.username ==billArray[i].user){
+				s+=`<div class="billcontent">
+						<div><p>Bạn đã mua đơn hàng  ${billArray[i].id}</p></div> 
+						<div> ${billArray[i].status} <button onclick="showDT(${billArray[i].id})" title="Chi tiết đơn hàng">Chi tiết đơn hàng</button></div>
+					</div>`;
 
-				for(var j=0;j < billDTArray.length;j++) 
-				{
-				if(billDTArray[j].id==billArray[i].id)
-				{
-                sum+=billDTArray[j].unit_price*billDTArray[j].quantity;
-				}
-				}
-
-				s+='<div class="billcontent">'+
-				'<div><p>Bạn đã mua đơn hàng  '+billArray[i].id+'</p></div>'+
-				'<div>'+billArray[i].status+'<button onclick="showDT('+billArray[i].id+')" title="Chi tiết đơn hàng"> >> </button></div>'+
-			'</div>';
             sodonhang++;
+
+			// TÍNH SỐ TIỀN TÍCH LŨY
+			for ( let j=0; j < billDTArray.length; j++){
+				if ( billArray[i].id == billDTArray[j].id){
+					let productID = billDTArray[j].product_id
+					for ( let k =0; k< productArray.length; k++){
+						if ( productID == productArray[k].productId){
+							tientichluy += productArray[k].price
+						}
+					}
+				}
+			}
 			}
 		}
 
-        var x= '<div class="block-1-text"><p>'+sodonhang+'</p> <p>Đơn hàng</p> </div>'+'<div class="block-1-text"> <p>'+currency(sum)+'</p> <p>Số tiền tích lũy</p> </div>';
+		console.log(tientichluy)
+
+        var x= '<div class="block-1-text"><p>'+sodonhang+'</p> <p>Đơn hàng</p> </div>'+'<div class="block-1-text"> <p>'+ tientichluy+' $</p> <p>Số tiền tích lũy</p></div>';
 		console.log(sum);
 		document.querySelector('#st-container .st-right-col .block-1').innerHTML =x;
 		document.querySelector('#st-container .st-right-col .block-2').innerHTML =s;
@@ -168,11 +174,19 @@ function showDT(id)
 	{
 		if(id==billDTArray[i].id)
 		{
+			//Lấy thông tin sản phẩm trong đơn hàng
+			for ( let j=0; j< productArray.length; j++){
+				if ( billDTArray[i].product_id == productArray[j].productId){
+					nameP = productArray[j].nameP
+					img = productArray[j].img
+				}
+			}
            var newItem={
 			numofProduct:billDTArray[i].numof_product,
+			nameP : nameP,
 		    soluong:billDTArray[i].quantity,
 			tonggia:billDTArray[i].quantity*billDTArray[i].unit_price,
-			image:productArray[billDTArray[i].product_id].img
+			image:img
 		   };
            x.unshift(newItem);
 		}
@@ -188,8 +202,9 @@ function showDT(id)
 	{
 		s+=x[i].tonggia;
 		text+='<div class="blockDT">'+
+		'<div class="blockDT-left"><p>Tên sản phẩm : '+ x[i].nameP +'</p></div>'+
 		'<div class="blockDT-left"><img src="./img/'+x[i].image+'"></div>'+
-		'<div class="blockDT-right"><p>số lượng mua : '+x[i].numofProduct+'</p>   <div><p> Số lượng còn lại : '+x[i].soluong+'</p> <p>Tổng giá: '+currency(x[i].tonggia)+'</p></div></div>'+	
+		'<div class="blockDT-right"><p>Số lượng mua : '+x[i].soluong+'</p>   <div> <p>Tổng giá: '+currency(x[i].tonggia)+'</p></div></div>'+	
 		'</div>';
 	}
 
@@ -197,7 +212,7 @@ function showDT(id)
 	{
 		if(id==billDTArray[i].id)
 		{
-			text+='<div class="invoice"><p>Thanh Toán</p> <div class="totalInvoice"><p>Tổng đơn hàng</p> <p>'+currency(s)+'</p></div> </div>'
+			text+='<div class="invoice"><p>Thanh Toán</p> <div class="totalInvoice"><p>Tổng đơn hàng: </p> <p>' +currency(s)+'</p></div> </div>'
 			break;
 		}
 	}

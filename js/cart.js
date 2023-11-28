@@ -191,7 +191,10 @@ console.log(purchase_date);
    localStorage.setItem("order-list", JSON.stringify(orderList));
    createInvoiceDetails(invoice, Id);
    alert("Mua hàng thành công !")
-   
+   cartshow.style.display="none"
+   overlay2.style.display = "none";
+   document.getElementById('cart-table').innerHTML = "";
+   document.querySelector('.cart-count').textContent = 0;
  }
 
  function createInvoiceDetails(invoice, invoiceId){

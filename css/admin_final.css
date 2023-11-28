@@ -241,7 +241,7 @@ button, input[type="button"]{
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 
