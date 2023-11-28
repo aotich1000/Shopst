@@ -863,10 +863,44 @@ function renderStat(){
     let a = ` 
                 <h1 class="text"><i style="margin-right : 10px" class="fa fa-signal"></i> Thống kê doanh thu sản phẩm</h1>
         
-            <div class="getDate-container">
+    <div class="getDate-container">
+
+        
+         <div>
+            <label class="dateLabel">Ngày bắt đầu:</label>
+            <select id="getSday">
+            </select>
+         <div>
+         <div>
+            <label class="dateLabel">Tháng:</label>
+            <select id="getSMonth">
+            <option value="1">Tháng 1</option>
+            <option value="2">Tháng 2</option>
+            <option value="3">Tháng 3</option>
+            <option value="4">Tháng 4</option>
+            <option value="5">Tháng 5</option>
+            <option value="6">Tháng 6</option>
+            <option value="7">Tháng 7</option>
+            <option value="8">Tháng 8</option> 
+            <option value="9">Tháng 9</option>
+            <option value="10">Tháng 10</option>
+            <option value="11">Tháng 11</option>
+            <option value="12">Tháng 12</option>
+            </select>
+         </div>
+      
+
+
+   
+            <div>
+              <label class="dateLabel">Ngày kết thúc:</label>
+              <select id="getEday">
+              </select>
+            </div>
+            
             <div>
                 <label class="dateLabel">Tháng:</label>
-                <select id="getMonth">
+                <select id="getEMonth">
                 <option value="1">Tháng 1</option>
                 <option value="2">Tháng 2</option>
                 <option value="3">Tháng 3</option>
@@ -881,13 +915,16 @@ function renderStat(){
                 <option value="12">Tháng 12</option>
                 </select>
             </div>
+    
+
+     
             <div>
                 <label class="dateLabel">Năm:</label>
                 <select id="getYear">
                 </select>
             </div>
             <div>
-                 <label class="dateLabel">Loại sản phẩm:   </label>
+                 <label class="dateLabel">Loại sản phẩm:</label>
                  <select id="getCategory">
                  <option value="all">Tất cả</option>
                  <option value="chó">Chó</option>
@@ -896,9 +933,13 @@ function renderStat(){
                  <option value="Đồ chơi">Đồ chơi</option>
                  </select>
             </div>
+            <div>
                 <input type="button" value="Thống kê" id="stat-btn" onclick="calculateRevenue()">
-
             </div>
+        </div>
+    </div> 
+
+    <div>
 
                 <table id=" statTable" style="margin-top: 20px; background-color:#fff">
                   <thead id="tHead">
@@ -914,26 +955,66 @@ function renderStat(){
                   </thead>
                  <tbody id="PRS">`
 
-   a += `</tbody></table>`
+   a += `</tbody></table></div>`
    document.getElementById("statistics").innerHTML = a
 
    //   PRS = product revenue statistics
    
 const selectElement = document.getElementById("getYear")
+const selectElement2 = document.getElementById("getSday")
+const selectElement3 = document.getElementById("getEday")
+const selectElement4 = document.getElementById("getEMonth")
+
 for (let year = 1985; year <= 2023; year++) {
     const option = document.createElement('option');
     option.value = year;
     option.textContent = year;
     selectElement.appendChild(option);
 }
+
+for (var sday= 1; sday <= 31; sday++) {
+    var option = document.createElement('option');
+    option.value = sday;
+    option.textContent = sday;
+    selectElement2.appendChild(option);
 }
 
 
+document.getElementById('getSday').addEventListener('change', function(event) {
+    var eday = event.target.value;
+    console.log('Option đã chọn:', eday)
+    for ( let day = eday ; day <= 31; day++) {
+        var option = document.createElement('option');
+        option.value = day;
+        option.textContent = day;
+        selectElement3.appendChild(option);
+    }
+  });
+
+  document.getElementById('getSMonth').addEventListener('change', function(event) {
+    var emonth = event.target.value;
+    console.log('Option đã chọn:', eday)
+    for ( let month = emonth ; month <= 12; month++) {
+        var option = document.createElement('option');
+        option.value = month;
+        option.textContent = month;
+        selectElement3.appendChild(option);
+    }
+  });
+}
+
 function calculateRevenue(){
-    var monthRevenue = document.getElementById('getMonth').value
-    var yearRevenue = document.getElementById('getYear').value
+    var startDay = parseInt(document.getElementById('getSday').value,10)
+    var endDay= parseInt(document.getElementById('getEday').value,10)
+    var smonthRevenue = parseInt(document.getElementById('getSMonth').value,10)
+    var emonthRevenue = parseInt(document.getElementById('getEMonth').value,10)
+
+    var yearRevenue = parseInt(document.getElementById('getYear').value,10)
     var categoryRevenue = document.getElementById('getCategory').value
-    console.log(monthRevenue)
+    console.log(startDay)
+    console.log(endDay)
+    console.log(smonthRevenue)
+    console.log(emonthRevenue)
     console.log(yearRevenue)
     console.log(categoryRevenue)
 
@@ -942,19 +1023,20 @@ function calculateRevenue(){
     var orderArray = JSON.parse(localStorage.getItem('order-list')) || []
 
 
-    console.log(productArray)
     // LỌC RA CÁC HÓA ĐƠN & CHI TIẾT HÓA ĐƠN TRONG THỜI GIAN CẦN THỐNG KÊ
 
     var filterInvoices = [] // mảng lưu chi tiết hóa đơn được lọc ra
     for ( let i=0; i < orderArray.length; i++){
     let date = orderArray[i].date;
     let dateParts = date.split('-'); 
-    let day = dateParts[0];  // chưa cần dùng đến
-    let month = dateParts[1]; 
-    let year = dateParts[2]; 
+    let day = parseInt(dateParts[0], 10);  
+    let month = parseInt(dateParts[1], 10); 
+    let year = parseInt(dateParts[2], 10); 
+    console.log(day)
     console.log(month)
     console.log(year)
-        if ( month == monthRevenue && year == yearRevenue ){
+        if ( day >= startDay && day <= endDay  && month >= smonthRevenue && month <= emonthRevenue  && year == yearRevenue ){
+           console.log("true")
             for ( let j = 0; j < orderDetail.length; j++){
                 if (orderArray[i].id == orderDetail[j].id){
                     filterInvoices.push({
@@ -993,7 +1075,7 @@ var productRevenue = []
     console.log(productRevenue)
     let a = ''
     for ( let i=0; i < productRevenue.length; i++){
-        if ( productRevenue[i].category == categoryRevenue || categoryRevenue == 'all')
+        if ( productRevenue[i].category == categoryRevenue || categoryRevenue == "all"){
     a += `<tr>
            <td>${productRevenue[i].id} </td>
            <td>${productRevenue[i].category} </td>
@@ -1004,8 +1086,8 @@ var productRevenue = []
            <td>${productRevenue[i].revenue}${'$'} </td>
           </tr>`
     }
-
-    document.getElementById("PRS").innerHTML = a
-
-
+   
+}
+console.log(a)
+document.getElementById("PRS").innerHTML = a
 }
