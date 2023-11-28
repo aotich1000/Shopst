@@ -292,9 +292,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Bắt sự kiện click cho mỗi mục menu
     menuItems.forEach(function(item, index) {
         item.addEventListener('click', function(event) {
-        document.getElementById('addProduct').style.display="none";
-            
 
+            document.getElementById('addProduct').style.display="none";
             document.getElementById('tuan1').style.display = 'none'
             document.getElementById('tuan2').style.display = 'none'
             document.getElementById('adminAccount').style.display = 'none'  
