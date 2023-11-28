@@ -40,7 +40,6 @@ var cart = [];
 
 function addcart(id, soluong) {
   if (checkOnline()) {
-
   var productArray = JSON.parse(localStorage.getItem('product'));
 
   var productExists = false; // Biến kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
@@ -250,7 +249,7 @@ function updateQuantity(index, quantity) {
 getquantity();
 
 function opencart() {
-  if (loggedInUser) {
+  if (checkOnline()) {
 
 cartshow.style.display="block"
 overlay2.style.display = "block";
