@@ -89,7 +89,12 @@
                         <label for="productName">Tên Sản Phẩm : </label>
                         <input type="text" name="productName" id="productName" required>
                         <label for="productCate">Loại Sản Phẩm : </label>
-                        <input type="text" name="productCate" id="productCate" required>
+                        <select id="productCate" class="abc">
+                            <option value="Chó">Chó</option>
+                            <option value="Mèo">Mèo</option>
+                            <option value="Đồ ăn">Đồ ăn</option>
+                            <option value="Đồ chơi">Đồ chơi</option>
+                          </select>
                     </div>
                 </div>
                 <div>   
@@ -126,7 +131,7 @@
                 </table>
             </div>
             <div id="numberPage">
-                  <ul id="pagination">
+                  <ul id="pagination" style="cursor: pointer;">
 
                   </ul>
             </div>
@@ -189,6 +194,7 @@
             </div>
         </div>
     </div>
+    
 
 <script src="../js/local_storage.js"></script>
 <script src="../js/comand.js"></script>

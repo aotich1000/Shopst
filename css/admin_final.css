@@ -141,6 +141,7 @@ body{
 
 .add-table input,
 #oldImgs input{
+    
     height: 30px;
     font-size: 13px;
     border-radius: 10px;
@@ -148,6 +149,19 @@ body{
 
 }
 
+.abc{
+    min-width: auto;
+    width: 100px;
+    height: 36px;
+    border-radius: 10px;
+
+}
+.add-table select option {
+    height: 30px;
+    font-size: 13px;
+    border-radius: 10px;
+    width: 50px;
+}
 
 .add-table label,
 #oldImgs label{
@@ -233,7 +247,7 @@ button, input[type="button"]{
 }
 
 #orderTable{
-    margin-bottom: 50px;
+    padding: 1rem;
 }
 
 #userList{
@@ -290,18 +304,17 @@ td{
 }
 
 .action input{
-    height: 30px;
     border-radius: 10px;
     border: solid 2px black;
 }
 
 
 
-.action input[type=button]{
+.action input[type=button] {
     /* margin-top: 20px; */
     border: 2px solid black;
+    margin-bottom: 30px;
 }
-
 #finish_order input[type=button]{
     background-color: salmon;
 }
