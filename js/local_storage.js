@@ -91,14 +91,18 @@ let htmlProduct = [...product];
   localStorage.setItem('banner', JSON.stringify(BannerArray));
 
 
-/*
-  var adminAcc = {
-    username: "laptrinhweb123",
-    password: "admin123", 
-    email: "nhom16@gmail.com",
-    phonenumber: "0123456789"
+let account =JSON.parse(localStorage.getItem('account')) ?? [];
+if(account.length==0){
+var adminAcc = {
+  username: "admin123",
+  password: "admin123", 
+  email: "nhom16@gmail.com",
+  phonenumber: "0123456789"
 }
+account = adminAcc
 localStorage.setItem('account', JSON.stringify(adminAcc))
+}
+let htmladminAcc = [...account];
 
 
 var orderArr = [
@@ -151,4 +155,3 @@ var userArr = [
 
 ];
 localStorage.setItem('user-list', JSON.stringify(userArr));
-*/

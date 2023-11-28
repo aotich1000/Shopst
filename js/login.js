@@ -84,6 +84,8 @@ var messageElement = document.getElementById("login-message");
 var welcomeMessageElement = document.getElementById("welcome-message");
 var logoutButton = document.getElementById("logout-button");
 
+var adminAcc = JSON.parse(localStorage.getItem('account')) ;
+
 loginForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
@@ -91,7 +93,7 @@ loginForm.addEventListener("submit", function(event) {
   var password = document.getElementById("login-password").value;
 
   // Kiểm tra tài khoản admin
-  if (username === "admin123" && password === "admin123") {
+  if (username === adminAcc.username && password === adminAcc.password) {
     messageElement.innerHTML = "Đăng nhập thành công. Đang chuyển hướng...";
     setTimeout(function() {
       window.location.href = "./admin/index.html";
