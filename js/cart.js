@@ -39,7 +39,7 @@ overlay2.style.display = "none";
 var cart = [];
 
 function addcart(id, soluong) {
-  if (loggedInUser) {
+  if (checkOnline()) {
 
   var productArray = JSON.parse(localStorage.getItem('product'));
 
