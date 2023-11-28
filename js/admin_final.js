@@ -439,8 +439,11 @@ select.forEach((li,key) => {
 
 
 
+
+
+
 function renderOrder(){
-    let orderList = JSON.parse(localStorage.getItem("order-list"));
+    let orderList = JSON.parse(localStorage.getItem("order-list")) || [];
     let a = ` 
                 <h1 class="text"><i style="margin-right : 10px" class="fa fa-list"></i> Danh Sách Đơn Hàng</h1>
                 <table id=" orderTable">
@@ -475,8 +478,8 @@ function renderOrder(){
 
 
 function view_detail(orderID){
-    let detailList = JSON.parse(localStorage.getItem("order-detail"));
-    let product = JSON.parse(localStorage.getItem("product"));
+    let detailList = JSON.parse(localStorage.getItem("order-detail")) ||[];
+    let product = JSON.parse(localStorage.getItem("product")) || [];
     let a = `<span>
     <h1 >Chi tiết đơn hàng</h1>
     </span>
@@ -531,7 +534,7 @@ function view_detail(orderID){
 
 
 function resolve_order(index){
-    let orderList = JSON.parse(localStorage.getItem("order-list"))
+    let orderList = JSON.parse(localStorage.getItem("order-list")) || []
     if ( orderList[index].status == "Đã hoàn thành" ||orderList[index].status == "Đã hủy"  ){
         alert("Đơn hàng đã được xử lý")
         return 0
@@ -558,7 +561,7 @@ function resolve_order(index){
 
 
 function finishOrder(index){
-    let orderList = JSON.parse(localStorage.getItem("order-list"))
+    let orderList = JSON.parse(localStorage.getItem("order-list")) || []
 
     orderList[index].status = document.getElementById("select").value;
     
@@ -571,7 +574,7 @@ function finishOrder(index){
 
 
 function renderUser(){
-    let userList = JSON.parse(localStorage.getItem("user-list"))
+    let userList = JSON.parse(localStorage.getItem("user-list")) ||[]
     let a = ` <h1 class="header" style="display: flex; justify-content : center"><i style="margin-right : 10px " class="fa fa-user"></i> Danh Sách User</h1>
     <button class="addUser-btn" onclick="addUser()"><i class="fa fa-plus"></i> Thêm User Mới </button>
                 <table id=" userTable">
@@ -608,7 +611,7 @@ function renderUser(){
 }
 
 function editUser(index){
-    let userList = JSON.parse(localStorage.getItem("user-list"))
+    let userList = JSON.parse(localStorage.getItem("user-list")) ||[]
      let a = ` 
      <span>
         <h1>Chỉnh sửa thông tin User </h1>
@@ -650,7 +653,7 @@ function editUser(index){
 }
 
 function changeUser(index){
-    let userList = JSON.parse(localStorage.getItem("user-list"))
+    let userList = JSON.parse(localStorage.getItem("user-list")) || []
     let id = document.getElementById('iduser').value
     let fullname =  document.getElementById('fullname').value
     let username =  document.getElementById('username').value
@@ -688,7 +691,7 @@ for ( let i=0; i<userList.length; i++){
 }
 
 function deleteUser(index){
-    let userList = JSON.parse(localStorage.getItem("user-list"))
+    let userList = JSON.parse(localStorage.getItem("user-list")) || []
     let cfr = confirm("Bạn muốn xóa User này chứ ?")
     if (cfr){
         userList.splice(index, 1)
@@ -772,7 +775,7 @@ function createUser(){
     let phonenumber = document.getElementById('new_phonenumber').value
 
     //CHECK EXISTING ID
-let userList = JSON.parse(localStorage.getItem("user-list"))
+let userList = JSON.parse(localStorage.getItem("user-list")) || []
 for ( let i=0; i<userList.length; i++){
   if (id == userList[i].id){
     alert("ID đã tồn tại, vui lòng nhập một ID khác")
@@ -803,7 +806,7 @@ for ( let i=0; i<userList.length; i++){
 }
 
 function renderAdmin(){
-    let account = JSON.parse(localStorage.getItem("account"))
+    let account = JSON.parse(localStorage.getItem("account")) || []
     let a = ` <h1 class="header"><i class="fa fa-gear"></i> Thiết Lập Tài Khoản</h1>
     <div class="admin-cotainer">
         <form>
@@ -845,7 +848,7 @@ function saveAccount(){
 
     let cfr = confirm("Xác nhận chỉnh sửa ")
     if ( cfr == true){
-    let adminAcc = JSON.parse(localStorage.getItem("account"))
+    let adminAcc = JSON.parse(localStorage.getItem("account")) || []
     adminAcc = {
         username:  document.getElementById("admin_username").value,
         password:  document.getElementById("admin_password").value,
@@ -946,7 +949,7 @@ function calculateRevenue(){
 
     var productArray = JSON.parse(localStorage.getItem('product')) || []
     var orderDetail = JSON.parse(localStorage.getItem('order-detail')) || []
-    var orderArray = JSON.parse(localStorage.getItem('order-list'))
+    var orderArray = JSON.parse(localStorage.getItem('order-list')) || []
 
 
     console.log(productArray)
