@@ -404,7 +404,15 @@ align-items: center;
    .st-right-col .from-group:nth-child(4) .eye .btn-2 i{
      font-size: 10px;
    }
-   
+   .st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT{
+    width: 100%;
+   }
+
+   .st-right-col .from-group:nth-child(4) .block-1-pass{
+    margin-left: 60%;
+   }
+
+   /* Invoice */
    #st-container .st-right-col .billcontent{
      flex-direction: column;
      justify-content: center;
