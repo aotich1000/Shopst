@@ -116,7 +116,7 @@ loginForm.addEventListener("submit", function(event) {
     } 
     var a=JSON.parse(localStorage.getItem('userlogin'));
     console.log(a);
-
+    
 
 
     // Kiểm tra thông tin đăng nhập

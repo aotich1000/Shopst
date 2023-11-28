@@ -505,5 +505,6 @@ function checkOnline() {
     welcomeMessageElement.style.display = "block";
     document.querySelector("#welcome-message .showname").innerHTML = "Xin chào: " + userArray.username + "!";
     document.getElementById('login-icon').style.display = "none";
+    return true;
   }
 }
