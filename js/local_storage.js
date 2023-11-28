@@ -106,6 +106,8 @@ localStorage.setItem('account', JSON.stringify(adminAcc))
 // let htmladminAcc = [...account];
 
 
+let order =JSON.parse(localStorage.getItem('order-list')) ?? [];
+if(order.length==0){
 var orderArr = [
 
     {id: 101 , user:'A00001', date: '17-12-2004', status: "Chưa xử lý"   },
@@ -118,20 +120,12 @@ var orderArr = [
     {id: 108, user:'A00001', date: '24-12-2004', status: "Chưa xử lý"},
     {id: 109, user:'A00001', date: '25-12-2004', status: "Chưa xử lý"},
     {id: 110, user:'A00001', date: '26-12-2004', status: "Chưa xử lý"},
-    {id: 101 , user:'A01', date: '17-11-2023', status: "Chưa xử lý"   },
-    {id: 102 , user:'A02', date: '18-11-2023', status: "Chưa xử lý"   },
-    {id: 103 , user:'A03', date: '19-11-2023', status: "Chưa xử lý"   },
-    {id: 104 , user:'A01', date: '20-11-2023', status: "Chưa xử lý"   },
-    {id: 105 , user:'A01', date: '21-11-2023', status: "Chưa xử lý"   },
-    {id: 106 , user:'A01', date: '22-11-2023', status: "Chưa xử lý"   },
-    {id: 107 , user:'A01', date: '23-11-2023', status: "Chưa xử lý"   },
-    {id: 108, user:'A01', date: '24-11-2023', status: "Chưa xử lý"},
-    {id: 109, user:'A01', date: '25-11-2023', status: "Chưa xử lý"},
-    {id: 110, user:'A01', date: '26-11-2023', status: "Chưa xử lý"}
-
 ];
 localStorage.setItem('order-list', JSON.stringify(orderArr))
+}
 
+let detail =JSON.parse(localStorage.getItem('order-detail')) ?? [];
+if(detail.length==0){
 var detailArr = [
     {id:101, numof_product: 2, product_id: '1', quantity: 1, unit_price: 452   },
     {id:101, numof_product: 2, product_id: '2', quantity: 1, unit_price: 682   },
@@ -152,8 +146,10 @@ var detailArr = [
 
 ];
 localStorage.setItem('order-detail', JSON.stringify(detailArr))
+}
 
-
+let user =JSON.parse(localStorage.getItem('user-list')) ?? [];
+if(user.length==0){
 var userArr = [
     {id: "A00001", fullname: "Customer1", username: "C00001", password: "CA00001", email: "C1@gmail.com", phonenumber:"0111111110" },
     {id: "A00002", fullname: "Customer2", username: "C00002", password: "CA00002", email: "C2@gmail.com", phonenumber:"0222222220" },
@@ -165,6 +161,6 @@ var userArr = [
     {id: "A00008", fullname: "Customer8", username: "C00008", password: "CA00008", email: "C8@gmail.com", phonenumber:"0888888880" },
     {id: "A00009", fullname: "Customer9", username: "C00009", password: "CA00009", email: "C9@gmail.com", phonenumber:"0999999990" },
     {id: "A00010", fullname: "Customer10", username: "C00010", password: "CA00010", email: "C10@gmail.com", phonenumber:"0101010100" },
-
 ];
 localStorage.setItem('user-list', JSON.stringify(userArr));
+}

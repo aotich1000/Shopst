@@ -52,6 +52,7 @@ registerForm.addEventListener("submit", function(event) {
     // Lấy danh sách người dùng từ LocalStorage (nếu có)
     var userlist = JSON.parse(localStorage.getItem('user-list')) || [];
 
+    
     // Tạo một đối tượng người dùng mới
     var newUser = {
       username: username,
