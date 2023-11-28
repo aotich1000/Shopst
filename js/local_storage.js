@@ -161,5 +161,4 @@ var userArr = [
     {id: "A00009", fullname: "Customer9", username: "C00009", password: "CA00009", email: "C9@gmail.com", phonenumber:"0999999990" },
     {id: "A00010", fullname: "Customer10", username: "C00010", password: "CA00010", email: "C10@gmail.com", phonenumber:"0101010100" },
 ];
-localStorage.setItem('user-list', JSON.stringify(userArr));
-}
+localStorage.setItem('user-list', JSON.stringify(userArr));}
