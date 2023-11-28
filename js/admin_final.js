@@ -51,16 +51,16 @@ window.onload = function(){
     var addProductForm = document.getElementById('addProductForm');
     addProductForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Ngăn chặn form tự động gửi dữ liệu và làm tải lại trang
-    
         // Kiểm tra xem phần tử submit có id là 'add-submit' hay không
         if (event.submitter && event.submitter.id === 'add-submit') {
             var productId = document.getElementById('productId').value;
             var productName = document.getElementById('productName').value;
             var productImg = document.getElementById('productImg').files[0];
             var productCost = document.getElementById('productCost').value;
+                
             var productCate = document.getElementById('productCate').value;
 
-    
+            
             console.log(productImg.name);
     
             var newProduct = {
@@ -68,15 +68,19 @@ window.onload = function(){
                 productId: productId,
                 nameP: productName,
                 img: productImg.name,
-                price: productCost + "$",
+                price: productCost + "",
             };
-    
+           
             if (existIdProduct(productId)) {
+                if (isNaN(productCost)) {
+                    alert("Vui lòng nhập lại giá của sản phẩm là số.");
+                    }
+                else {
                 existingProducts.push(newProduct);
                 localStorage.setItem('product', JSON.stringify(existingProducts));
                 renderPageNumber();
                 clearValueProduct();
-                alert('Sản phẩm đã được thêm thành công!');
+                alert('Sản phẩm đã được thêm thành công!');}
             } else {
                 alert('Id không được trùng!');
             }
@@ -258,7 +262,11 @@ function clearValueProduct(){
             img: productImg.name,
             price: productCost,
         };
-        existingProducts[index] = tempProduct;
+        if (isNaN(productCost)) {
+            alert("Vui lòng nhập lại giá của sản phẩm là số.");
+            }
+            else {
+                existingProducts[index] = tempProduct;
         localStorage.setItem('product', JSON.stringify(existingProducts));
          // Tự động nhấn vào phần tử li tương ứng
         var pageNumberToClick = currentPage; // Thay đổi giá trị nếu cần thiết
@@ -268,6 +276,8 @@ function clearValueProduct(){
         }
         document.getElementById('addProduct').style.display = "none";
         clearValueProduct(); 
+    }
+        
     }
 
 
@@ -471,7 +481,7 @@ function view_detail(orderID){
     let detailList = JSON.parse(localStorage.getItem("order-detail")) ||[];
     let product = JSON.parse(localStorage.getItem("product")) || [];
     let a = `<span>
-    <h1 style = "margin-bottom: 20px">Chi tiết đơn hàng</h1>
+    <h1 >Chi tiết đơn hàng</h1>
     </span>
     <form>
         <div style = "display : flex ; justify-content: center  ; align-items: center;">
@@ -507,7 +517,7 @@ function view_detail(orderID){
                     <td>${detailList[i].quantity} </td>
                     <td>${detailList[i].unit_price}${'$'}</td>
                     <td>
-                    <img src="../img/${img}" width="80%" height ="80%">
+                    <img src="../img/${img}" width="40%" height ="40%">
                     </td>
                     </tr>
                    `

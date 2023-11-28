@@ -18,7 +18,9 @@
 var registerForm = document.getElementById("register-form");
 registerForm.addEventListener("submit", function(event) {
   event.preventDefault();
-
+  var userlist = JSON.parse(localStorage.getItem('user-list')); 
+  var id = 1;
+  id = userlist.length+1;
   var username = document.getElementById("register-username").value;
   var password = document.getElementById("register-password").value;
   var email = document.getElementById("register-email").value;
@@ -28,7 +30,6 @@ registerForm.addEventListener("submit", function(event) {
   var passwordRegex = /^[\w!@#$%^&*]{6,}$/;
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var phoneRegex = /^\d{10}$/;
-
   var errorElement = document.getElementById('register-error');
   errorElement.innerHTML = '';
 
@@ -52,7 +53,7 @@ registerForm.addEventListener("submit", function(event) {
     // Lấy danh sách người dùng từ LocalStorage (nếu có)
     var userlist = JSON.parse(localStorage.getItem('user-list')) || [];
 
-  
+    
     // Tạo một đối tượng người dùng mới
     var newUser = {
       id : userlist[userlist.length -1],
@@ -61,7 +62,7 @@ registerForm.addEventListener("submit", function(event) {
       email: email,
       phone: phone
     };
-
+   
     // Thêm người dùng mới vào danh sách
     userlist.push(newUser);
 
@@ -116,7 +117,7 @@ loginForm.addEventListener("submit", function(event) {
     } 
     var a=JSON.parse(localStorage.getItem('userlogin'));
     console.log(a);
-
+    
 
 
     // Kiểm tra thông tin đăng nhập
@@ -127,7 +128,7 @@ loginForm.addEventListener("submit", function(event) {
       }
     }
 
-    if (loggedInUser) {
+    if (a.length != 0) {
       // Hiển thị thông báo đăng nhập thành công
       messageElement.innerHTML = "Đăng nhập thành công. Đang chuyển hướng...";
       // Hiển thị thông báo chào mừng
@@ -153,13 +154,13 @@ loginForm.addEventListener("submit", function(event) {
 
 logoutButton.addEventListener("click", function() {
   // Xóa thông tin người dùng đã đăng nhập
-
+  localStorage.removeItem('userlogin');
   // Xóa thông báo chào mừng
   welcomeMessageElement.innerHTML = "";
   location.reload();
   document.getElementById("login-icon").style.display = "block";
   document.getElementById("logout-icon").style.display = "none";
-  localStorage.removeItem('userlogin');
+  
 });
 
 //-----Hien mk------------

@@ -13,21 +13,22 @@ const cartexit = document.querySelector(".exit-cart")
 const carticon = document.querySelector(".cart-iconn")
 const cartshow = document.querySelector(".cart-table")
 const overlay2 = document.querySelector(".background-overlay2");
-
+// var userArray = [];
+// userArray = JSON.parse(localStorage.getItem('userlogin'));
 
 carticon.addEventListener("click",function opencart() {
-  if (loggedInUser) {
-
-cartshow.style.display="block"
-overlay2.style.display = "block";
+  if ( checkOnline()) {
+ 
+  cartshow.style.display="block"
+  overlay2.style.display = "block";
 
 }
 else {
   alert("Bạn cần đăng nhập để thao tác với giỏ hàng!");
-  loginForm.style.display="block"
-  overlay.style.display="block"
+  openlogin();
 }
 });
+
 
 cartexit.addEventListener("click",function() {
 cartshow.style.display="none"
@@ -38,8 +39,7 @@ overlay2.style.display = "none";
 var cart = [];
 
 function addcart(id, soluong) {
-  if (loggedInUser) {
-
+  if (checkOnline()) {
   var productArray = JSON.parse(localStorage.getItem('product'));
 
   var productExists = false; // Biến kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
@@ -249,7 +249,7 @@ function updateQuantity(index, quantity) {
 getquantity();
 
 function opencart() {
-  if (loggedInUser) {
+  if (checkOnline()) {
 
 cartshow.style.display="block"
 overlay2.style.display = "block";

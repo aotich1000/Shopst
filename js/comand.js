@@ -241,6 +241,8 @@ function list_product_pagi(page_num,id,action){
 
 function loadPage(){
   var s='';
+  console.log(count_page);
+  if(count_page != '1'){
   for(i=1;i<=count_page;i++){
     if(i==current_page){
       s+= '<button class="pagi-item active" id="'+i+'">'+ i +'</button>';
@@ -249,8 +251,9 @@ function loadPage(){
       s+= '<button class="pagi-item" id="'+i+'">'+ i +'</button>';
     }
   } 
+  }
   s = '<div class="pagination">' + s + '</div>';
-
+  // }
   // document.getElementById('pagi').innerHTML=s;
   return s;
 }
@@ -410,6 +413,7 @@ loadWebsite();
 
 function loadWebsite(){
   window.addEventListener('load', function(){
+    checkOnline();
     showBanner('main');
     showPreviewProduct();
   })
@@ -491,3 +495,16 @@ buttons.forEach((button, key) => {
         handleButtonClick(key);
     });
 });
+
+var userArray =[];
+
+function checkOnline() {
+  userArray = JSON.parse(localStorage.getItem('userlogin'));
+  if (userArray) {
+    var welcomeMessageElement = document.getElementById("welcome-message");
+    welcomeMessageElement.style.display = "block";
+    document.querySelector("#welcome-message .showname").innerHTML = "Xin chào: " + userArray.username + "!";
+    document.getElementById('login-icon').style.display = "none";
+    return true;
+  }
+}

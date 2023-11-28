@@ -145,11 +145,10 @@ var detailArr = [
     {id:110, numof_product: 1, product_id: '11', quantity: 1, unit_price: 656   },
 
 ];
-localStorage.setItem('order-detail', JSON.stringify(detailArr))
+localStorage.setItem('order-detail', JSON.stringify(detailArr));
 }
-
-let user =JSON.parse(localStorage.getItem('user-list')) ?? [];
-if(user.length==0){
+let userArrlocal =JSON.parse(localStorage.getItem('user-list')) ?? [];
+if(userArrlocal.length==0){
 var userArr = [
     {id: "A00001", fullname: "Customer1", username: "C00001", password: "CA00001", email: "C1@gmail.com", phonenumber:"0111111110" },
     {id: "A00002", fullname: "Customer2", username: "C00002", password: "CA00002", email: "C2@gmail.com", phonenumber:"0222222220" },
@@ -162,5 +161,4 @@ var userArr = [
     {id: "A00009", fullname: "Customer9", username: "C00009", password: "CA00009", email: "C9@gmail.com", phonenumber:"0999999990" },
     {id: "A00010", fullname: "Customer10", username: "C00010", password: "CA00010", email: "C10@gmail.com", phonenumber:"0101010100" },
 ];
-localStorage.setItem('user-list', JSON.stringify(userArr));
-}
+localStorage.setItem('user-list', JSON.stringify(userArr));}
