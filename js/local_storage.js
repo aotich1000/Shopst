@@ -90,6 +90,7 @@ let htmlProduct = [...product];
   ];
   localStorage.setItem('banner', JSON.stringify(BannerArray));
 
+  /*
 
 let account =JSON.parse(localStorage.getItem('account')) ?? [];
 if(account.length==0){
@@ -167,3 +168,4 @@ var userArr = [
 
 ];
 localStorage.setItem('user-list', JSON.stringify(userArr));
+*/
