@@ -222,7 +222,7 @@ function password()
 	'<div class="eye"><input type="password" placeholder="Mật khẩu mới" id="pass2"><button  id="btn-2-pass2" class="btn-2" onclick="eshow(\'pass2\',\'btn-2-pass2\')"><i class="fa-regular fa-eye fa-lg"></i></button></div></div>'+
 	'<div class="pass-form">'+
 	'<div class="eye"><input type="password" placeholder="Nhập lại mật khẩu mới" id="pass3"><button  id="btn-2-pass3" class="btn-2" onclick="eshow(\'pass3\',\'btn-2-pass3\')"><i class="fa-regular fa-eye fa-lg"></i></button></div>'+
-	'</div> <div class="btn-pw"><button onclick="outCP()">Xác Nhận</button><button onclick="closeBlockPass()" class="close">Thoát</button></div>';
+	'</div> <div class="btn-pw"><button class="confirm" onclick="outCP()">Xác Nhận</button><button onclick="closeBlockPass()" class="close">Thoát</button></div>';
     document.querySelector('#st-container .st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT').innerHTML=s;
  }
 
