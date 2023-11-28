@@ -18,7 +18,9 @@
 var registerForm = document.getElementById("register-form");
 registerForm.addEventListener("submit", function(event) {
   event.preventDefault();
-
+  var userlist = JSON.parse(localStorage.getItem('user-list')); 
+  var id = 1;
+  id = userlist.length+1;
   var username = document.getElementById("register-username").value;
   var password = document.getElementById("register-password").value;
   var email = document.getElementById("register-email").value;
@@ -28,7 +30,6 @@ registerForm.addEventListener("submit", function(event) {
   var passwordRegex = /^[\w!@#$%^&*]{6,}$/;
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var phoneRegex = /^\d{10}$/;
-
   var errorElement = document.getElementById('register-error');
   errorElement.innerHTML = '';
 
@@ -50,16 +51,17 @@ registerForm.addEventListener("submit", function(event) {
 
   if (errorElement.innerHTML === '') {
     // Lấy danh sách người dùng từ LocalStorage (nếu có)
-    var userlist = JSON.parse(localStorage.getItem('user-list')) || [];
-
+    var userlist = JSON.parse(localStorage.getItem('user-list')); 
+    
     // Tạo một đối tượng người dùng mới
     var newUser = {
+      id: id,
       username: username,
       password: password,
       email: email,
       phone: phone
     };
-
+   
     // Thêm người dùng mới vào danh sách
     userlist.push(newUser);
 
@@ -125,7 +127,7 @@ loginForm.addEventListener("submit", function(event) {
       }
     }
 
-    if (loggedInUser) {
+    if (a.length != 0) {
       // Hiển thị thông báo đăng nhập thành công
       messageElement.innerHTML = "Đăng nhập thành công. Đang chuyển hướng...";
       // Hiển thị thông báo chào mừng

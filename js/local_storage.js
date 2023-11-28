@@ -90,7 +90,7 @@ let htmlProduct = [...product];
   ];
   localStorage.setItem('banner', JSON.stringify(BannerArray));
 
-  /*
+  
 
 let account =JSON.parse(localStorage.getItem('account')) ?? [];
 if(account.length==0){
@@ -151,9 +151,10 @@ var detailArr = [
     {id:110, numof_product: 1, product_id: '11', quantity: 1, unit_price: 656   },
 
 ];
-localStorage.setItem('order-detail', JSON.stringify(detailArr))
+localStorage.setItem('order-detail', JSON.stringify(detailArr));
 
-
+let userArrlocal =JSON.parse(localStorage.getItem('user-list')) ?? [];
+if(userArrlocal.length==0){
 var userArr = [
     {id: "A00001", fullname: "Customer1", username: "C00001", password: "CA00001", email: "C1@gmail.com", phonenumber:"0111111110" },
     {id: "A00002", fullname: "Customer2", username: "C00002", password: "CA00002", email: "C2@gmail.com", phonenumber:"0222222220" },
@@ -168,4 +169,4 @@ var userArr = [
 
 ];
 localStorage.setItem('user-list', JSON.stringify(userArr));
-*/
+}
