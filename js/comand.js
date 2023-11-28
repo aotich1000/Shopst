@@ -413,7 +413,7 @@ loadWebsite();
 
 function loadWebsite(){
   window.addEventListener('load', function(){
-    checkonline();
+    checkOnline();
     showBanner('main');
     showPreviewProduct();
   })
@@ -495,3 +495,15 @@ buttons.forEach((button, key) => {
         handleButtonClick(key);
     });
 });
+
+var userArray =[];
+
+function checkOnline() {
+  userArray = JSON.parse(localStorage.getItem('userlogin'));
+  if (userArray) {
+    var welcomeMessageElement = document.getElementById("welcome-message");
+    welcomeMessageElement.style.display = "block";
+    document.querySelector("#welcome-message .showname").innerHTML = "Xin chào: " + userArray.username + "!";
+    document.getElementById('login-icon').style.display = "none";
+  }
+}
