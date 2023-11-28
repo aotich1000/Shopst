@@ -9,6 +9,7 @@
     background-color: #f6fbfc;
     border-radius: 5px;
     height: 500px;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
 }
@@ -17,8 +18,6 @@
   padding: 10px;
   border-radius: 15px;
   background-color: #f6fbfc;
-  position: -webkit-sticky;
-  position: sticky;
 }
 
 .st-left-col .block-menu .block-item-menu{
@@ -30,6 +29,8 @@
 .st-left-col .block-menu .block-item-menu a{
    text-decoration: none;
 }
+
+
 
 .st-left-col .block-menu .block-item-menu .item-menu{
   display: flex;
@@ -47,6 +48,10 @@
     margin: 0 0 0 10px;
     color: #686868;
     font-weight: 500;
+}
+
+.st-left-col .block-menu .block-item-menu:hover .item-menu p{
+  color:red;
 }
 
 .st-right-col{
