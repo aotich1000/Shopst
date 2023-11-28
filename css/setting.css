@@ -362,7 +362,7 @@ align-items: center;
     visibility: hidden;
     min-width: 250px;
     color: #fff;
-    font-size: 14pt;
+    font-size: 15px;
     text-align: center;
     border-radius: 2px;
     padding: 20px;
@@ -373,9 +373,19 @@ align-items: center;
     transform: translateX(-50%);
 }
 #customalert.show {
-    visibility: visible;
-   animation: fadein 0.5s, fadeout 0.5s 3s;
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 3s;
 }
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+
 @media (max-width:799px){
   #st-container .st-right-col .block-3 .bill-dt{
     width: 100%;
