@@ -9,6 +9,7 @@
     background-color: #f6fbfc;
     border-radius: 5px;
     height: 500px;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
 }
@@ -17,8 +18,6 @@
   padding: 10px;
   border-radius: 15px;
   background-color: #f6fbfc;
-  position: -webkit-sticky;
-  position: sticky;
 }
 
 .st-left-col .block-menu .block-item-menu{
@@ -30,6 +29,8 @@
 .st-left-col .block-menu .block-item-menu a{
    text-decoration: none;
 }
+
+
 
 .st-left-col .block-menu .block-item-menu .item-menu{
   display: flex;
@@ -47,6 +48,10 @@
     margin: 0 0 0 10px;
     color: #686868;
     font-weight: 500;
+}
+
+.st-left-col .block-menu .block-item-menu:hover .item-menu p{
+  color:red;
 }
 
 .st-right-col{
@@ -366,7 +371,7 @@ font-size: 22px;
     visibility: hidden;
     min-width: 250px;
     color: #fff;
-    font-size: 14pt;
+    font-size: 15px;
     text-align: center;
     border-radius: 2px;
     padding: 20px;
@@ -377,9 +382,19 @@ font-size: 22px;
     transform: translateX(-50%);
 }
 #customalert.show {
-    visibility: visible;
-   animation: fadein 0.5s, fadeout 0.5s 3s;
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 3s;
 }
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+
 @media (max-width:799px){
   #st-container .st-right-col .block-3 .bill-dt{
     width: 100%;
@@ -408,7 +423,15 @@ font-size: 22px;
    .st-right-col .from-group:nth-child(4) .eye .btn-2 i{
      font-size: 10px;
    }
-   
+   .st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT{
+    width: 100%;
+   }
+
+   .st-right-col .from-group:nth-child(4) .block-1-pass{
+    margin-left: 60%;
+   }
+
+   /* Invoice */
    #st-container .st-right-col .billcontent{
      flex-direction: column;
      justify-content: center;
