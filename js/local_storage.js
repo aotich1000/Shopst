@@ -102,7 +102,7 @@ var adminAcc = {
 account = adminAcc
 localStorage.setItem('account', JSON.stringify(adminAcc))
 }
-let htmladminAcc = [...account];
+// let htmladminAcc = [...account];
 
 
 var orderArr = [
