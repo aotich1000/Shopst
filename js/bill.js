@@ -82,7 +82,7 @@ function add2(id)
 
 	'<div class="from-group">'+
 	'<button class="block-1-pass" onclick="password()"> Đổi mật khẩu ?</button>'+
-	'<div class="block-2-pass"><button onclick="closeBlockPass()" class="close">+</button><div class="block-2-passDT"></div>'+
+	'<div class="block-2-pass"><div class="block-2-passDT"></div>'+
 	'</div></div>'+
 
 	'<div onclick="updateInfo()" class="btn-from-submit-update">Cập nhật thông tin</div>';
