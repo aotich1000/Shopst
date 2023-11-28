@@ -101,19 +101,6 @@
   z-index: 10;
 } 
 
-.st-right-col .from-group:nth-child(4) .block-2-pass .close{
-  position: absolute;
-  right: 26%;
-  top: 45px;
-  font-size: 35pt;
-  transform: rotate(45deg);
-  background-color: transparent;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  z-index: 11;
-}
-
 
 .st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT{
   height: 400px;
@@ -143,18 +130,39 @@
   margin-bottom: 50px;
 }
 
-.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT > button{
-  position: absolute;
+.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT .btn-pw{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT .btn-pw .confirm{
   background-color:#088178;
   cursor: pointer;
   padding: 20px;
   border-radius: 20px;
 }
 
-.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT > button:hover{
-  color: #229ED9;
+.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT .btn-pw .confirm:hover{
+  color:red;
   background-color: transparent;
 }
+
+
+.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT .btn-pw .close{
+  font-size: 15px;
+  background-color: #229ED9;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+
+.st-right-col .from-group:nth-child(4) .block-2-pass .block-2-passDT .btn-pw .close:hover{
+  color: red;
+  background-color: transparent;
+}
+
 
 .st-right-col .from-group i{
   cursor: pointer;
