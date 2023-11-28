@@ -51,12 +51,7 @@ registerForm.addEventListener("submit", function(event) {
 
   if (errorElement.innerHTML === '') {
     // Lấy danh sách người dùng từ LocalStorage (nếu có)
-<<<<<<< HEAD
     var userlist = JSON.parse(localStorage.getItem('user-list')); 
-=======
-    var userlist = JSON.parse(localStorage.getItem('user-list')) || [];
-
->>>>>>> adf6964717b21c1d74f45d9ad943842c0b15d25d
     
     // Tạo một đối tượng người dùng mới
     var newUser = {
