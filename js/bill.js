@@ -189,7 +189,7 @@ function showDT(id)
 		s+=x[i].tonggia;
 		text+='<div class="blockDT">'+
 		'<div class="blockDT-left"><img src="./img/'+x[i].image+'"></div>'+
-		'<div class="blockDT-right"><p>'+x[i].numofProduct+'</p>   <div><p> Số lượng: '+x[i].soluong+'</p> <p>Tổng giá: '+currency(x[i].tonggia)+'</p></div></div>'+	
+		'<div class="blockDT-right"><p>số lượng mua : '+x[i].numofProduct+'</p>   <div><p> Số lượng còn lại : '+x[i].soluong+'</p> <p>Tổng giá: '+currency(x[i].tonggia)+'</p></div></div>'+	
 		'</div>';
 	}
 
