@@ -427,6 +427,8 @@ select.forEach((li,key) => {
 
 //--------------------TUẤN JS -------------------
 
+
+
 function renderOrder(){
     let orderList = JSON.parse(localStorage.getItem("order-list"));
     let a = ` 
@@ -881,6 +883,16 @@ function renderStat(){
                 <select id="getYear">
                 </select>
             </div>
+            <div>
+                 <label class="dateLabel">Loại sản phẩm:   </label>
+                 <select id="getCategory">
+                 <option value="all">Tất cả</option>
+                 <option value="chó">Chó</option>
+                 <option value="mèo">Mèo</option>
+                 <option value="Đồ Ăn">Đồ ăn</option>
+                 <option value="Đồ chơi">Đồ chơi</option>
+                 </select>
+            </div>
                 <input type="button" value="Thống kê" id="stat-btn" onclick="calculateRevenue()">
 
             </div>
@@ -917,13 +929,17 @@ for (let year = 1985; year <= 2023; year++) {
 function calculateRevenue(){
     var monthRevenue = document.getElementById('getMonth').value
     var yearRevenue = document.getElementById('getYear').value
+    var categoryRevenue = document.getElementById('getCategory').value
     console.log(monthRevenue)
     console.log(yearRevenue)
+    console.log(categoryRevenue)
 
     var productArray = JSON.parse(localStorage.getItem('product')) || []
     var orderDetail = JSON.parse(localStorage.getItem('order-detail')) || []
     var orderArray = JSON.parse(localStorage.getItem('order-list'))
 
+
+    console.log(productArray)
     // LỌC RA CÁC HÓA ĐƠN & CHI TIẾT HÓA ĐƠN TRONG THỜI GIAN CẦN THỐNG KÊ
 
     var filterInvoices = [] // mảng lưu chi tiết hóa đơn được lọc ra
@@ -955,7 +971,7 @@ var productRevenue = []
     for ( let i=0; i < productArray.length; i++){
         let count = 0
         for ( let j=0; j < filterInvoices.length; j++){
-            if ( productArray[i].productId == filterInvoices[j].productId){
+            if ( productArray[i].productId == filterInvoices[j].productId ){
                 count++;
             }
         }
@@ -974,6 +990,7 @@ var productRevenue = []
     console.log(productRevenue)
     let a = ''
     for ( let i=0; i < productRevenue.length; i++){
+        if ( productRevenue[i].category == categoryRevenue || categoryRevenue == 'all')
     a += `<tr>
            <td>${productRevenue[i].id} </td>
            <td>${productRevenue[i].category} </td>

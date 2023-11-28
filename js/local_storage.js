@@ -90,6 +90,7 @@ let htmlProduct = [...product];
   ];
   localStorage.setItem('banner', JSON.stringify(BannerArray));
 
+  /*
 
 let account =JSON.parse(localStorage.getItem('account')) ?? [];
 if(account.length==0){
@@ -106,6 +107,17 @@ localStorage.setItem('account', JSON.stringify(adminAcc))
 
 
 var orderArr = [
+
+    {id: 101 , user:'A00001', date: '17-12-2004', status: "Chưa xử lý"   },
+    {id: 102 , user:'A00002', date: '18-12-2004', status: "Chưa xử lý"   },
+    {id: 103 , user:'A00003', date: '19-12-2004', status: "Chưa xử lý"   },
+    {id: 104 , user:'A00001', date: '20-12-2004', status: "Chưa xử lý"   },
+    {id: 105 , user:'A00001', date: '21-12-2004', status: "Chưa xử lý"   },
+    {id: 106 , user:'A00001', date: '22-12-2004', status: "Chưa xử lý"   },
+    {id: 107 , user:'A00001', date: '23-12-2004', status: "Chưa xử lý"   },
+    {id: 108, user:'A00001', date: '24-12-2004', status: "Chưa xử lý"},
+    {id: 109, user:'A00001', date: '25-12-2004', status: "Chưa xử lý"},
+    {id: 110, user:'A00001', date: '26-12-2004', status: "Chưa xử lý"},
     {id: 101 , user:'A01', date: '17-11-2023', status: "Chưa xử lý"   },
     {id: 102 , user:'A02', date: '18-11-2023', status: "Chưa xử lý"   },
     {id: 103 , user:'A03', date: '19-11-2023', status: "Chưa xử lý"   },
@@ -116,42 +128,44 @@ var orderArr = [
     {id: 108, user:'A01', date: '24-11-2023', status: "Chưa xử lý"},
     {id: 109, user:'A01', date: '25-11-2023', status: "Chưa xử lý"},
     {id: 110, user:'A01', date: '26-11-2023', status: "Chưa xử lý"}
+
 ];
 localStorage.setItem('order-list', JSON.stringify(orderArr))
 
 var detailArr = [
-    {id:101, numof_product: 2, product_id: '1', quantity: 10, unit_price: 10000   },
-    {id:101, numof_product: 2, product_id: '2', quantity: 10, unit_price: 10000   },
-    {id:103, numof_product: 3, product_id: '3', quantity: 10, unit_price: 10000   },
-    {id:103, numof_product: 3, product_id: '4', quantity: 10, unit_price: 10000   },
-    {id:103, numof_product: 3, product_id: '5', quantity: 10, unit_price: 10000  },
-    {id:104, numof_product: 2, product_id: '6', quantity: 10, unit_price: 10000  },
-    {id:104, numof_product: 2, product_id: '7', quantity: 10, unit_price: 10000   },
-    {id:105, numof_product: 1, product_id: '8', quantity: 10, unit_price: 10000  },
-    {id:106, numof_product: 1, product_id: '9', quantity: 10, unit_price: 10000   },
-    {id:107, numof_product: 1, product_id: '10', quantity: 10, unit_price: 10000  },
-    {id:108, numof_product: 3, product_id: '5', quantity: 10, unit_price: 10000  },
-    {id:108, numof_product: 3, product_id: '9', quantity: 10, unit_price: 10000},
-    {id:108, numof_product: 3, product_id: '8', quantity: 10, unit_price: 10000  },
-    {id:109, numof_product: 2, product_id: '3', quantity: 10, unit_price: 10000   },
-    {id:109, numof_product: 2, product_id: '4', quantity: 10, unit_price: 10000  },
-    {id:110, numof_product: 1, product_id: '11', quantity: 10, unit_price: 10000   },
+    {id:101, numof_product: 2, product_id: '1', quantity: 1, unit_price: 452   },
+    {id:101, numof_product: 2, product_id: '2', quantity: 1, unit_price: 682   },
+    {id:103, numof_product: 3, product_id: '3', quantity: 1, unit_price: 782   },
+    {id:103, numof_product: 3, product_id: '4', quantity: 1, unit_price: 479  },
+    {id:103, numof_product: 3, product_id: '5', quantity: 1, unit_price: 641  },
+    {id:104, numof_product: 2, product_id: '6', quantity: 1, unit_price: 990  },
+    {id:104, numof_product: 2, product_id: '7', quantity: 1, unit_price: 699   },
+    {id:105, numof_product: 1, product_id: '8', quantity: 1, unit_price: 711  },
+    {id:106, numof_product: 1, product_id: '9', quantity: 1, unit_price: 624   },
+    {id:107, numof_product: 1, product_id: '10', quantity: 1, unit_price: 545  },
+    {id:108, numof_product: 3, product_id: '5', quantity: 1, unit_price: 641  },
+    {id:108, numof_product: 3, product_id: '9', quantity: 1, unit_price: 624},
+    {id:108, numof_product: 3, product_id: '8', quantity: 1, unit_price: 711  },
+    {id:109, numof_product: 2, product_id: '3', quantity: 1, unit_price: 782   },
+    {id:109, numof_product: 2, product_id: '4', quantity: 1, unit_price: 479  },
+    {id:110, numof_product: 1, product_id: '11', quantity: 1, unit_price: 656   },
 
 ];
 localStorage.setItem('order-detail', JSON.stringify(detailArr))
 
 
 var userArr = [
-    {id: "A01", fullname: "Customer1", username: "1", password: "1", email: "C1@gmail.com", phonenumber:"0xxxxxxxx0" },
-    {id: "A02", fullname: "Customer2", username: "C2", password: "CA2", email: "C2@gmail.com", phonenumber:"0xxxxxxxx0" },
-    {id: "A03", fullname: "Customer3", username: "C3", password: "CA3", email: "C3@gmail.com", phonenumber:"0xxxxxxxx0" },
-    {id: "A04", fullname: "Customer4", username: "C4", password: "CA4", email: "C4@gmail.com", phonenumber:"0xxxxxxxx0" },
-    {id: "A05", fullname: "Customer5", username: "C5", password: "CA5", email: "C5@gmail.com", phonenumber:"0xxxxxxxx0" },
-    {id: "A06", fullname: "Customer6", username: "C6", password: "CA6", email: "C6@gmail.com", phonenumber:"0xxxxxxxx0" },
-    {id: "A07", fullname: "Customer7", username: "C7", password: "CA7", email: "C7@gmail.com", phonenumber:"0xxxxxxxx0" },
-    {id: "A08", fullname: "Customer8", username: "C8", password: "CA8", email: "C8@gmail.com", phonenumber:"0xxxxxxxx0" },
-    {id: "A09", fullname: "Customer9", username: "C9", password: "CA9", email: "C9@gmail.com", phonenumber:"0xxxxxxxx0" },
-    {id: "A10", fullname: "Customer10", username: "C10", password: "CA10", email: "C10@gmail.com", phonenumber:"0xxxxxxxx0" },
+    {id: "A00001", fullname: "Customer1", username: "C00001", password: "CA00001", email: "C1@gmail.com", phonenumber:"0111111110" },
+    {id: "A00002", fullname: "Customer2", username: "C00002", password: "CA00002", email: "C2@gmail.com", phonenumber:"0222222220" },
+    {id: "A00003", fullname: "Customer3", username: "C00003", password: "CA00003", email: "C3@gmail.com", phonenumber:"0333333330" },
+    {id: "A00004", fullname: "Customer4", username: "C00004", password: "CA00004", email: "C4@gmail.com", phonenumber:"0444444440" },
+    {id: "A00005", fullname: "Customer5", username: "C00005", password: "CA00005", email: "C5@gmail.com", phonenumber:"0555555550" },
+    {id: "A00006", fullname: "Customer6", username: "C00006", password: "CA00006", email: "C6@gmail.com", phonenumber:"0666666660" },
+    {id: "A00007", fullname: "Customer7", username: "C00007", password: "CA00007", email: "C7@gmail.com", phonenumber:"0777777770" },
+    {id: "A00008", fullname: "Customer8", username: "C00008", password: "CA00008", email: "C8@gmail.com", phonenumber:"0888888880" },
+    {id: "A00009", fullname: "Customer9", username: "C00009", password: "CA00009", email: "C9@gmail.com", phonenumber:"0999999990" },
+    {id: "A00010", fullname: "Customer10", username: "C00010", password: "CA00010", email: "C10@gmail.com", phonenumber:"0101010100" },
 
 ];
 localStorage.setItem('user-list', JSON.stringify(userArr));
+*/
