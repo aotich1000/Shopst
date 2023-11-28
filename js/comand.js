@@ -340,7 +340,7 @@ function showBanner(id){
       s += '<div class="mySlides fade">'+
       '<div class="numbertext">'+ i +' / 3</div>'+
       '<img src="./img/'+BannerArray[i-1].img +'" style="width:100%">'+
-      '<div class="text">Caption Text</div>'+
+      // '<div class="text">Caption Text</div>'+
       '</div>';
   }
       s+= '</div>'+
