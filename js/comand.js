@@ -340,7 +340,7 @@ function showBanner(id){
       s += '<div class="mySlides fade">'+
       '<div class="numbertext">'+ i +' / 3</div>'+
       '<img src="./img/'+BannerArray[i-1].img +'" style="width:100%">'+
-      '<div class="text">Caption Text</div>'+
+      // '<div class="text">Caption Text</div>'+
       '</div>';
   }
       s+= '</div>'+
@@ -443,7 +443,7 @@ function shuffleArray(array) {
 showMenu();
 function showMenu(){
   var s = `<div class="container flex-container abc" style="background-color: #04AA6D;"> 
-      <div class="menu-item"><button id="action" value="index">Trang chủ </button> </div>
+      <div class="menu-item"><button class="activeMenu" id="action" value="index">Trang chủ </button> </div>
       <div class="menu-item"><button id="action" value="showall">Sản phẩm</button> </div>
       <div class="menu-item"><button onclick="searchProducts('searchNameA','chó')">Chó cảnh</button> </div>
       <div class="menu-item"><button onclick="searchProducts('searchNameA','mèo')">Mèo cảnh</button> </div>
@@ -470,3 +470,24 @@ function breadcrumb(action,content){
   }
   document.getElementById('breadcrumb').innerHTML = s;
 }
+
+
+let buttons = document.querySelectorAll('.menu-item button');
+
+function reloadActive(activeMenuIndex) {
+    let lastActive = document.querySelector(".menu-item button.activeMenu");
+    if (lastActive) {
+        lastActive.classList.remove("activeMenu");
+    }
+    buttons[activeMenuIndex].classList.add("activeMenu");
+}
+
+function handleButtonClick(key) {
+    reloadActive(key);
+}
+
+buttons.forEach((button, key) => {
+    button.addEventListener("click", function () {
+        handleButtonClick(key);
+    });
+});

@@ -102,10 +102,11 @@ var adminAcc = {
 account = adminAcc
 localStorage.setItem('account', JSON.stringify(adminAcc))
 }
-let htmladminAcc = [...account];
+// let htmladminAcc = [...account];
 
 
 var orderArr = [
+
     {id: 101 , user:'A00001', date: '17-12-2004', status: "Chưa xử lý"   },
     {id: 102 , user:'A00002', date: '18-12-2004', status: "Chưa xử lý"   },
     {id: 103 , user:'A00003', date: '19-12-2004', status: "Chưa xử lý"   },
@@ -115,7 +116,18 @@ var orderArr = [
     {id: 107 , user:'A00001', date: '23-12-2004', status: "Chưa xử lý"   },
     {id: 108, user:'A00001', date: '24-12-2004', status: "Chưa xử lý"},
     {id: 109, user:'A00001', date: '25-12-2004', status: "Chưa xử lý"},
-    {id: 110, user:'A00001', date: '26-12-2004', status: "Chưa xử lý"}
+    {id: 110, user:'A00001', date: '26-12-2004', status: "Chưa xử lý"},
+    {id: 101 , user:'A01', date: '17-11-2023', status: "Chưa xử lý"   },
+    {id: 102 , user:'A02', date: '18-11-2023', status: "Chưa xử lý"   },
+    {id: 103 , user:'A03', date: '19-11-2023', status: "Chưa xử lý"   },
+    {id: 104 , user:'A01', date: '20-11-2023', status: "Chưa xử lý"   },
+    {id: 105 , user:'A01', date: '21-11-2023', status: "Chưa xử lý"   },
+    {id: 106 , user:'A01', date: '22-11-2023', status: "Chưa xử lý"   },
+    {id: 107 , user:'A01', date: '23-11-2023', status: "Chưa xử lý"   },
+    {id: 108, user:'A01', date: '24-11-2023', status: "Chưa xử lý"},
+    {id: 109, user:'A01', date: '25-11-2023', status: "Chưa xử lý"},
+    {id: 110, user:'A01', date: '26-11-2023', status: "Chưa xử lý"}
+
 ];
 localStorage.setItem('order-list', JSON.stringify(orderArr))
 
