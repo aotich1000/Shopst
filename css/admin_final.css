@@ -443,9 +443,11 @@ div #finish_order{
 
 .getDate-container{
     display:flex;
-    justify-content:space-evenly;
+    flex-direction: column;
+    justify-content:center;
     margin-top: 40px;
-    flex-wrap: nowrap;
+    row-gap: 2rem;
+  
 }
 
 #statTable th,td,tr{
@@ -458,15 +460,14 @@ div #finish_order{
 
 }
 
-.stat-container{
-    display: flex;
-    flex-direction: column;
-}
-
 #statistics{
     background-color: #fff;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
     padding: 2rem;
+}
+
+.containerChild{
+    display:flex;
 }
